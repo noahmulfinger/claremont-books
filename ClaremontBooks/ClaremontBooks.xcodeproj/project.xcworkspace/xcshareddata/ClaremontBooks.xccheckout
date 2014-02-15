@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>425C52F7-1274-4D35-94AD-CB08E5C882E7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ClaremontBooks</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0FE9221E-3B17-4C22-88D8-7F09FA747F3E</key>
+		<string>https://github.com/noah-mulfinger/claremont-books.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ClaremontBooks/ClaremontBooks.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0FE9221E-3B17-4C22-88D8-7F09FA747F3E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/noah-mulfinger/claremont-books.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0FE9221E-3B17-4C22-88D8-7F09FA747F3E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0FE9221E-3B17-4C22-88D8-7F09FA747F3E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>claremont-books</string>
+		</dict>
+	</array>
+</dict>
+</plist>
