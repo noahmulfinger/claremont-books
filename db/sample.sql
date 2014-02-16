@@ -38,7 +38,9 @@ CREATE TABLE Book (
 	bookid INTEGER NOT NULL,
 	title VARCHAR(256) NOT NULL,
 	author VARCHAR(256) NOT NULL,
-	isbn VARCHAR(64) NOT NULL,
+	isbn INTEGER NOT NULL,
+	edition INTEGER,
+	binding VARCHAR(64),
 	PRIMARY KEY (bookid)
 );
 
@@ -62,14 +64,18 @@ CREATE TABLE Class (
 
 # Create sample users
 INSERT INTO Users (uid, name, uemail, school) VALUES (100001, "Bruce", "byan@hmc.edu", "HMC");
-INSERT INTO Users (uid, name, uemail, school) VALUES (100001, "Bruce", "byan@hmc.edu", "HMC");
+INSERT INTO Users (uid, name, uemail, school) VALUES (100002, "Chris", "ceriksen@hmc.edu", "HMC");
+INSERT INTO Users (uid, name, uemail, school) VALUES (100003, "Noah", "noah.mulfinger@gmail.com", "POM");
+
+# Create sample books
+INSERT INTO Book (bookid, title, author, isbn) VALUES (0, "Design Patterns", "Erich Gamma", , "Hard Cover", 0201633612);
+INSERT INTO Book (bookid, title, author, isbn) VALUES (1, "Proof and Disproof in Formal Logic: An Introduction for Programmers", "Richard Bornat", 2, "Soft Cover", 0198530277);
+INSERT INTO Book (bookid, title, author, isbn) VALUES (2, "Introduction to the Theory of Computation", "Michael Sipser", 3, "Hard Cover", 0534950973);
+
+# Create sample listings
 
 
-INSERT INTO Users (custid, name, phone) VALUES (0, "Jack", "70410");
-INSERT INTO Users (custid, name, phone) VALUES (1, "Jill", "70411");
-
-INSERT INTO Book (bookid, name, author, price) VALUES (0, "DBMS", "Rama", 140.97);
-
+# Create sample classes
 INSERT INTO Book (bookid, name, author, price) VALUES (1,"Open Life", "Campbell", 11.0);
 
 INSERT INTO Book (bookid, name, author, price) VALUES (2,"What?", "Nagel", 7.95);
