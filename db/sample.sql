@@ -30,7 +30,7 @@ CREATE TABLE Users (
 	school VARCHAR(64) NOT NULL,
 	profile VARCHAR(64),
 	phone VARCHAR(64),
-	PRIMARY KEY (custid)
+	PRIMARY KEY (uid)
 );
 
 # Book DB needs to have books existing in it before any listings can be created
@@ -48,7 +48,7 @@ CREATE TABLE Book (
 CREATE TABLE Listings (
 	listid INTEGER NOT NULL, #auto increment
 	bookid INTEGER NOT NULL, #matches with an existing book
-	title VARCHAR(256) NOT NULL,
+	#title VARCHAR(256) NOT NULL,
 	quantity INTEGER NOT NULL,
 	price DOUBLE NOT NULL,
 	sellerid INTEGER NOT NULL, #This should be same as one of the users, allows sellers to mark items as sold, etc
@@ -68,34 +68,12 @@ INSERT INTO Users (uid, name, uemail, school) VALUES (100002, "Chris", "ceriksen
 INSERT INTO Users (uid, name, uemail, school) VALUES (100003, "Noah", "noah.mulfinger@gmail.com", "POM");
 
 # Create sample books
-INSERT INTO Book (bookid, title, author, isbn) VALUES (0, "Design Patterns", "Erich Gamma", , "Hard Cover", 0201633612);
-INSERT INTO Book (bookid, title, author, isbn) VALUES (1, "Proof and Disproof in Formal Logic: An Introduction for Programmers", "Richard Bornat", 2, "Soft Cover", 0198530277);
-INSERT INTO Book (bookid, title, author, isbn) VALUES (2, "Introduction to the Theory of Computation", "Michael Sipser", 3, "Hard Cover", 0534950973);
+INSERT INTO Book (bookid, title, author, edition, binding, isbn) VALUES (0, "Design Patterns", "Erich Gamma", 5, "Hard Cover", 0201633612);
+INSERT INTO Book (bookid, title, author, edition, binding, isbn) VALUES (1, "Proof and Disproof in Formal Logic: An Introduction for Programmers", "Richard Bornat", 2, "Soft Cover", 0198530277);
+INSERT INTO Book (bookid, title, author, edition, binding, isbn) VALUES (2, "Introduction to the Theory of Computation", "Michael Sipser", 3, "Hard Cover", 0534950973);
 
 # Create sample listings
-
-
-# Create sample classes
-INSERT INTO Book (bookid, name, author, price) VALUES (1,"Open Life", "Campbell", 11.0);
-
-INSERT INTO Book (bookid, name, author, price) VALUES (2,"What?", "Nagel", 7.95);
-
-INSERT INTO Buy (custid, bookid, quantity) VALUES (0, 0, 3);
-INSERT INTO Buy (custid, bookid, quantity) VALUES (0, 1, 5);
-INSERT INTO Buy (custid, bookid, quantity) VALUES (0, 2, 7);
-
-/*
-SELECT * FROM Users, Book;
-
-SELECT * FROM Users;
-*/
-
--- SELECT * FROM Users, Book WHERE custid = 0 or (bookid = 2 and price > 100);
-
-SELECT * FROM Users;
-
-SELECT * FROM Users, Book;
-
-SELECT * FROM Users, Book WHERE custid = 0 and bookid = 2;
-
+INSERT INTO Listings (listid, bookid, quantity, price, sellerid) VALUES (0, 1, 1, 35.50, 100002);
+INSERT INTO Listings (listid, bookid, quantity, price, sellerid) VALUES (1, 2, 1, 50, 100002);
+INSERT INTO Listings (listid, bookid, quantity, price, sellerid) VALUES (2, 0, 1, 15, 100001);
 
