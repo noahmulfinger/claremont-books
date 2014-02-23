@@ -13,7 +13,9 @@
 </head>
 
 <body>
-We will be here soon!
+<h3> Current beta pages </h3>
+<a href="listings.php" target="_self">Show current listings</a> <br />
 
+<a href="books.php" target="_self">Show current books</a> <br />
 </body>
 </html>

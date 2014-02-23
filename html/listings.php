@@ -1,5 +1,5 @@
 <html>
-<head><title> DB Test </title>
+<head><title> Current Listings </title>
 
 <style>
 body {
