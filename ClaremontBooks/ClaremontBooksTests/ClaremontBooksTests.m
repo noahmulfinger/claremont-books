@@ -2,8 +2,8 @@
 //  ClaremontBooksTests.m
 //  ClaremontBooksTests
 //
-//  Created by Chris on 2/15/14.
-//  Copyright (c) 2014 cs121. All rights reserved.
+//  Created by Chris on 2/22/14.
+//  Copyright (c) 2014 CS121. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

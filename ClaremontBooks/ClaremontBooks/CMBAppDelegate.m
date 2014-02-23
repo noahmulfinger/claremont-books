@@ -1,21 +1,24 @@
 //
-//  AppDelegate.m
-//  test
+//  CMBAppDelegate.m
+//  ClaremontBooks
 //
-//  Created by Chris on 2/15/14.
-//  Copyright (c) 2014 cs121. All rights reserved.
+//  Created by Chris on 2/22/14.
+//  Copyright (c) 2014 CS121. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "CMBAppDelegate.h"
 
-@implementation AppDelegate
+@implementation CMBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

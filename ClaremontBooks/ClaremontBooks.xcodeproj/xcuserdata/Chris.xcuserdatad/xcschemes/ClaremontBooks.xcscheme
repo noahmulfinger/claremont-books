@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "83DB75B718B035B9001BCD04"
+               BlueprintIdentifier = "83025AA918B97EE500EB482E"
                BuildableName = "ClaremontBooks.app"
                BlueprintName = "ClaremontBooks"
                ReferencedContainer = "container:ClaremontBooks.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "83DB75DB18B035B9001BCD04"
+               BlueprintIdentifier = "83025AC418B97EE600EB482E"
                BuildableName = "ClaremontBooksTests.xctest"
                BlueprintName = "ClaremontBooksTests"
                ReferencedContainer = "container:ClaremontBooks.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "83DB75B718B035B9001BCD04"
+            BlueprintIdentifier = "83025AA918B97EE500EB482E"
             BuildableName = "ClaremontBooks.app"
             BlueprintName = "ClaremontBooks"
             ReferencedContainer = "container:ClaremontBooks.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "83DB75B718B035B9001BCD04"
+            BlueprintIdentifier = "83025AA918B97EE500EB482E"
             BuildableName = "ClaremontBooks.app"
             BlueprintName = "ClaremontBooks"
             ReferencedContainer = "container:ClaremontBooks.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "83DB75B718B035B9001BCD04"
+            BlueprintIdentifier = "83025AA918B97EE500EB482E"
             BuildableName = "ClaremontBooks.app"
             BlueprintName = "ClaremontBooks"
             ReferencedContainer = "container:ClaremontBooks.xcodeproj">

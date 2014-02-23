@@ -7,152 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83DB75BC18B035B9001BCD04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB75BB18B035B9001BCD04 /* Foundation.framework */; };
-		83DB75BE18B035B9001BCD04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB75BD18B035B9001BCD04 /* CoreGraphics.framework */; };
-		83DB75C018B035B9001BCD04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB75BF18B035B9001BCD04 /* UIKit.framework */; };
-		83DB75C618B035B9001BCD04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83DB75C418B035B9001BCD04 /* InfoPlist.strings */; };
-		83DB75C818B035B9001BCD04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB75C718B035B9001BCD04 /* main.m */; };
-		83DB75CC18B035B9001BCD04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB75CB18B035B9001BCD04 /* AppDelegate.m */; };
-		83DB75CF18B035B9001BCD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83DB75CD18B035B9001BCD04 /* Main.storyboard */; };
-		83DB75D218B035B9001BCD04 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB75D118B035B9001BCD04 /* MasterViewController.m */; };
-		83DB75D518B035B9001BCD04 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB75D418B035B9001BCD04 /* DetailViewController.m */; };
-		83DB75D718B035B9001BCD04 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83DB75D618B035B9001BCD04 /* Images.xcassets */; };
-		83DB75DE18B035B9001BCD04 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB75DD18B035B9001BCD04 /* XCTest.framework */; };
-		83DB75DF18B035B9001BCD04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB75BB18B035B9001BCD04 /* Foundation.framework */; };
-		83DB75E018B035B9001BCD04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DB75BF18B035B9001BCD04 /* UIKit.framework */; };
-		83DB75E818B035B9001BCD04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83DB75E618B035B9001BCD04 /* InfoPlist.strings */; };
-		83DB75EA18B035B9001BCD04 /* ClaremontBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DB75E918B035B9001BCD04 /* ClaremontBooksTests.m */; };
+		83025AAE18B97EE500EB482E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AAD18B97EE500EB482E /* Foundation.framework */; };
+		83025AB018B97EE500EB482E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AAF18B97EE500EB482E /* CoreGraphics.framework */; };
+		83025AB218B97EE500EB482E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AB118B97EE500EB482E /* UIKit.framework */; };
+		83025AB818B97EE500EB482E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83025AB618B97EE500EB482E /* InfoPlist.strings */; };
+		83025ABA18B97EE500EB482E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AB918B97EE500EB482E /* main.m */; };
+		83025ABE18B97EE500EB482E /* CMBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025ABD18B97EE500EB482E /* CMBAppDelegate.m */; };
+		83025AC018B97EE500EB482E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83025ABF18B97EE500EB482E /* Images.xcassets */; };
+		83025AC718B97EE600EB482E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AC618B97EE600EB482E /* XCTest.framework */; };
+		83025AC818B97EE600EB482E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AAD18B97EE500EB482E /* Foundation.framework */; };
+		83025AC918B97EE600EB482E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AB118B97EE500EB482E /* UIKit.framework */; };
+		83025AD118B97EE600EB482E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83025ACF18B97EE600EB482E /* InfoPlist.strings */; };
+		83025AD318B97EE600EB482E /* ClaremontBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AD218B97EE600EB482E /* ClaremontBooksTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		83DB75E118B035B9001BCD04 /* PBXContainerItemProxy */ = {
+		83025ACA18B97EE600EB482E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 83DB75B018B035B9001BCD04 /* Project object */;
+			containerPortal = 83025AA218B97EE500EB482E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 83DB75B718B035B9001BCD04;
+			remoteGlobalIDString = 83025AA918B97EE500EB482E;
 			remoteInfo = ClaremontBooks;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		83DB75B818B035B9001BCD04 /* ClaremontBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaremontBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		83DB75BB18B035B9001BCD04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		83DB75BD18B035B9001BCD04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		83DB75BF18B035B9001BCD04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		83DB75C318B035B9001BCD04 /* ClaremontBooks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClaremontBooks-Info.plist"; sourceTree = "<group>"; };
-		83DB75C518B035B9001BCD04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83DB75C718B035B9001BCD04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		83DB75C918B035B9001BCD04 /* ClaremontBooks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClaremontBooks-Prefix.pch"; sourceTree = "<group>"; };
-		83DB75CA18B035B9001BCD04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		83DB75CB18B035B9001BCD04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		83DB75CE18B035B9001BCD04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		83DB75D018B035B9001BCD04 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		83DB75D118B035B9001BCD04 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		83DB75D318B035B9001BCD04 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		83DB75D418B035B9001BCD04 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		83DB75D618B035B9001BCD04 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		83DB75DC18B035B9001BCD04 /* ClaremontBooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClaremontBooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		83DB75DD18B035B9001BCD04 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		83DB75E518B035B9001BCD04 /* ClaremontBooksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClaremontBooksTests-Info.plist"; sourceTree = "<group>"; };
-		83DB75E718B035B9001BCD04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83DB75E918B035B9001BCD04 /* ClaremontBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaremontBooksTests.m; sourceTree = "<group>"; };
+		83025AAA18B97EE500EB482E /* ClaremontBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaremontBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83025AAD18B97EE500EB482E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83025AAF18B97EE500EB482E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83025AB118B97EE500EB482E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83025AB518B97EE500EB482E /* ClaremontBooks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClaremontBooks-Info.plist"; sourceTree = "<group>"; };
+		83025AB718B97EE500EB482E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83025AB918B97EE500EB482E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83025ABB18B97EE500EB482E /* ClaremontBooks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClaremontBooks-Prefix.pch"; sourceTree = "<group>"; };
+		83025ABC18B97EE500EB482E /* CMBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMBAppDelegate.h; sourceTree = "<group>"; };
+		83025ABD18B97EE500EB482E /* CMBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMBAppDelegate.m; sourceTree = "<group>"; };
+		83025ABF18B97EE500EB482E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		83025AC518B97EE600EB482E /* ClaremontBooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClaremontBooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83025AC618B97EE600EB482E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		83025ACE18B97EE600EB482E /* ClaremontBooksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClaremontBooksTests-Info.plist"; sourceTree = "<group>"; };
+		83025AD018B97EE600EB482E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83025AD218B97EE600EB482E /* ClaremontBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaremontBooksTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		83DB75B518B035B9001BCD04 /* Frameworks */ = {
+		83025AA718B97EE500EB482E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DB75BE18B035B9001BCD04 /* CoreGraphics.framework in Frameworks */,
-				83DB75C018B035B9001BCD04 /* UIKit.framework in Frameworks */,
-				83DB75BC18B035B9001BCD04 /* Foundation.framework in Frameworks */,
+				83025AB018B97EE500EB482E /* CoreGraphics.framework in Frameworks */,
+				83025AB218B97EE500EB482E /* UIKit.framework in Frameworks */,
+				83025AAE18B97EE500EB482E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83DB75D918B035B9001BCD04 /* Frameworks */ = {
+		83025AC218B97EE600EB482E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DB75DE18B035B9001BCD04 /* XCTest.framework in Frameworks */,
-				83DB75E018B035B9001BCD04 /* UIKit.framework in Frameworks */,
-				83DB75DF18B035B9001BCD04 /* Foundation.framework in Frameworks */,
+				83025AC718B97EE600EB482E /* XCTest.framework in Frameworks */,
+				83025AC918B97EE600EB482E /* UIKit.framework in Frameworks */,
+				83025AC818B97EE600EB482E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		83DB75AF18B035B9001BCD04 = {
+		83025AA118B97EE500EB482E = {
 			isa = PBXGroup;
 			children = (
-				83DB75C118B035B9001BCD04 /* ClaremontBooks */,
-				83DB75E318B035B9001BCD04 /* ClaremontBooksTests */,
-				83DB75BA18B035B9001BCD04 /* Frameworks */,
-				83DB75B918B035B9001BCD04 /* Products */,
+				83025AB318B97EE500EB482E /* ClaremontBooks */,
+				83025ACC18B97EE600EB482E /* ClaremontBooksTests */,
+				83025AAC18B97EE500EB482E /* Frameworks */,
+				83025AAB18B97EE500EB482E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		83DB75B918B035B9001BCD04 /* Products */ = {
+		83025AAB18B97EE500EB482E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83DB75B818B035B9001BCD04 /* ClaremontBooks.app */,
-				83DB75DC18B035B9001BCD04 /* ClaremontBooksTests.xctest */,
+				83025AAA18B97EE500EB482E /* ClaremontBooks.app */,
+				83025AC518B97EE600EB482E /* ClaremontBooksTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		83DB75BA18B035B9001BCD04 /* Frameworks */ = {
+		83025AAC18B97EE500EB482E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				83DB75BB18B035B9001BCD04 /* Foundation.framework */,
-				83DB75BD18B035B9001BCD04 /* CoreGraphics.framework */,
-				83DB75BF18B035B9001BCD04 /* UIKit.framework */,
-				83DB75DD18B035B9001BCD04 /* XCTest.framework */,
+				83025AAD18B97EE500EB482E /* Foundation.framework */,
+				83025AAF18B97EE500EB482E /* CoreGraphics.framework */,
+				83025AB118B97EE500EB482E /* UIKit.framework */,
+				83025AC618B97EE600EB482E /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		83DB75C118B035B9001BCD04 /* ClaremontBooks */ = {
+		83025AB318B97EE500EB482E /* ClaremontBooks */ = {
 			isa = PBXGroup;
 			children = (
-				83DB75CA18B035B9001BCD04 /* AppDelegate.h */,
-				83DB75CB18B035B9001BCD04 /* AppDelegate.m */,
-				83DB75CD18B035B9001BCD04 /* Main.storyboard */,
-				83DB75D018B035B9001BCD04 /* MasterViewController.h */,
-				83DB75D118B035B9001BCD04 /* MasterViewController.m */,
-				83DB75D318B035B9001BCD04 /* DetailViewController.h */,
-				83DB75D418B035B9001BCD04 /* DetailViewController.m */,
-				83DB75D618B035B9001BCD04 /* Images.xcassets */,
-				83DB75C218B035B9001BCD04 /* Supporting Files */,
+				83025ABC18B97EE500EB482E /* CMBAppDelegate.h */,
+				83025ABD18B97EE500EB482E /* CMBAppDelegate.m */,
+				83025ABF18B97EE500EB482E /* Images.xcassets */,
+				83025AB418B97EE500EB482E /* Supporting Files */,
 			);
 			path = ClaremontBooks;
 			sourceTree = "<group>";
 		};
-		83DB75C218B035B9001BCD04 /* Supporting Files */ = {
+		83025AB418B97EE500EB482E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				83DB75C318B035B9001BCD04 /* ClaremontBooks-Info.plist */,
-				83DB75C418B035B9001BCD04 /* InfoPlist.strings */,
-				83DB75C718B035B9001BCD04 /* main.m */,
-				83DB75C918B035B9001BCD04 /* ClaremontBooks-Prefix.pch */,
+				83025AB518B97EE500EB482E /* ClaremontBooks-Info.plist */,
+				83025AB618B97EE500EB482E /* InfoPlist.strings */,
+				83025AB918B97EE500EB482E /* main.m */,
+				83025ABB18B97EE500EB482E /* ClaremontBooks-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		83DB75E318B035B9001BCD04 /* ClaremontBooksTests */ = {
+		83025ACC18B97EE600EB482E /* ClaremontBooksTests */ = {
 			isa = PBXGroup;
 			children = (
-				83DB75E918B035B9001BCD04 /* ClaremontBooksTests.m */,
-				83DB75E418B035B9001BCD04 /* Supporting Files */,
+				83025AD218B97EE600EB482E /* ClaremontBooksTests.m */,
+				83025ACD18B97EE600EB482E /* Supporting Files */,
 			);
 			path = ClaremontBooksTests;
 			sourceTree = "<group>";
 		};
-		83DB75E418B035B9001BCD04 /* Supporting Files */ = {
+		83025ACD18B97EE600EB482E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				83DB75E518B035B9001BCD04 /* ClaremontBooksTests-Info.plist */,
-				83DB75E618B035B9001BCD04 /* InfoPlist.strings */,
+				83025ACE18B97EE600EB482E /* ClaremontBooksTests-Info.plist */,
+				83025ACF18B97EE600EB482E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -160,13 +147,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		83DB75B718B035B9001BCD04 /* ClaremontBooks */ = {
+		83025AA918B97EE500EB482E /* ClaremontBooks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83DB75ED18B035B9001BCD04 /* Build configuration list for PBXNativeTarget "ClaremontBooks" */;
+			buildConfigurationList = 83025AD618B97EE600EB482E /* Build configuration list for PBXNativeTarget "ClaremontBooks" */;
 			buildPhases = (
-				83DB75B418B035B9001BCD04 /* Sources */,
-				83DB75B518B035B9001BCD04 /* Frameworks */,
-				83DB75B618B035B9001BCD04 /* Resources */,
+				83025AA618B97EE500EB482E /* Sources */,
+				83025AA718B97EE500EB482E /* Frameworks */,
+				83025AA818B97EE500EB482E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -174,132 +161,121 @@
 			);
 			name = ClaremontBooks;
 			productName = ClaremontBooks;
-			productReference = 83DB75B818B035B9001BCD04 /* ClaremontBooks.app */;
+			productReference = 83025AAA18B97EE500EB482E /* ClaremontBooks.app */;
 			productType = "com.apple.product-type.application";
 		};
-		83DB75DB18B035B9001BCD04 /* ClaremontBooksTests */ = {
+		83025AC418B97EE600EB482E /* ClaremontBooksTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83DB75F018B035B9001BCD04 /* Build configuration list for PBXNativeTarget "ClaremontBooksTests" */;
+			buildConfigurationList = 83025AD918B97EE600EB482E /* Build configuration list for PBXNativeTarget "ClaremontBooksTests" */;
 			buildPhases = (
-				83DB75D818B035B9001BCD04 /* Sources */,
-				83DB75D918B035B9001BCD04 /* Frameworks */,
-				83DB75DA18B035B9001BCD04 /* Resources */,
+				83025AC118B97EE600EB482E /* Sources */,
+				83025AC218B97EE600EB482E /* Frameworks */,
+				83025AC318B97EE600EB482E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				83DB75E218B035B9001BCD04 /* PBXTargetDependency */,
+				83025ACB18B97EE600EB482E /* PBXTargetDependency */,
 			);
 			name = ClaremontBooksTests;
 			productName = ClaremontBooksTests;
-			productReference = 83DB75DC18B035B9001BCD04 /* ClaremontBooksTests.xctest */;
+			productReference = 83025AC518B97EE600EB482E /* ClaremontBooksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		83DB75B018B035B9001BCD04 /* Project object */ = {
+		83025AA218B97EE500EB482E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CMB;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = cs121;
+				ORGANIZATIONNAME = CS121;
 				TargetAttributes = {
-					83DB75DB18B035B9001BCD04 = {
-						TestTargetID = 83DB75B718B035B9001BCD04;
+					83025AC418B97EE600EB482E = {
+						TestTargetID = 83025AA918B97EE500EB482E;
 					};
 				};
 			};
-			buildConfigurationList = 83DB75B318B035B9001BCD04 /* Build configuration list for PBXProject "ClaremontBooks" */;
+			buildConfigurationList = 83025AA518B97EE500EB482E /* Build configuration list for PBXProject "ClaremontBooks" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = 83DB75AF18B035B9001BCD04;
-			productRefGroup = 83DB75B918B035B9001BCD04 /* Products */;
+			mainGroup = 83025AA118B97EE500EB482E;
+			productRefGroup = 83025AAB18B97EE500EB482E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				83DB75B718B035B9001BCD04 /* ClaremontBooks */,
-				83DB75DB18B035B9001BCD04 /* ClaremontBooksTests */,
+				83025AA918B97EE500EB482E /* ClaremontBooks */,
+				83025AC418B97EE600EB482E /* ClaremontBooksTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		83DB75B618B035B9001BCD04 /* Resources */ = {
+		83025AA818B97EE500EB482E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DB75D718B035B9001BCD04 /* Images.xcassets in Resources */,
-				83DB75C618B035B9001BCD04 /* InfoPlist.strings in Resources */,
-				83DB75CF18B035B9001BCD04 /* Main.storyboard in Resources */,
+				83025AB818B97EE500EB482E /* InfoPlist.strings in Resources */,
+				83025AC018B97EE500EB482E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83DB75DA18B035B9001BCD04 /* Resources */ = {
+		83025AC318B97EE600EB482E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DB75E818B035B9001BCD04 /* InfoPlist.strings in Resources */,
+				83025AD118B97EE600EB482E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		83DB75B418B035B9001BCD04 /* Sources */ = {
+		83025AA618B97EE500EB482E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DB75CC18B035B9001BCD04 /* AppDelegate.m in Sources */,
-				83DB75D218B035B9001BCD04 /* MasterViewController.m in Sources */,
-				83DB75C818B035B9001BCD04 /* main.m in Sources */,
-				83DB75D518B035B9001BCD04 /* DetailViewController.m in Sources */,
+				83025ABA18B97EE500EB482E /* main.m in Sources */,
+				83025ABE18B97EE500EB482E /* CMBAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83DB75D818B035B9001BCD04 /* Sources */ = {
+		83025AC118B97EE600EB482E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83DB75EA18B035B9001BCD04 /* ClaremontBooksTests.m in Sources */,
+				83025AD318B97EE600EB482E /* ClaremontBooksTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		83DB75E218B035B9001BCD04 /* PBXTargetDependency */ = {
+		83025ACB18B97EE600EB482E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 83DB75B718B035B9001BCD04 /* ClaremontBooks */;
-			targetProxy = 83DB75E118B035B9001BCD04 /* PBXContainerItemProxy */;
+			target = 83025AA918B97EE500EB482E /* ClaremontBooks */;
+			targetProxy = 83025ACA18B97EE600EB482E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		83DB75C418B035B9001BCD04 /* InfoPlist.strings */ = {
+		83025AB618B97EE500EB482E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				83DB75C518B035B9001BCD04 /* en */,
+				83025AB718B97EE500EB482E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		83DB75CD18B035B9001BCD04 /* Main.storyboard */ = {
+		83025ACF18B97EE600EB482E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				83DB75CE18B035B9001BCD04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		83DB75E618B035B9001BCD04 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83DB75E718B035B9001BCD04 /* en */,
+				83025AD018B97EE600EB482E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -307,7 +283,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		83DB75EB18B035B9001BCD04 /* Debug */ = {
+		83025AD418B97EE600EB482E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -346,7 +322,7 @@
 			};
 			name = Debug;
 		};
-		83DB75EC18B035B9001BCD04 /* Release */ = {
+		83025AD518B97EE600EB482E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -379,7 +355,7 @@
 			};
 			name = Release;
 		};
-		83DB75EE18B035B9001BCD04 /* Debug */ = {
+		83025AD718B97EE600EB482E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -392,7 +368,7 @@
 			};
 			name = Debug;
 		};
-		83DB75EF18B035B9001BCD04 /* Release */ = {
+		83025AD818B97EE600EB482E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -405,7 +381,7 @@
 			};
 			name = Release;
 		};
-		83DB75F118B035B9001BCD04 /* Debug */ = {
+		83025ADA18B97EE600EB482E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -428,7 +404,7 @@
 			};
 			name = Debug;
 		};
-		83DB75F218B035B9001BCD04 /* Release */ = {
+		83025ADB18B97EE600EB482E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -450,32 +426,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83DB75B318B035B9001BCD04 /* Build configuration list for PBXProject "ClaremontBooks" */ = {
+		83025AA518B97EE500EB482E /* Build configuration list for PBXProject "ClaremontBooks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				83DB75EB18B035B9001BCD04 /* Debug */,
-				83DB75EC18B035B9001BCD04 /* Release */,
+				83025AD418B97EE600EB482E /* Debug */,
+				83025AD518B97EE600EB482E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83DB75ED18B035B9001BCD04 /* Build configuration list for PBXNativeTarget "ClaremontBooks" */ = {
+		83025AD618B97EE600EB482E /* Build configuration list for PBXNativeTarget "ClaremontBooks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				83DB75EE18B035B9001BCD04 /* Debug */,
-				83DB75EF18B035B9001BCD04 /* Release */,
+				83025AD718B97EE600EB482E /* Debug */,
+				83025AD818B97EE600EB482E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		83DB75F018B035B9001BCD04 /* Build configuration list for PBXNativeTarget "ClaremontBooksTests" */ = {
+		83025AD918B97EE600EB482E /* Build configuration list for PBXNativeTarget "ClaremontBooksTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				83DB75F118B035B9001BCD04 /* Debug */,
-				83DB75F218B035B9001BCD04 /* Release */,
+				83025ADA18B97EE600EB482E /* Debug */,
+				83025ADB18B97EE600EB482E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 83DB75B018B035B9001BCD04 /* Project object */;
+	rootObject = 83025AA218B97EE500EB482E /* Project object */;
 }
