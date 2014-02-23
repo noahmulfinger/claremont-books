@@ -1,3 +1,15 @@
+<?php
+/*
+ * Claremont Books: List all current listings
+ * Class: CS121
+ * Project: Claremont Books App
+ * 
+ * Authors: Bruce Yan
+ * E-mail: byan@hmc.edu
+ * 
+ */
+?>
+
 <html>
 <head><title> Current Listings </title>
 

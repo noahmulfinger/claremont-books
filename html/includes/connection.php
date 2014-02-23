@@ -1,13 +1,13 @@
 <?php
 /*
- * CS 121: MySQL External Database connection file
+ * Claremont Books: External Connection file
+ * Class: CS121
+ * Project: Claremont Books App
  * 
- * Author: Bruce Yan
+ * Authors: Bruce Yan
  * E-mail: byan@hmc.edu
  * 
- * Project: Claremont-Books App
- *
-*/
+ */
 
 	$dbhost = 'mysql.claremontbooks.com';
 	$dbuser = 'cbooks';

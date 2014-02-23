@@ -1,4 +1,14 @@
 <?php 
+/*
+ * Claremont Books: List all books currently in database
+ * Class: CS121
+ * Project: Claremont Books App
+ * 
+ * Authors: Bruce Yan
+ * E-mail: byan@hmc.edu
+ * 
+ */
+
 	include 'includes/connection.php';
 
 	$query = "SELECT * FROM Book";
@@ -27,7 +37,7 @@ table, th, td {
 <?php
 	
 	// Output Listings to table format
-	echo '<table style="width:500px">
+	echo '<table style="width:600px">
 		<tr>
 		  <th>Book ID</th>
 		  <th>Title</th> 
@@ -35,17 +45,19 @@ table, th, td {
 		  <th>ISBN</th>
 		  <th>Edition</th>
 		  <th>Binding</th>
+		  <th>Modify</th>
 		</tr>';
 	// table row data below
-	while ($currentListings = mysql_fetch_array($result))
+	while ($currentBooks = mysql_fetch_array($result))
 	{
 		echo "<tr>";
-		echo "<td>" . $currentListings['bookid'] . "</td>";
-		echo "<td>" . $currentListings['title'] . "</td>";
-		echo "<td>" . $currentListings['author'] . "</td>";
-		echo "<td>" . $currentListings['isbn'] . "</td>";
-		echo "<td>" . $currentListings['edition'] . "</td>";
-		echo "<td>" . $currentListings['binding'] . "</td>";
+		echo "<td>" . $currentBooks['bookid'] . "</td>";
+		echo "<td>" . $currentBooks['title'] . "</td>";
+		echo "<td>" . $currentBooks['author'] . "</td>";
+		echo "<td>" . $currentBooks['isbn'] . "</td>";
+		echo "<td>" . $currentBooks['edition'] . "</td>";
+		echo "<td>" . $currentBooks['binding'] . "</td>";
+		echo "<td>" . "<a href=\"modify.php?bookid=" . $currentBooks['bookid'] . "\"> Edit</a>" . "&nbsp" . "<a href=\"delete.php?bookid=" . $currentBooks['bookid'] . "\"> Delete</a>" . "</td>";
 		echo "</tr>";
 	}
 	echo '</table>';
@@ -62,7 +74,7 @@ table, th, td {
 
 	<input type="submit" name="submit" />
 </form>
-
+<!--
 <h3> Search for an existing book in the database </h3>
 <form action="searchBook.php" method="post">
 	Title: <input type="text" name="bookTitle" value="" /><br />
@@ -74,6 +86,6 @@ table, th, td {
 
 	<input type="submit" name="submit" />
 </form>
-
+-->
 </body>
 </html>

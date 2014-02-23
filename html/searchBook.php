@@ -1,4 +1,14 @@
 <?php 
+/*
+ * Claremont Books: Search all book listings based on query
+ * Class: CS121
+ * Project: Claremont Books App
+ * 
+ * Authors: Bruce Yan
+ * E-mail: byan@hmc.edu
+ * 
+ */
+
 	include 'includes/connection.php';
 
 	$query = "SELECT * FROM Book";
@@ -89,6 +99,10 @@ table, th, td {
 </body>
 </html>
 
+http://www.w3schools.com/sql/sql_like.asp
+
 SELECT * FROM Customers
 WHERE City LIKE 's%' OR ContactName LIKE 'f%';
 
+			
+http://www.w3schools.com/sql/trysql.asp?filename=trysql_select_like
