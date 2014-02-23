@@ -19,6 +19,9 @@
 		83025AC918B97EE600EB482E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025AB118B97EE500EB482E /* UIKit.framework */; };
 		83025AD118B97EE600EB482E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83025ACF18B97EE600EB482E /* InfoPlist.strings */; };
 		83025AD318B97EE600EB482E /* ClaremontBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AD218B97EE600EB482E /* ClaremontBooksTests.m */; };
+		83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */; };
+		83025AE018B9804700EB482E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83025ADF18B9804700EB482E /* Main.storyboard */; };
+		83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		83025ACE18B97EE600EB482E /* ClaremontBooksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClaremontBooksTests-Info.plist"; sourceTree = "<group>"; };
 		83025AD018B97EE600EB482E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83025AD218B97EE600EB482E /* ClaremontBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaremontBooksTests.m; sourceTree = "<group>"; };
+		83025ADC18B9800100EB482E /* CMBMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBMainScreenViewController.h; sourceTree = "<group>"; };
+		83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBMainScreenViewController.m; sourceTree = "<group>"; };
+		83025ADF18B9804700EB482E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBNewBookEntryViewController.h; sourceTree = "<group>"; };
+		83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBNewBookEntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,11 @@
 		83025AB318B97EE500EB482E /* ClaremontBooks */ = {
 			isa = PBXGroup;
 			children = (
+				83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */,
+				83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */,
+				83025ADC18B9800100EB482E /* CMBMainScreenViewController.h */,
+				83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */,
+				83025ADF18B9804700EB482E /* Main.storyboard */,
 				83025ABC18B97EE500EB482E /* CMBAppDelegate.h */,
 				83025ABD18B97EE500EB482E /* CMBAppDelegate.m */,
 				83025ABF18B97EE500EB482E /* Images.xcassets */,
@@ -220,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83025AE018B9804700EB482E /* Main.storyboard in Resources */,
 				83025AB818B97EE500EB482E /* InfoPlist.strings in Resources */,
 				83025AC018B97EE500EB482E /* Images.xcassets in Resources */,
 			);
@@ -242,6 +256,8 @@
 			files = (
 				83025ABA18B97EE500EB482E /* main.m in Sources */,
 				83025ABE18B97EE500EB482E /* CMBAppDelegate.m in Sources */,
+				83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */,
+				83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
