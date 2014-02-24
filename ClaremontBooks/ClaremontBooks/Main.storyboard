@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gm9-M3-kLl" kind="push" id="P3H-fd-MTy"/>
+                                    <segue destination="gm9-M3-kLl" kind="modal" id="okM-Hw-3wf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -32,7 +32,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWM-zD-TKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="-16"/>
+            <point key="canvasLocation" x="228" y="-16"/>
         </scene>
         <!--New Book Entry View Controller-->
         <scene sceneID="soz-NE-QTb">
