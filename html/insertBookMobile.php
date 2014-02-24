@@ -20,11 +20,11 @@
 	$binding = $_GET['bookBinding'];
 	$password = $_GET['password'];
 
-	$password = 'secret';
+	$secret = 'secret';
 
 
 	// ensure that people got to this form from the correct place (i.e. using a password)
-	if ($_GET['password'] == $password) {
+	if ($_GET['password'] == $secret) {
 
 		$query = "INSERT INTO Book (`title`, `author`, `edition`, `binding`, `isbn`) VALUES ('$title','$author','$edition','$binding','$isbn')";
 
