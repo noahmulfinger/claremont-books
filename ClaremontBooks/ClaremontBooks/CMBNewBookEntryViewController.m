@@ -27,6 +27,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.bookTitle.delegate = self;
+    self.author.delegate = self;
+    self.edition.delegate = self;
+    self.ISBN.delegate = self;
+    self.binding.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +54,11 @@
     
     NSLog(@"%@", strResult);
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

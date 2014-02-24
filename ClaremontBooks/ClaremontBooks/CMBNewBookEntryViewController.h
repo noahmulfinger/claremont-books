@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMBNewBookEntryViewController : UIViewController
+@interface CMBNewBookEntryViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong) IBOutlet UITextField *bookTitle;
 @property (strong) IBOutlet UITextField *author;
@@ -19,5 +19,7 @@
 @property (strong) IBOutlet UIButton *post;
 
 - (IBAction) insert:(id)sender;
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end
