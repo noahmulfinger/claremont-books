@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClaremontBooks/CMBNewBookEntryViewController.m"
-            timestampString = "414901938.864378"
+            timestampString = "414979658.385185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-insert:"
             landmarkType = "5">
          </BreakpointContent>

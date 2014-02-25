@@ -22,9 +22,11 @@
 		83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */; };
 		83025AE018B9804700EB482E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83025ADF18B9804700EB482E /* Main.storyboard */; };
 		83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */; };
-		83025AEC18BAE2E300EB482E /* CMBNewBookEntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AEB18BAE2E300EB482E /* CMBNewBookEntryView.m */; };
 		83025AEF18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AEE18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m */; };
 		83025AF218BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AF118BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		83025AF718BC1C8900EB482E /* CMBNewListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */; };
+		83025AFA18BC270A00EB482E /* CMBListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AF918BC270A00EB482E /* CMBListingsTableViewController.m */; };
+		83025B0018BC436400EB482E /* CMBSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +61,16 @@
 		83025ADF18B9804700EB482E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBNewBookEntryViewController.h; sourceTree = "<group>"; };
 		83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBNewBookEntryViewController.m; sourceTree = "<group>"; };
-		83025AEA18BAE2E300EB482E /* CMBNewBookEntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBNewBookEntryView.h; sourceTree = "<group>"; };
-		83025AEB18BAE2E300EB482E /* CMBNewBookEntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBNewBookEntryView.m; sourceTree = "<group>"; };
 		83025AED18BC124A00EB482E /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = ../TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		83025AEE18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = ../TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
 		83025AF018BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		83025AF118BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		83025AF518BC1C8900EB482E /* CMBNewListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBNewListingViewController.h; sourceTree = "<group>"; };
+		83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBNewListingViewController.m; sourceTree = "<group>"; };
+		83025AF818BC270A00EB482E /* CMBListingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBListingsTableViewController.h; sourceTree = "<group>"; };
+		83025AF918BC270A00EB482E /* CMBListingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingsTableViewController.m; sourceTree = "<group>"; };
+		83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBSettingsTableViewController.h; sourceTree = "<group>"; };
+		83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBSettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				83025AF318BC144600EB482E /* KeyboardAvoidingScrollView */,
-				83025AEA18BAE2E300EB482E /* CMBNewBookEntryView.h */,
 				83025AF418BC147200EB482E /* View Controllers */,
-				83025AEB18BAE2E300EB482E /* CMBNewBookEntryView.m */,
 				83025ADF18B9804700EB482E /* Main.storyboard */,
 				83025ABC18B97EE500EB482E /* CMBAppDelegate.h */,
 				83025ABD18B97EE500EB482E /* CMBAppDelegate.m */,
@@ -180,6 +184,12 @@
 		83025AF418BC147200EB482E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */,
+				83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */,
+				83025AF818BC270A00EB482E /* CMBListingsTableViewController.h */,
+				83025AF918BC270A00EB482E /* CMBListingsTableViewController.m */,
+				83025AF518BC1C8900EB482E /* CMBNewListingViewController.h */,
+				83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */,
 				83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */,
 				83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */,
 				83025ADC18B9800100EB482E /* CMBMainScreenViewController.h */,
@@ -286,10 +296,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				83025ABA18B97EE500EB482E /* main.m in Sources */,
+				83025B0018BC436400EB482E /* CMBSettingsTableViewController.m in Sources */,
 				83025ABE18B97EE500EB482E /* CMBAppDelegate.m in Sources */,
-				83025AEC18BAE2E300EB482E /* CMBNewBookEntryView.m in Sources */,
+				83025AFA18BC270A00EB482E /* CMBListingsTableViewController.m in Sources */,
 				83025AF218BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				83025AEF18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m in Sources */,
+				83025AF718BC1C8900EB482E /* CMBNewListingViewController.m in Sources */,
 				83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */,
 				83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */,
 			);

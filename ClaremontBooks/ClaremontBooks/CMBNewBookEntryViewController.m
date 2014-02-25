@@ -36,13 +36,6 @@
     
 }
 
-//- (void) loadView
-//{
-//    CMBNewBookEntryView *view = [[CMBNewBookEntryView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-//    self.view = view;
-//    
-//}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -63,39 +56,6 @@
     
     NSLog(@"%@", strResult);
     
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-
--(BOOL)textViewDidBeginEditing:(UITextField *)textField
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.35f];
-    
-    CGRect frame = self.view.frame;
-    frame.origin.y = -100;
-    [self.view setFrame:frame];
-    
-    [UIView commitAnimations];
-    
-    return YES;
-}
-
--(BOOL)textViewShouldEndEditing:(UITextField *)textField
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.35f];
-    
-    CGRect frame = self.view.frame;
-    frame.origin.y = 100;
-    [self.view setFrame:frame];
-    
-    [UIView commitAnimations];
-    
-    return YES;
 }
 
 @end
