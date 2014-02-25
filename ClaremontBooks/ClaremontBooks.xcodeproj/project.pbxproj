@@ -27,6 +27,9 @@
 		83025AF718BC1C8900EB482E /* CMBNewListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */; };
 		83025AFA18BC270A00EB482E /* CMBListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AF918BC270A00EB482E /* CMBListingsTableViewController.m */; };
 		83025B0018BC436400EB482E /* CMBSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */; };
+		83025B0318BC505900EB482E /* CMBListingPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0218BC505900EB482E /* CMBListingPreviewViewController.m */; };
+		83025B0618BC53A600EB482E /* CMBBookListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0518BC53A600EB482E /* CMBBookListingsViewController.m */; };
+		83025B0918BC57C300EB482E /* CMBListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0818BC57C300EB482E /* CMBListingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,12 @@
 		83025AF918BC270A00EB482E /* CMBListingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingsTableViewController.m; sourceTree = "<group>"; };
 		83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBSettingsTableViewController.h; sourceTree = "<group>"; };
 		83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBSettingsTableViewController.m; sourceTree = "<group>"; };
+		83025B0118BC505900EB482E /* CMBListingPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBListingPreviewViewController.h; sourceTree = "<group>"; };
+		83025B0218BC505900EB482E /* CMBListingPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingPreviewViewController.m; sourceTree = "<group>"; };
+		83025B0418BC53A600EB482E /* CMBBookListingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBBookListingsViewController.h; sourceTree = "<group>"; };
+		83025B0518BC53A600EB482E /* CMBBookListingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBBookListingsViewController.m; sourceTree = "<group>"; };
+		83025B0718BC57C300EB482E /* CMBListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBListingViewController.h; sourceTree = "<group>"; };
+		83025B0818BC57C300EB482E /* CMBListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +193,12 @@
 		83025AF418BC147200EB482E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				83025B0718BC57C300EB482E /* CMBListingViewController.h */,
+				83025B0818BC57C300EB482E /* CMBListingViewController.m */,
+				83025B0418BC53A600EB482E /* CMBBookListingsViewController.h */,
+				83025B0518BC53A600EB482E /* CMBBookListingsViewController.m */,
+				83025B0118BC505900EB482E /* CMBListingPreviewViewController.h */,
+				83025B0218BC505900EB482E /* CMBListingPreviewViewController.m */,
 				83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */,
 				83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */,
 				83025AF818BC270A00EB482E /* CMBListingsTableViewController.h */,
@@ -297,10 +312,13 @@
 			files = (
 				83025ABA18B97EE500EB482E /* main.m in Sources */,
 				83025B0018BC436400EB482E /* CMBSettingsTableViewController.m in Sources */,
+				83025B0618BC53A600EB482E /* CMBBookListingsViewController.m in Sources */,
 				83025ABE18B97EE500EB482E /* CMBAppDelegate.m in Sources */,
+				83025B0318BC505900EB482E /* CMBListingPreviewViewController.m in Sources */,
 				83025AFA18BC270A00EB482E /* CMBListingsTableViewController.m in Sources */,
 				83025AF218BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				83025AEF18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m in Sources */,
+				83025B0918BC57C300EB482E /* CMBListingViewController.m in Sources */,
 				83025AF718BC1C8900EB482E /* CMBNewListingViewController.m in Sources */,
 				83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */,
 				83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */,

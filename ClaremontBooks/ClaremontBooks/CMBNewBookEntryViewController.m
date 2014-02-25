@@ -56,6 +56,8 @@
     
     NSLog(@"%@", strResult);
     
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 @end
