@@ -22,4 +22,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
+-(BOOL)textViewDidBeginEditing:(UITextField *)textField;
+-(BOOL)textViewShouldEndEditing:(UITextField *)textField;
+
 @end

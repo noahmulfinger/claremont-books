@@ -7,6 +7,7 @@
 //
 
 #import "CMBNewBookEntryViewController.h"
+#import "CMBNewBookEntryView.h"
 
 @interface CMBNewBookEntryViewController ()
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
@@ -32,7 +33,15 @@
     self.edition.delegate = self;
     self.ISBN.delegate = self;
     self.binding.delegate = self;
+    
 }
+
+//- (void) loadView
+//{
+//    CMBNewBookEntryView *view = [[CMBNewBookEntryView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+//    self.view = view;
+//    
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,6 +67,34 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    return YES;
+}
+
+-(BOOL)textViewDidBeginEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.35f];
+    
+    CGRect frame = self.view.frame;
+    frame.origin.y = -100;
+    [self.view setFrame:frame];
+    
+    [UIView commitAnimations];
+    
+    return YES;
+}
+
+-(BOOL)textViewShouldEndEditing:(UITextField *)textField
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.35f];
+    
+    CGRect frame = self.view.frame;
+    frame.origin.y = 100;
+    [self.view setFrame:frame];
+    
+    [UIView commitAnimations];
+    
     return YES;
 }
 
