@@ -23,18 +23,17 @@
 ?>
 <html>
 <head><title> Search current book database</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<style>
-body {
-	font: 10pt/1.4em Arial, Helvetica, sans-serif;
-	color: #444444;
-}
-table, th, td {
-	border: 1px solid #cccccc;
-	border-collapse: collapse;
-}
-</style>
+  ga('create', 'UA-48321922-1', 'claremontbooks.com');
+  ga('send', 'pageview');
 
+</script>
+<link rel="stylesheet" type="text/css" media="all" href="style.css" />
 </head>
 
 <body>
