@@ -66,7 +66,7 @@ $api = new Books;
 	<input type="submit" name="submit" value="Search!" />
 </form>
 
-<?php
+<?php /*
 	if(isset($_POST['submit'])) {
 			// for testing
 			//$query = "SELECT * FROM Book WHERE `title` LIKE '%logic%'";
@@ -77,9 +77,18 @@ $api = new Books;
 		//echo "Successful modification!";
 		//can't redirect using headers if output already started
 		//header("Location: http://www.claremontbooks.com/books.php");
-?>
+*/?>
 <h3> Current search result of books in database </h3>
+
 <?php
+	$target = $_POST['omniSearch'];
+	echo "Target is: ". $target;
+
+?>
+
+<?php $api->searchBook($target); ?>
+
+<?php /*
 	
 		// Output Listings to table format
 		echo '<table style="width:600px">
@@ -107,6 +116,6 @@ $api = new Books;
 	}
 	// echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
 	// exit;
-?>
+*/?>
 </body>
 </html>

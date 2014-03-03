@@ -15,6 +15,8 @@ include 'includes/functions.php';
 // Creates a new instance of the Books class
 $api = new Books;
 
+if (!isset($_GET['show']) && $_GET['show'] != 'json') {
+	
 ?>
 <html>
 <head><title> Current Books </title>
@@ -50,4 +52,9 @@ $api = new Books;
 </form>
 
 </body>
-</html>
+</html> 
+<?php
+} else {
+	$api->listJSON();
+}
+?>
