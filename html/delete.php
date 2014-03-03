@@ -27,7 +27,7 @@ if (!$_POST['submit']) {
 	// Inserts the book with variables passed in
 	$api->deleteBook($bookid);
 	echo "Book has been deleted!";
-	//echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+	echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
 	exit;
 }
 ?>

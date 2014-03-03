@@ -34,38 +34,6 @@ $api = new Listings;
 <body>
 <h3> Current Listings </h3>
 <?php $api->listAllListings(); ?>
-<?php 
-
-
-/*
-	include 'includes/connection.php';
-
-	$query = "SELECT L.listid, B.title, B.author, B.edition, L.price FROM Listings L, Book B WHERE L.bookid = B.bookid";
-
-	$result = mysql_query($query);
-	
-	// Output Listings to table format
-	echo '<table style="width:500px">
-		<tr>
-		  <th>List ID</th>
-		  <th>Title</th> 
-		  <th>Author</th>
-		  <th>Edition</th>
-		  <th>Price</th>
-		</tr>';
-	// table row data below
-	while ($currentListings = mysql_fetch_array($result))
-	{
-		echo "<tr>";
-		echo "<td>" . $currentListings['listid'] . "</td>";
-		echo "<td>" . $currentListings['title'] . "</td>";
-		echo "<td>" . $currentListings['author'] . "</td>";
-		echo "<td>" . $currentListings['edition'] . "</td>";
-		echo "<td>" . $currentListings['price'] . "</td>";
-		echo "</tr>";
-	}
-	echo '</table>';*/
-?>
 
 </body>
 </html>
