@@ -8,8 +8,12 @@
  * E-mail: byan@hmc.edu
  * 
  */
+include 'includes/functions.php';
 
-	include 'includes/connection.php';
+// This is the first thing that gets called when this page is loaded
+// Creates a new instance of the Books class
+$api = new Books;
+
 
 // TODO: implement for grabbing browser information
 	// Grab whatever values that are currently available to us (use isset)
