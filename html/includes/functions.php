@@ -67,7 +67,7 @@ class Books {
 				echo "<td>$isbn</td>";
 				echo "<td>$edition</td>";
 				echo "<td>$binding</td>";
-                echo "<td><form action=\"modify.php\" method=\"post\">
+                echo "<td><form action=\"modify.php?bookid=$bookid\">
                 <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
                 <input type=\"submit\" name=\"submit\" value=\"Modify!\" />
                 </form>";
@@ -182,7 +182,6 @@ class Books {
                     <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
                     <input type=\"submit\" name=\"submit\" value=\"Delete!\" />
                     </form></td>";
-    //              echo "<td><a href=\"modify.php?bookid=$bookid\">Edit</a>&nbsp<a href=\"delete.php?bookid=$bookid\">Delete</a></td>";
                     echo "</tr>";
                 }
 
