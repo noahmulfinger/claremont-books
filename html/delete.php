@@ -8,13 +8,26 @@
  * E-mail: byan@hmc.edu
  * 
  */
-	include 'includes/connection.php';
+include 'includes/functions.php';
 
-	//Grab the book ID from the URL passed in
-	$query = "DELETE FROM Book WHERE bookid = $_GET[bookid]";
+// This is the first thing that gets called when this page is loaded
+// Creates a new instance of the Books class
+$api = new Books;
 
-	mysql_query($query) or die (mysql_error());
-	//echo "Book has been added!";
-	echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+// Grab bookid variable from URL
+$bookid = $_POST['bookid'];
+
+// ensure that people got to this form from the correct place
+if (!$_POST['submit']) {
+	// Immediatebly takes user back to listing of books
+	//echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+	echo "Where did you come from?";
 	exit;
+} else {
+	// Inserts the book with variables passed in
+	$api->deleteBook($bookid);
+	echo "Book has been deleted!";
+	//echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+	exit;
+}
 ?>

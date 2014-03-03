@@ -8,6 +8,12 @@
  * E-mail: byan@hmc.edu
  * 
  */
+include 'includes/functions.php';
+
+// This is the first thing that gets called when this page is loaded
+// Creates a new instance of the Books class
+$api = new Listings;
+
 ?>
 
 <html>
@@ -27,8 +33,11 @@
 
 <body>
 <h3> Current Listings </h3>
-
+<?php $api->listAllListings(); ?>
 <?php 
+
+
+/*
 	include 'includes/connection.php';
 
 	$query = "SELECT L.listid, B.title, B.author, B.edition, L.price FROM Listings L, Book B WHERE L.bookid = B.bookid";
@@ -55,7 +64,7 @@
 		echo "<td>" . $currentListings['price'] . "</td>";
 		echo "</tr>";
 	}
-	echo '</table>';
+	echo '</table>';*/
 ?>
 
 </body>

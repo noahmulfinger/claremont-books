@@ -16,3 +16,7 @@ table, th, td {
 	border-collapse: collapse;
 }
 
+table.booklistings {
+	width: 600px; 
+	text-align: center;
+}

@@ -9,27 +9,31 @@
  * 
  */
 
-	include 'includes/connection.php';
+include 'includes/functions.php';
 
-	// local variables 
-	$title = $_POST['bookTitle'];
-	$author = $_POST['bookAuthor'];
-	$isbn = $_POST['bookISBN'];
-	$edition = $_POST['bookEdition'];
-	$binding = $_POST['bookBinding'];
+// This is the first thing that gets called when this page is loaded
+// Creates a new instance of the Books class
+$api = new Books;
+
+// local variables 
+$title = $_POST['bookTitle'];
+$author = $_POST['bookAuthor'];
+$isbn = $_POST['bookISBN'];
+$edition = $_POST['bookEdition'];
+$binding = $_POST['bookBinding'];
 
 
-	// ensure that people got to this form from the correct place
-	if (!$_POST['submit']) {
-		//echo "Please fill out the form!";
-		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
-		exit;
-	} else {
-		$query = "INSERT INTO Book (`title`, `author`, `edition`, `binding`, `isbn`) VALUES ('$title','$author','$edition','$binding','$isbn')";
-
-		mysql_query($query) or die (mysql_error());
-		//echo "Book has been added!";
-		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
-		exit;
-	}
+// ensure that people got to this form from the correct place
+if (!$_POST['submit']) {
+	// Immediatebly takes user back to listing of books
+	//echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+	echo "Where did you come from?";
+	exit;
+} else {
+	// Inserts the book with variables passed in
+	$api->insertBooksWeb($title, $author, $isbn, $edition, $binding);
+	//echo "Book has been added!";
+	echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+	exit;
+}
 ?>

@@ -8,40 +8,43 @@
  * E-mail: byan@hmc.edu
  * 
  */
+include 'includes/functions.php';
 
-	include 'includes/connection.php';
-	// If info has not been posted, then we grab some data from the DB
-	if(!isset($_POST['submit'])) {
-		$query = "SELECT * FROM Book WHERE bookid = $_GET[bookid]";
-		$result = mysql_query($query) or die ($query."<br/><br/>".mysql_error());
-		//store result array into a variable
-		$book = mysql_fetch_array($result);
-	}
+// This is the first thing that gets called when this page is loaded
+// Creates a new instance of the Books class
+$api = new Books;
+
+// ensure that people got to this form from the correct place
+if (!$_POST['submit']) {
+
+	echo "Where did you come from?";
+	exit;
+
+} else {
+	// Grab bookid variable from URL
+	$bookid = $_POST['bookid'];
+
+	$api->grabCurrentBook($bookid, $title, $author, $isbn, $edition, $binding);
+}
 ?>
 
 <h3> Modifying Book Data </h3>
 <form action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
-	Title: <input type="text" name="bookTitle" value="<?php echo $book['title']; ?>" /><br />
-	Author: <input type="text" name="bookAuthor" value="<?php echo $book['author']; ?>" /><br />
-	ISBN: <input type="text" name="bookISBN" value="<?php echo $book['isbn']; ?>" /><br />
-	Edition: <input type="text" name="bookEdition" value="<?php echo $book['edition']; ?>" /><br />
-	Binding: <input type="text" name="bookBinding" value="<?php echo $book['binding']; ?>" /><br />
+	Title: <input type="text" name="bookTitle" value="<?php echo $title; ?>" /><br />
+	Author: <input type="text" name="bookAuthor" value="<?php echo $author; ?>" /><br />
+	ISBN: <input type="text" name="bookISBN" value="<?php echo $isbn; ?>" /><br />
+	Edition: <input type="text" name="bookEdition" value="<?php echo $edition; ?>" /><br />
+	Binding: <input type="text" name="bookBinding" value="<?php echo $binding; ?>" /><br />
 	<br />
 
-	<input type="hidden" name="bookid" value="<?php echo $_GET['bookid']; ?>" />
+	<input type="hidden" name="bookid" value="<?php echo $bookid; ?>" />
 	<input type="submit" name="submit" value="Modify!" />
 </form>
 
 <?php
 	if(isset($_POST['submit'])) {
-		// actually perform the update with modified values
-		$update = "UPDATE Book SET `title`='$_POST[bookTitle]', `author`='$_POST[bookAuthor]', `isbn`='$_POST[bookISBN]', `edition`='$_POST[bookEdition]', `binding`='$_POST[bookBinding]' WHERE bookid = $_POST[bookid]";
-		mysql_query($update) or die (mysql_error());
+		$api->modifyBook($_POST[bookid], $_POST[bookTitle], $_POST[bookAuthor], $_POST[bookISBN], $_POST[bookEdition], $_POST[bookBinding]);
 
-		//echo "Successful modification!";
-		//can't redirect using headers if output already started
-		//header("Location: http://www.claremontbooks.com/books.php");
-		
 		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
 		exit;
 	}
