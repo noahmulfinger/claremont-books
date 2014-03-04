@@ -37,15 +37,15 @@ class Books {
 
         // JSON variables - prepare array to encode JSON with
         $returnArray = array();
-        $returnArray["key"] = "value";
 
         // Push the results into JSON format if requested
         if ($json == 1) {
-            while ($stmt->fetch())
-                array_push($returnArray, $bookid, $title, $author, $isbn, $edition, $binding);
-            //while ($row = $resultjson->fetch_assoc()) 
-             //array_push($returnArray, $row);
-        
+            // Loop through each statement to grab columns and data
+            while ($stmt->fetch()) {
+                $loopArray = array('bookid' => $bookid, 'title' => $title, 'author' => $author, 'isbn' => $isbn, 'edition' => $edition, 'binding' => $binding);
+                array_push($returnArray, $loopArray);
+            }
+
             echo json_encode($returnArray);
             exit;
         }
@@ -144,15 +144,15 @@ class Books {
             
             // JSON variables - prepare array to encode JSON with
             $returnArray = array();
-            $returnArray["key"] = "value";
 
             // Push the results into JSON format if requested
             if ($json == 1) {
-                while ($stmt->fetch())
-                    array_push($returnArray, $bookid, $title, $author, $isbn, $edition, $binding);
-                //while ($row = $resultjson->fetch_assoc()) 
-                 //array_push($returnArray, $row);
-            
+                // Loop through each statement to grab columns and data
+                while ($stmt->fetch()) {
+                    $loopArray = array('bookid' => $bookid, 'title' => $title, 'author' => $author, 'isbn' => $isbn, 'edition' => $edition, 'binding' => $binding);
+                    array_push($returnArray, $loopArray);
+                }
+
                 echo json_encode($returnArray);
                 exit;
             }
