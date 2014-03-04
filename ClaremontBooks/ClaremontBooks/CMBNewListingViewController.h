@@ -15,6 +15,4 @@
 @property (strong) IBOutlet UITextField *email;
 @property (strong) IBOutlet UITextView *comments;
 
-@property (strong) IBOutlet UILabel *humanReadble;
-
 @end

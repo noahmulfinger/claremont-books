@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBListingCell.h"
 
 @interface CMBListingsTableViewController : UITableViewController
+
+@property (strong) NSMutableArray *listings;
 
 @end

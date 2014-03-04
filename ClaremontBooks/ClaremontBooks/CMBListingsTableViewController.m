@@ -25,6 +25,22 @@
 
 - (void)viewDidLoad
 {
+    
+    self.title = @"Listings";
+    
+    
+    // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
+    NSString *jsonString = @"{\"listings\":[{\"id\":23,\"price\":30.0,\"condition\":\"Fair\",\"Seller\":\"Mable\",\"email\":\"mable@hmc.edu\"},{\"id\":24,\"price\":35.0,\"condition\":\"Good\",\"Seller\":\"Bessie\",\"email\":\"bessie@hmc.edu\"}]}";
+    //NSLog(@"%@", jsonString);
+    NSError *error =  nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    
+    
+    
+    
+    _listings = [json objectForKey:@"listings"];
+    
+    
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -32,6 +48,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,26 +61,43 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _listings.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"ListingCell";
+    CMBListingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     
+    NSDictionary *listing = [_listings objectAtIndex:indexPath.row];
+    
+    NSNumber* price = [listing objectForKey:@"price"];
+    NSString* condition = [listing objectForKey:@"condition"];
+    NSString* seller = [listing objectForKey:@"seller"];
+    NSString* email = [listing objectForKey:@"email"];
+    
+    
+    
+    cell.price.text = [NSString stringWithFormat:@"$%@", price];
+    cell.condition.text = condition;
+    [cell.seller setTitle:seller forState:UIControlStateNormal];
+    [cell.seller setTitle:seller forState:UIControlStateSelected];
+    
     return cell;
+    
+    
+    
+    
+    
 }
 
 /*

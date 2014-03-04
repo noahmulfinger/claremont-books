@@ -29,7 +29,7 @@
     
     
     // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
-    NSString *jsonString = @"{\"books\":[{\"id\":\"71\",\"title\":\"Art of War\",\"author\":\"Sun Tzu\",\"ISPN\":\"2147483647\",\"binding\":\"Soft Cover\"},{\"id\":\"72\",\"title\":\"Reeses Mini\",\"author\":\"Peanut Butter cup\",\"ISPN\":\"987\",\"binding\":\"Edible\"},{\"id\":\"73\",\"title\":\"Design Patterns\",\"author\":\"Erich Gamma\",\"ISPN\":\"201633612\",\"binding\":\"Hard Cover\"}]}";
+    NSString *jsonString = @"{\"books\":[{\"id\":71,\"title\":\"Art of War\",\"author\":\"Sun Tzu\",\"ISPN\":2147483647,\"edition\":9,\"binding\":\"Soft Cover\"},{\"id\":72,\"title\":\"Reeses Mini\",\"author\":\"Peanut Butter cup\",\"ISPN\":987,\"edition\":2,\"binding\":\"Edible\"},{\"id\":73,\"title\":\"Design Patterns\",\"author\":\"Erich Gamma\",\"ISPN\":201633612,\"edition\":5,\"binding\":\"Hard Cover\"}]}";
     //NSLog(@"%@", jsonString);
     NSError *error =  nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
@@ -73,7 +73,7 @@
 //                          error:&error];
     
     // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
-    NSString *jsonString = @"{\"books\":[{\"id\":\"71\",\"title\":\"Art of War\",\"author\":\"Sun Tzu\",\"ISPN\":\"2147483647\",\"binding\":\"Soft Cover\"},{\"id\":\"72\",\"title\":\"Reeses Mini\",\"author\":\"Peanut Butter cup\",\"ISPN\":\"987\",\"binding\":\"Edible\"},{\"id\":\"73\",\"title\":\"Design Patterns\",\"author\":\"Erich Gamma\",\"ISPN\":\"201633612\",\"binding\":\"Hard Cover\"}]}";
+    NSString *jsonString = @"{\"books\":[{\"id\":71,\"title\":\"Art of War\",\"author\":\"Sun Tzu\",\"ISPN\":2147483647,\"edition\":9,\"binding\":\"Soft Cover\"},{\"id\":72,\"title\":\"Reeses Mini\",\"author\":\"Peanut Butter cup\",\"ISPN\":987,\"edition\":2,\"binding\":\"Edible\"},{\"id\":73,\"title\":\"Design Patterns\",\"author\":\"Erich Gamma\",\"ISPN\":201633612,\"edition\":5,\"binding\":\"Hard Cover\"}]}";
     //NSLog(@"%@", jsonString);
     NSError *error =  nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
@@ -126,7 +126,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -134,6 +133,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    //NSLog("%lu", (unsigned long)_books.count);
     return _books.count;
 }
 
@@ -152,7 +152,8 @@
     NSString* binding = [book objectForKey:@"binding"];
     
     //cell.textLabel.text = bookListing.data.title;
-    cell.textLabel.text = title;
+    cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
     //cell.imageView.image = bookListing.thumbImage;
     
     // Configure the cell...

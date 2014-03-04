@@ -70,11 +70,11 @@
     [fundedAmount floatValue];
     
     // 3) Set the label appropriately
-    _humanReadble.text = [NSString stringWithFormat:@"Latest loan: %@ from %@ needs another $%.2f to pursue their entrepreneural dream",
-                         [loan objectForKey:@"name"],
-                         [(NSDictionary*)[loan objectForKey:@"location"]
-                          objectForKey:@"country"],
-                         outstandingAmount];
+//    _humanReadble.text = [NSString stringWithFormat:@"Latest loan: %@ from %@ needs another $%.2f to pursue their entrepreneural dream",
+//                         [loan objectForKey:@"name"],
+//                         [(NSDictionary*)[loan objectForKey:@"location"]
+//                          objectForKey:@"country"],
+//                         outstandingAmount];
     
     
     
