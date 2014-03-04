@@ -10,4 +10,6 @@
 
 @interface CMBBookListingsViewController : UITableViewController
 
+@property (strong) NSMutableArray *books;
+
 @end
