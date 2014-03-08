@@ -36,15 +36,17 @@ class Books {
         $stmt->store_result(); // store result set into buffer
 
         // JSON variables - prepare array to encode JSON with
-        $returnArray = array();
+        $outerArray = array();
 
         // Push the results into JSON format if requested
         if ($json == 1) {
             // Loop through each statement to grab columns and data
             while ($stmt->fetch()) {
                 $loopArray = array('bookid' => $bookid, 'title' => $title, 'author' => $author, 'isbn' => $isbn, 'edition' => $edition, 'binding' => $binding);
-                array_push($returnArray, $loopArray);
+                array_push($outerArray, $loopArray);
             }
+
+            $returnArray = array("books" => $outerArray);
 
             echo json_encode($returnArray);
             exit;
@@ -143,15 +145,17 @@ class Books {
             $stmt->store_result(); // Store result set into buffer
             
             // JSON variables - prepare array to encode JSON with
-            $returnArray = array();
+            $outerArray = array();
 
             // Push the results into JSON format if requested
             if ($json == 1) {
                 // Loop through each statement to grab columns and data
                 while ($stmt->fetch()) {
                     $loopArray = array('bookid' => $bookid, 'title' => $title, 'author' => $author, 'isbn' => $isbn, 'edition' => $edition, 'binding' => $binding);
-                    array_push($returnArray, $loopArray);
+                    array_push($outerArray, $loopArray);
                 }
+
+                $returnArray = array("books" => $outerArray);
 
                 echo json_encode($returnArray);
                 exit;
