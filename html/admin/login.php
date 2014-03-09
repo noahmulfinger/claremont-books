@@ -11,10 +11,9 @@
 	</tr>
 	<tr>
 		<td><span>Password: </span></td>
-		<td><input type="text" name="password" /><td>
+		<td><input type="text" name="password" /><td> <!--Change type to password to hide it-->
 	</tr>
 	<tr>
-		<Password: </span></td>
 		<td colspan ="2" align="right"><input type="submit" name="submit" value="Login" /><td>
 	</tr>
 </table>

@@ -282,18 +282,12 @@ class Users {
         $stmt->execute();
         $stmt->bind_result($name, $uemail, $password);
         $stmt->fetch();
-        //while($stmt->fetch()) {
-        //    echo "name " . $name;
-        //    echo "uemail " . $uemail;
-        //    echo "password " . $password;
-       // }
-          
+
 
         if($inputPassword == $password) {
-            echo "Login successful. Hello " . $name;
+            return array('name'=>$name, 'email'=>$uemail, 'password'=>$password);
         } else {
-            echo "No user matching our records.";
-            
+            return NULL;
         }
     }
 
