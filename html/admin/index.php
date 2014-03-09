@@ -8,4 +8,26 @@ http://www.youtube.com/watch?v=OUiO1hr1kcU
 http://www.youtube.com/watch?v=YPh2qJ5zvHg
 
 */
+
+session_start();
+if(isset($_SESSION['user'])) {
+
+
 ?>
+
+<html>
+<head>
+<title> Admin Area </title>
+</head>
+<body>
+
+</body>
+<html>
+<?php
+} else {
+	header("Location: login.php");
+}
+
+?>
+
+

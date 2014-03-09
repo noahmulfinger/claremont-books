@@ -252,4 +252,40 @@ class Listings {
     }
 } // End Listings class
 
+class Users {
+    private $db;
+
+
+    // Constructor - opens DB connection
+    function __construct() {
+        $this->db = new mysqli('mysql.claremontbooks.com', 'cbooks', 'Claremontbooks2014$', 'cbooksdb');
+        $this->db->autocommit(FALSE);
+        if ($mysqli->connect_errno) {
+            printf("Connection failed: %s \n", $mysqli->connect_error);
+            exit();
+        }
+    }
+
+     // Destructor - close DB connection
+    function __destruct() {
+        $this->db->close();
+    }
+
+     // Check if the user input valid login information
+    function checkLoginInfo($inputEmail, $inputPassword) {
+        // Prepare to access
+        $inputEmail = $this->db->escape_string($inputEmail);
+        $inputPassword = $this->db->escape_string($inputPassword);
+        $stmt = $this->db->prepare('SELECT U.name, U.uemail, U.password FROM Users U WHERE uemail = ? AND password = ?');
+        $stmt->bind_param("ss", $inputEmail, $inputPassword);
+        $stmt->execute();
+        $stmt->bind_result($name, $uemail, $password);
+
+        if(md5($password) == $inputPassword) {
+            echo "Login successful";
+        }
+    }
+
+}
+
 ?>

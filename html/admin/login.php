@@ -2,7 +2,6 @@
 <head>
 	<title> Login Page </title>
 <head>
-
 <body>
 <form action = "dologin.php" method="post">
 <table>
@@ -16,7 +15,7 @@
 	</tr>
 	<tr>
 		<Password: </span></td>
-		<td colspan ="2" align="right"><input type="submit" name="login" value="Login" /><td>
+		<td colspan ="2" align="right"><input type="submit" name="submit" value="Login" /><td>
 	</tr>
 </table>
 </form>
