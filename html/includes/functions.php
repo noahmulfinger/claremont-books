@@ -275,14 +275,25 @@ class Users {
     function checkLoginInfo($inputEmail, $inputPassword) {
         // Prepare to access
         $inputEmail = $this->db->escape_string($inputEmail);
-        $inputPassword = $this->db->escape_string($inputPassword);
-        $stmt = $this->db->prepare('SELECT U.name, U.uemail, U.password FROM Users U WHERE uemail = ? AND password = ?');
+        $inputPassword = md5($this->db->escape_string($inputPassword));
+       
+        $stmt = $this->db->prepare('SELECT name, uemail, password FROM Users WHERE uemail LIKE ? AND password LIKE ?');
         $stmt->bind_param("ss", $inputEmail, $inputPassword);
         $stmt->execute();
         $stmt->bind_result($name, $uemail, $password);
+        $stmt->fetch();
+        //while($stmt->fetch()) {
+        //    echo "name " . $name;
+        //    echo "uemail " . $uemail;
+        //    echo "password " . $password;
+       // }
+          
 
-        if(md5($password) == $inputPassword) {
-            echo "Login successful";
+        if($inputPassword == $password) {
+            echo "Login successful. Hello " . $name;
+        } else {
+            echo "No user matching our records.";
+            
         }
     }
 
