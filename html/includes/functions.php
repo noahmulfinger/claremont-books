@@ -277,7 +277,8 @@ class Users {
         $inputEmail = $this->db->escape_string($inputEmail);
         $inputPassword = md5($this->db->escape_string($inputPassword));
        
-        $stmt = $this->db->prepare('SELECT name, uemail, password FROM Users WHERE uemail LIKE ? AND password LIKE ?');
+        // Search for matching email and password in database
+        $stmt = $this->db->prepare('SELECT name, uemail, password FROM Users WHERE uemail = ? AND password = ?');
         $stmt->bind_param("ss", $inputEmail, $inputPassword);
         $stmt->execute();
         $stmt->bind_result($name, $uemail, $password);

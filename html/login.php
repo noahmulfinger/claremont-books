@@ -14,7 +14,7 @@
 		<td><input type="text" name="password" /><td> <!--Change type to password to hide it-->
 	</tr>
 	<tr>
-		<td colspan ="2" align="right"><input type="submit" name="submit" value="Login" /><td>
+		<td colspan ="2" align="right"><input type="submit" name="login" value="Login" /><td>
 	</tr>
 </table>
 </form>
