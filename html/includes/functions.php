@@ -275,7 +275,7 @@ class Users {
     function checkLoginInfo($inputEmail, $inputPassword) {
         // Prepare to access
         $inputEmail = $this->db->escape_string($inputEmail);
-        $inputPassword = md5($this->db->escape_string($inputPassword));
+        $inputPassword = hash('sha256', ($this->db->escape_string($inputPassword)));
        
         // Search for matching email and password in database
         $stmt = $this->db->prepare('SELECT name, uemail, password FROM Users WHERE uemail = ? AND password = ?');
