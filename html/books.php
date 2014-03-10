@@ -11,6 +11,12 @@
 
 include 'includes/functions.php';
 
+
+session_start();
+
+if(isset($_SESSION['user'])) {
+
+
 // This is the first thing that gets called when this page is loaded
 // Creates a new instance of the Books class
 $api = new Books;
@@ -41,6 +47,10 @@ if (isset($_GET['show']) && $_GET['show'] == 'json') {
 	<body>
 	<h3> Current books in database </h3>
 
+	<form action = "search.php" method="link">
+		<input type="submit" VALUE="Search">
+	</form>
+
 	<?php $api->listAllBooks(0); ?>
 
 	<h3> Insert a new Book into the Database </h3>
@@ -55,8 +65,16 @@ if (isset($_GET['show']) && $_GET['show'] == 'json') {
 		<input type="submit" name="submit" />
 	</form>
 
+	<form action = "logout.php" method="link">
+		<input type="submit" VALUE="Logout">
+	</form>
+
 	</body>
 	</html> 
 <?php
 } //end else
+
+} else {
+	header("Location: login.php");
+}
 ?>

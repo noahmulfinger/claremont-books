@@ -21,7 +21,8 @@ $bookid = $_POST['bookid'];
 if (!$_POST['submit']) {
 	// Immediatebly takes user back to listing of books
 	//echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
-	echo "Where did you come from?";
+	//echo "Where did you come from?";
+	header("Location: books.php");
 	exit;
 } else {
 	// Inserts the book with variables passed in

@@ -10,6 +10,8 @@
  */
 include 'includes/functions.php';
 
+if(isset($_POST['submit'])) {
+
 // This is the first thing that gets called when this page is loaded
 // Creates a new instance of the Books class
 $api = new Books;
@@ -35,10 +37,12 @@ $api->grabCurrentBook($bookid, $title, $author, $isbn, $edition, $binding);
 </form>
 
 <?php
-	if(isset($_POST['submit'])) {
-		$api->modifyBook($_POST[bookid], $_POST[bookTitle], $_POST[bookAuthor], $_POST[bookISBN], $_POST[bookEdition], $_POST[bookBinding]);
-		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
-		exit;
-	}
+	
+	$api->modifyBook($_POST[bookid], $_POST[bookTitle], $_POST[bookAuthor], $_POST[bookISBN], $_POST[bookEdition], $_POST[bookBinding]);
+	echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
+	exit;
+} else {
+	header("Location: books.php");
+}
 
 ?>
