@@ -27,17 +27,17 @@ if(isset($_POST['login'])) {
                         $_SESSION['user'] = $user['name'];
                         header("Location: index.php");
                   } else {
-                        header("Location: index.php");
+                        header("Location: login.php");
                   }
 
 		} else {
-                  header("Location: index.php");
+                  header("Location: login.php");
             }
 	} else {
-            header("Location: index.php");
+            header("Location: login.php");
       }
 } else {
-      header("Location: index.php");
+      header("Location: login.php");
 }
 
 ?>
