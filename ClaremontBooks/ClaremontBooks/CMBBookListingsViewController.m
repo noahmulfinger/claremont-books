@@ -47,6 +47,9 @@
                           error:&error];
     
     _books = [json objectForKey:@"books"]; //2
+    
+    // Initialize the filteredBookArray with a capacity equal to the  book array's capacity
+    self.filteredBookArray = [NSMutableArray arrayWithCapacity:[_books count]];
         
         
         
@@ -80,9 +83,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    //NSLog("%lu", (unsigned long)_books.count);
-    return _books.count;
+    // Check to see whether the normal table or search results table is being displayed and return the count from the appropriate array
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_filteredBookArray count];
+    } else {
+        return [_books count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,19 +97,36 @@
     static NSString *CellIdentifier = @"BookCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
-    NSDictionary *book = [_books objectAtIndex:indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
+        NSDictionary *book = [_filteredBookArray objectAtIndex:indexPath.row];
+        
+        NSString* title = [book objectForKey:@"title"];
+        NSString* author = [book objectForKey:@"author"];
+        NSNumber* edition = [book objectForKey:@"edition"];
+        NSNumber* ISBN = [book objectForKey:@"ISBN"];
+        NSString* binding = [book objectForKey:@"binding"];
+        
+        //cell.textLabel.text = bookListing.data.title;
+        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
+        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
+        //cell.imageView.image = bookListing.thumbImage;
     
-    NSString* title = [book objectForKey:@"title"];
-    NSString* author = [book objectForKey:@"author"];
-    NSNumber* edition = [book objectForKey:@"edition"];
-    NSNumber* ISBN = [book objectForKey:@"ISBN"];
-    NSString* binding = [book objectForKey:@"binding"];
-    
-    //cell.textLabel.text = bookListing.data.title;
-    cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
-    cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
-    //cell.imageView.image = bookListing.thumbImage;
+    } else {
+        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
+        NSDictionary *book = [_books objectAtIndex:indexPath.row];
+        
+        NSString* title = [book objectForKey:@"title"];
+        NSString* author = [book objectForKey:@"author"];
+        NSNumber* edition = [book objectForKey:@"edition"];
+        NSNumber* ISBN = [book objectForKey:@"ISBN"];
+        NSString* binding = [book objectForKey:@"binding"];
+        
+        //cell.textLabel.text = bookListing.data.title;
+        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
+        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
+        //cell.imageView.image = bookListing.thumbImage;
+    }
     
     // Configure the cell...
     
@@ -159,6 +183,37 @@
 }
 
  */
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText
+                            scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    
+    NSLog(@"GOT HERE");
+    
+    [self.filteredBookArray removeAllObjects];
+    
+//    // Filter the array using NSPredicate
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+//    _filteredBookArray = [NSMutableArray arrayWithArray:[_books filteredArrayUsingPredicate:predicate]];
+    
+    NSData* data = [NSData dataWithContentsOfURL:
+                    [NSURL URLWithString:
+                     [NSString stringWithFormat: @"http://www.claremontbooks.com/search.php?target=%@&show=json", searchText]]];
+    
+    //parse out the json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data //1
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    _filteredBookArray = [json objectForKey:@"books"]; //2
+    //NSLog([NSString stringWithFormat: @"%@", _filteredBookArray]);
+}
+
 
 
 @end

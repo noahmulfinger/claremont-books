@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMBBookListingsViewController : UITableViewController
+@interface CMBBookListingsViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (strong) NSMutableArray *books;
+
+@property (strong) NSMutableArray *filteredBookArray;
+@property IBOutlet UISearchBar *bookSearchBar;
 
 @end
