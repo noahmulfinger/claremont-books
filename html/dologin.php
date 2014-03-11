@@ -24,7 +24,8 @@ if(isset($_POST['login'])) {
                   $user = $api->checkLoginInfo($uemail, $password);
 
                   if($user != NULL) {
-                        $_SESSION['user'] = $user['name'];
+                        $_SESSION['user'] = $user['uid'];
+
                         header("Location: index.php");
                   } else {
                         header("Location: login.php");
