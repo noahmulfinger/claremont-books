@@ -180,7 +180,7 @@ class Books {
                     echo "<td>$binding</td>";
                     echo "<td><form action=\"modify.php\" method=\"post\">
                     <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
-                    <input type=\"submit\" name=\"modify\" value=\"Modify!\" />
+                    <input type=\"submit\" name=\"submit\" value=\"Modify!\" />
                     </form>";
                     echo "<form action=\"delete.php\" method=\"post\">
                     <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
