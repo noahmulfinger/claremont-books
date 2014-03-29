@@ -1,7 +1,12 @@
 <?php
 
+include('includes/functions.php');
 
 header('Content-type: application/json');
+
+session_start();
+
+$api = new Users;
 
 if($_POST) {
 	if(isset($_POST['uemail'])) {
