@@ -278,15 +278,15 @@ class Users {
         $inputPassword = hash('sha256', ($this->db->escape_string($inputPassword)));
        
         // Search for matching email and password in database
-        $stmt = $this->db->prepare('SELECT name, uemail, password FROM Users WHERE uemail = ? AND password = ?');
+        $stmt = $this->db->prepare('SELECT uid, name, uemail, password FROM Users WHERE uemail = ? AND password = ?');
         $stmt->bind_param("ss", $inputEmail, $inputPassword);
         $stmt->execute();
-        $stmt->bind_result($name, $uemail, $password);
+        $stmt->bind_result($userid, $name, $uemail, $password);
         $stmt->fetch();
 
 
         if($inputPassword == $password) {
-            return array('name'=>$name, 'email'=>$uemail, 'password'=>$password);
+            return array('uid'=>$userid, 'name'=>$name, 'email'=>$uemail, 'password'=>$password);
         } else {
             return NULL;
         }

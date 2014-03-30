@@ -10,6 +10,11 @@
  */
 include 'includes/functions.php';
 
+session_start();
+
+if(isset($_SESSION['user'])) {
+
+
 // This is the first thing that gets called when this page is loaded
 // Creates a new instance of the Books class
 $api = new Listings;
@@ -37,3 +42,9 @@ $api = new Listings;
 
 </body>
 </html>
+
+<?php
+} else {
+	header("Location: login.php");
+}
+?>

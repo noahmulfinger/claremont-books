@@ -39,7 +39,7 @@ if(isset($_SESSION['user'])) {
 <a href="books.php" target="_self">Show current books</a> <br />
 
 <form action = "logout.php" method="link">
-<input type="submit" VALUE="Logout">
+<input type="submit" value="Logout">
 </form>
 </body>
 </html>
