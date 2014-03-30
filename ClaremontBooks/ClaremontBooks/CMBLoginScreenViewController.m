@@ -1,25 +1,26 @@
 //
-//  CMBNewBookEntryViewController.m
+//  CMBLoginScreenViewController.m
 //  ClaremontBooks
 //
-//  Created by Chris on 2/22/14.
+//  Created by Chris on 3/10/14.
 //  Copyright (c) 2014 CS121. All rights reserved.
 //
 
-#import "CMBNewBookEntryViewController.h"
-#import "CMBNewBookEntryView.h"
+#import "CMBLoginScreenViewController.h"
 
-@interface CMBNewBookEntryViewController ()
+@interface CMBLoginScreenViewController ()
 
 @end
 
-@implementation CMBNewBookEntryViewController
+@implementation CMBLoginScreenViewController
+
+//@synthesize response;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        // Custom initialization
     }
     return self;
 }
@@ -28,12 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.bookTitle.delegate = self;
-    self.author.delegate = self;
-    self.edition.delegate = self;
-    self.ISBN.delegate = self;
-    self.binding.delegate = self;
     
+    self.title = @"Claremont Books";
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,18 +50,51 @@
     [alertView show];
 }
 
-- (IBAction) insert:(id)sender
-{
-    
+//-(IBAction)ButtonClicked:(id)sender
+//{
+////    NSString *content = @"username=blabla&password=123456";
+////    NSData *data=[content dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+////    NSString *postlenght=[NSString stringWithFormat:@"%d",[data length]];
+////    
+////    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://roadster.co.il/forums/ucp.php?mode=login"]];
+////    [request setHTTPMethod:@"POST"];
+////    [request setValue:postlenght forHTTPHeaderField:@"Content-Length"];
+////    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Length"];
+////    [request setHTTPBody:data];
+////    NSError *error=nil;
+////    NSURLResponse *response=nil;
+////    NSData *result=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+////    
+////    [webview loadRequest:request];
+//    
+//    NSURL *url = [NSURL URLWithString: @"http://www.claremontbooks.com/connection.php"];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
+//    
+//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//    
+//    if (connection) {
+//        // Connect
+//    } else {
+//        // Error
+//    }
+//}
+
+
+
+
+
+
+- (IBAction)loginClicked:(id)sender {
     @try {
         
-        if([_bookTitle.text isEqualToString:@""] || [_author.text isEqualToString:@""] ) {
-            [self alertStatus:@"Please enter both Title and Author" :@"Upload Failed!"];
+        if([_username.text isEqualToString:@""] || [_password.text isEqualToString:@""] ) {
+            [self alertStatus:@"Please enter both Username and Password" :@"Login Failed!"];
         } else {
-            NSString *post =[[NSString alloc] initWithFormat:@"bookTitle=%@&bookAuthor=%@&bookEdition=%@&bookISBN=%@&bookBinding=%@&",_bookTitle.text, _author.text, _edition.text, _ISBN.text, _binding.text];
+            NSString *post =[[NSString alloc] initWithFormat:@"uemail=%@&password=%@",_username.text,_password.text];
             NSLog(@"PostData: %@",post);
             
-            NSURL *url=[NSURL URLWithString:@"http://www.claremontbooks.com/insertBookMobile.php"];
+            NSURL *url=[NSURL URLWithString:@"http://www.claremontbooks.com/loginjson.php"];
             
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
@@ -89,22 +119,22 @@
             {
                 NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
                 
-                //                NSData* data = [NSData dataWithContentsOfURL:
-                //                                [NSURL URLWithString:
-                //                                 @"http://www.claremontbooks.com/books.php?show=json"]];
-                //
+//                NSData* data = [NSData dataWithContentsOfURL:
+//                                [NSURL URLWithString:
+//                                 @"http://www.claremontbooks.com/books.php?show=json"]];
+//                
                 
                 NSLog(@"Response ==> %@", responseData);
                 
-                //                SBJsonParser *jsonParser = [SBJsonParser new];
-                //                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-                //                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
+//                SBJsonParser *jsonParser = [SBJsonParser new];
+//                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
+//                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
                 
                 NSDictionary* jsonData = [NSJSONSerialization
-                                          JSONObjectWithData:urlData
-                                          
-                                          options:kNilOptions
-                                          error:&error];
+                                      JSONObjectWithData:urlData
+                                      
+                                      options:kNilOptions
+                                      error:&error];
                 
                 
                 NSLog(@"%@",jsonData);
@@ -117,7 +147,7 @@
                     
                     
                     // Navigate
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [self performSegueWithIdentifier: @"segueToMain" sender: self];
                     
                 } else {
                     
@@ -135,25 +165,32 @@
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Login Failed." :@"Login Failed!"];
     }
-
- 
-
-
-//    // create string contains url address for php file, the file name is phpFile.php, it reveives parameter :name
-//    //NSString *strURL = [NSString stringWithFormat:@"http://localhost/MAMP/phpFile.php?name=%@", _bookTitle.text];
-//    NSString *strURL = [NSString stringWithFormat:@"http://claremontbooks.com/insertBookMobile.php?bookTitle=%@&bookAuthor=%@&bookEdition=%@&bookISBN=%@&bookBinding=%@&password=secret", _bookTitle.text, _author.text, _edition.text, _ISBN.text, _binding.text];
-//    
-//    // to execute php code
-//    NSData *dataURL = [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
-//    
-//    // to reveive the returned value
-//    NSString *strResult = [[NSString alloc] initWithData:dataURL encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"%@", strResult);
-    
- 
-    
-    
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+//- (void) connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
+//    response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//}
+
+//- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
+//    
+//    // Will replace with desired behavior
+//    if ([response isEqualToString:@"1"]) {
+//        NSLog(@"Success");
+//    } else {
+//        NSLog(@"Failue");
+//    }
+//    
+//    connection = nil;
+//}
 
 @end

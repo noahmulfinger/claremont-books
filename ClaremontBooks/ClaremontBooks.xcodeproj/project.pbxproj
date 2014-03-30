@@ -32,6 +32,7 @@
 		83025B0918BC57C300EB482E /* CMBListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0818BC57C300EB482E /* CMBListingViewController.m */; };
 		83025B0C18C57F8400EB482E /* CMBBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0B18C57F8400EB482E /* CMBBookCell.m */; };
 		83025B1018C58D0F00EB482E /* CMBListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0F18C58D0F00EB482E /* CMBListingCell.m */; };
+		83721A2B18CEC887002804CD /* CMBLoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		83025B0B18C57F8400EB482E /* CMBBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBBookCell.m; sourceTree = "<group>"; };
 		83025B0E18C58D0F00EB482E /* CMBListingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBListingCell.h; sourceTree = "<group>"; };
 		83025B0F18C58D0F00EB482E /* CMBListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingCell.m; sourceTree = "<group>"; };
+		83721A2918CEC887002804CD /* CMBLoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBLoginScreenViewController.h; sourceTree = "<group>"; };
+		83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBLoginScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,22 +203,24 @@
 			isa = PBXGroup;
 			children = (
 				83025B0D18C57F9200EB482E /* Cells */,
-				83025B0718BC57C300EB482E /* CMBListingViewController.h */,
-				83025B0818BC57C300EB482E /* CMBListingViewController.m */,
 				83025B0418BC53A600EB482E /* CMBBookListingsViewController.h */,
 				83025B0518BC53A600EB482E /* CMBBookListingsViewController.m */,
 				83025B0118BC505900EB482E /* CMBListingPreviewViewController.h */,
 				83025B0218BC505900EB482E /* CMBListingPreviewViewController.m */,
-				83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */,
-				83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */,
 				83025AF818BC270A00EB482E /* CMBListingsTableViewController.h */,
 				83025AF918BC270A00EB482E /* CMBListingsTableViewController.m */,
-				83025AF518BC1C8900EB482E /* CMBNewListingViewController.h */,
-				83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */,
-				83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */,
-				83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */,
+				83025B0718BC57C300EB482E /* CMBListingViewController.h */,
+				83025B0818BC57C300EB482E /* CMBListingViewController.m */,
+				83721A2918CEC887002804CD /* CMBLoginScreenViewController.h */,
+				83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */,
 				83025ADC18B9800100EB482E /* CMBMainScreenViewController.h */,
 				83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */,
+				83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */,
+				83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */,
+				83025AF518BC1C8900EB482E /* CMBNewListingViewController.h */,
+				83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */,
+				83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */,
+				83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				83025AF218BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				83025AEF18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m in Sources */,
 				83025B0918BC57C300EB482E /* CMBListingViewController.m in Sources */,
+				83721A2B18CEC887002804CD /* CMBLoginScreenViewController.m in Sources */,
 				83025AF718BC1C8900EB482E /* CMBNewListingViewController.m in Sources */,
 				83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */,
 				83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */,
