@@ -8,6 +8,8 @@ session_start();
 
 $api = new Users;
 
+
+
 if($_POST) {
 	if(isset($_POST['uemail'])) {
 		if(isset($_POST['password'])) {
@@ -19,6 +21,8 @@ if($_POST) {
 
     		if($user != NULL) {
         		$_SESSION['user'] = $user['uid'];
+        		setcookie('uid', $user['uid'], time()+60*5, /, www.claremontbooks.com, true);
+        		setcookie('password', $user['password'], time+60+5, /, www.claremontbooks.com, true);
 
         		echo '{"success":1}';
 			} else {
