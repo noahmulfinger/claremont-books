@@ -330,7 +330,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookCell" textLabel="Rte-sa-ois" detailTextLabel="W17-nU-kkh" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="qjl-VY-8nm">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookCell" textLabel="Rte-sa-ois" detailTextLabel="W17-nU-kkh" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="qjl-VY-8nm" customClass="CMBBookCell">
                                 <rect key="frame" x="0.0" y="130" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qjl-VY-8nm" id="cEm-x2-QRG">

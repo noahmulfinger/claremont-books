@@ -50,6 +50,7 @@
     
     // Initialize the filteredBookArray with a capacity equal to the  book array's capacity
     self.filteredBookArray = [NSMutableArray arrayWithCapacity:[_books count]];
+    //self.filteredBookArray = nil;
         
         
         
@@ -85,52 +86,93 @@
 {
     // Check to see whether the normal table or search results table is being displayed and return the count from the appropriate array
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [_filteredBookArray count];
-    } else {
-        return [_books count];
-    }
+//    if (tableView == self.searchDisplayController.searchResultsTableView) {
+//        return [_filteredBookArray count];
+//    } else {
+//        return [_books count];
+//    }
+    
+    return (tableView==self.tableView)?self.books.count:self.filteredBookArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    static NSString *CellIdentifier = @"BookCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    
+//    if (tableView == self.searchDisplayController.searchResultsTableView) {
+//        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
+//        NSDictionary *book = [_filteredBookArray objectAtIndex:indexPath.row];
+//        
+//        NSString* title = [book objectForKey:@"title"];
+//        NSString* author = [book objectForKey:@"author"];
+//        NSNumber* edition = [book objectForKey:@"edition"];
+//        NSNumber* ISBN = [book objectForKey:@"ISBN"];
+//        NSString* binding = [book objectForKey:@"binding"];
+//        
+//        //cell.textLabel.text = bookListing.data.title;
+//        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
+//        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
+//        //cell.imageView.image = bookListing.thumbImage;
+//    
+//    } else {
+//        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
+//        NSDictionary *book = [_books objectAtIndex:indexPath.row];
+//        
+//        NSString* title = [book objectForKey:@"title"];
+//        NSString* author = [book objectForKey:@"author"];
+//        NSNumber* edition = [book objectForKey:@"edition"];
+//        NSNumber* ISBN = [book objectForKey:@"ISBN"];
+//        NSString* binding = [book objectForKey:@"binding"];
+//        
+//        //cell.textLabel.text = bookListing.data.title;
+//        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
+//        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
+//        //cell.imageView.image = bookListing.thumbImage;
+//    }
+//    
+//    // Configure the cell...
+//    
+//    return cell;
+    
+    
+    
+    
+    
+    
+    NSLog(@"GOT HERE 1");
+    
+    
     static NSString *CellIdentifier = @"BookCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                                                            //forIndexPath:indexPath];
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
-        NSDictionary *book = [_filteredBookArray objectAtIndex:indexPath.row];
-        
-        NSString* title = [book objectForKey:@"title"];
-        NSString* author = [book objectForKey:@"author"];
-        NSNumber* edition = [book objectForKey:@"edition"];
-        NSNumber* ISBN = [book objectForKey:@"ISBN"];
-        NSString* binding = [book objectForKey:@"binding"];
-        
-        //cell.textLabel.text = bookListing.data.title;
-        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
-        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
-        //cell.imageView.image = bookListing.thumbImage;
-    
-    } else {
-        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
-        NSDictionary *book = [_books objectAtIndex:indexPath.row];
-        
-        NSString* title = [book objectForKey:@"title"];
-        NSString* author = [book objectForKey:@"author"];
-        NSNumber* edition = [book objectForKey:@"edition"];
-        NSNumber* ISBN = [book objectForKey:@"ISBN"];
-        NSString* binding = [book objectForKey:@"binding"];
-        
-        //cell.textLabel.text = bookListing.data.title;
-        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
-        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
-        //cell.imageView.image = bookListing.thumbImage;
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    // Configure the cell...
+    NSDictionary *dToAccess = (self.tableView==tableView)?[self.books objectAtIndex:indexPath.row] : [self.filteredBookArray objectAtIndex:indexPath.row];
+    //[(UILabel*)[cell viewWithTag:1] setText:[dToAccess valueForKey:@"name"]];
+    //[(UILabel*)[cell viewWithTag:2] setText:[dToAccess valueForKey:@"value"]];
+    
+    NSString* title = [dToAccess objectForKey:@"title"];
+    NSString* author = [dToAccess objectForKey:@"author"];
+    NSNumber* edition = [dToAccess objectForKey:@"edition"];
+    NSNumber* ISBN = [dToAccess objectForKey:@"ISBN"];
+    NSString* binding = [dToAccess objectForKey:@"binding"];
+    
+    cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
+    
+    NSLog(@"GOT HERE 2");
     
     return cell;
+}
+    
+    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
@@ -185,14 +227,14 @@
  */
 
 #pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText
-                            scope:(NSString*)scope {
+-(void)filterContentForSearchText:(NSString*)searchText {
+                            //scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
     
     NSLog(@"GOT HERE");
     
-    [self.filteredBookArray removeAllObjects];
+    //[self.filteredBookArray removeAllObjects];
     
 //    // Filter the array using NSPredicate
 //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
@@ -201,6 +243,7 @@
     NSData* data = [NSData dataWithContentsOfURL:
                     [NSURL URLWithString:
                      [NSString stringWithFormat: @"http://www.claremontbooks.com/search.php?target=%@&show=json", searchText]]];
+                     //@"http://www.claremontbooks.com/books.php?show=json"]];
     
     //parse out the json data
     NSError* error;
@@ -210,10 +253,41 @@
                           options:kNilOptions
                           error:&error];
     
+    //NSLog([NSString stringWithFormat: @"%@",json]);
+    
     _filteredBookArray = [json objectForKey:@"books"]; //2
     //NSLog([NSString stringWithFormat: @"%@", _filteredBookArray]);
+    
+    
+    
+    
+    
+    
+//    // for inCaseSensitive search
+//    str = [str uppercaseString];
+//    
+//    NSMutableArray *ar=[NSMutableArray array];
+//    for (NSDictionary *d in self.arForTable) {
+//        NSString *strOriginal = [d valueForKey:@"name"];
+//        // for inCaseSensitive search
+//        strOriginal = [strOriginal uppercaseString];
+//        
+//        if([strOriginal hasPrefix:str]) {
+//            [ar addObject:d];
+//        }
+//    }
+//    self.arForSearch=[NSArray arrayWithArray:ar];
+    
+    
 }
 
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
 
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBBookCell.h"
 
 @interface CMBBookListingsViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 

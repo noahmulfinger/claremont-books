@@ -112,28 +112,28 @@
                 NSLog(@"%d",success);
                 if(success == 1)
                 {
-                    NSLog(@"Login SUCCESS");
-                    [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
+                    NSLog(@"Upload SUCCESS");
+                    //[self alertStatus:@"Uploaded Successfully." :@"Upload Success!"];
                     
                     
                     // Navigate
-                    //[self.navigationController popViewControllerAnimated:YES];
+                    [self.navigationController popViewControllerAnimated:YES];
                     
                 } else {
                     
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
-                    [self alertStatus:error_msg :@"Login Failed!"];
+                    [self alertStatus:error_msg :@"Book Listing Failed to Upload!"];
                 }
                 
             } else {
                 if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Connection Failed" :@"Login Failed!"];
+                [self alertStatus:@"Connection Failed" :@"Upload Failed!"];
             }
         }
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Login Failed." :@"Login Failed!"];
+        [self alertStatus:@"Upload Failed." :@"Upload Failed!"];
     }
 
  
