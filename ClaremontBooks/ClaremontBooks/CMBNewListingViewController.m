@@ -30,14 +30,14 @@
 	// Do any additional setup after loading the view.
     
     // Get info from www.claremontbooks.com
-    dispatch_async(dispatch_get_global_queue(
-                                             DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL:
-                        [NSURL URLWithString:
-                         @"http://api.kivaws.org/v1/loans/search.json?status=fundraising"]];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
-    });
+//    dispatch_async(dispatch_get_global_queue(
+//                                             DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSData* data = [NSData dataWithContentsOfURL:
+//                        [NSURL URLWithString:
+//                         @"http://api.kivaws.org/v1/loans/search.json?status=fundraising"]];
+//        [self performSelectorOnMainThread:@selector(fetchedData:)
+//                               withObject:data waitUntilDone:YES];
+//    });
     
 }
 

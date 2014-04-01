@@ -1,15 +1,17 @@
 <?php
 
-include('includes/functions.php');
 
 header('Content-type: application/json');
 
+<<<<<<< HEAD
 session_start();
 
 $api = new Users;
 
 
 
+=======
+>>>>>>> parent of c4dddc9... fixed json login file
 if($_POST) {
 	if(isset($_POST['uemail'])) {
 		if(isset($_POST['password'])) {

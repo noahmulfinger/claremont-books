@@ -20,7 +20,6 @@
 		83025AD118B97EE600EB482E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83025ACF18B97EE600EB482E /* InfoPlist.strings */; };
 		83025AD318B97EE600EB482E /* ClaremontBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AD218B97EE600EB482E /* ClaremontBooksTests.m */; };
 		83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */; };
-		83025AE018B9804700EB482E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83025ADF18B9804700EB482E /* Main.storyboard */; };
 		83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */; };
 		83025AEF18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AEE18BC124A00EB482E /* TPKeyboardAvoidingScrollView.m */; };
 		83025AF218BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025AF118BC12ED00EB482E /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -33,6 +32,7 @@
 		83025B0C18C57F8400EB482E /* CMBBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0B18C57F8400EB482E /* CMBBookCell.m */; };
 		83025B1018C58D0F00EB482E /* CMBListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0F18C58D0F00EB482E /* CMBListingCell.m */; };
 		83721A2B18CEC887002804CD /* CMBLoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */; };
+		83A663DD18EA520500AF3F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A663DC18EA520500AF3F6D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		83025AD218B97EE600EB482E /* ClaremontBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaremontBooksTests.m; sourceTree = "<group>"; };
 		83025ADC18B9800100EB482E /* CMBMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBMainScreenViewController.h; sourceTree = "<group>"; };
 		83025ADD18B9800100EB482E /* CMBMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBMainScreenViewController.m; sourceTree = "<group>"; };
-		83025ADF18B9804700EB482E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		83025AE418B9863500EB482E /* CMBNewBookEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBNewBookEntryViewController.h; sourceTree = "<group>"; };
 		83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBNewBookEntryViewController.m; sourceTree = "<group>"; };
 		83025AED18BC124A00EB482E /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = ../TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		83025B0F18C58D0F00EB482E /* CMBListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingCell.m; sourceTree = "<group>"; };
 		83721A2918CEC887002804CD /* CMBLoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBLoginScreenViewController.h; sourceTree = "<group>"; };
 		83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBLoginScreenViewController.m; sourceTree = "<group>"; };
+		83A663DC18EA520500AF3F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +148,9 @@
 		83025AB318B97EE500EB482E /* ClaremontBooks */ = {
 			isa = PBXGroup;
 			children = (
+				83A663DC18EA520500AF3F6D /* Main.storyboard */,
 				83025AF318BC144600EB482E /* KeyboardAvoidingScrollView */,
 				83025AF418BC147200EB482E /* View Controllers */,
-				83025ADF18B9804700EB482E /* Main.storyboard */,
 				83025ABC18B97EE500EB482E /* CMBAppDelegate.h */,
 				83025ABD18B97EE500EB482E /* CMBAppDelegate.m */,
 				83025ABF18B97EE500EB482E /* Images.xcassets */,
@@ -312,7 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83025AE018B9804700EB482E /* Main.storyboard in Resources */,
+				83A663DD18EA520500AF3F6D /* Main.storyboard in Resources */,
 				83025AB818B97EE500EB482E /* InfoPlist.strings in Resources */,
 				83025AC018B97EE500EB482E /* Images.xcassets in Resources */,
 			);
