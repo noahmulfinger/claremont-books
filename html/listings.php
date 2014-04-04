@@ -38,7 +38,7 @@ $api = new Listings;
 
 <body>
 <h3> Current Listings </h3>
-<?php $api->listAllListings(); ?>
+<?php $api->listAllListings($_SESSION['user']); ?>
 
 </body>
 </html>
