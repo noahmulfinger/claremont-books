@@ -15,7 +15,7 @@ include 'includes/functions.php';
 $api = new Books;
 
 if($_POST) {
-	if(isset($_POST['bookTitle'] && isset($_POST['bookAuthor'] && isset($_POST['bookISBN'] && isset($_POST['bookEdition'] && isset($_POST['bookBinding'])) {
+	if(isset($_POST['bookTitle']) && isset($_POST['bookAuthor']) && isset($_POST['bookISBN']) && isset($_POST['bookEdition']) && isset($_POST['bookBinding'])) {
 		$title = $_POST['bookTitle'];
 		$author = $_POST['bookAuthor'];
 		$isbn = $_POST['bookISBN'];
@@ -24,8 +24,13 @@ if($_POST) {
 		//$password = $_POST['password'];
 		$api->insertBooksWeb($title, $author, $isbn, $edition, $binding);
 
-		exit;
+		echo '{"success":1}';
+
+	} else {
+		echo '{"success":0,"error_message":"One or more entries was not set correctly."}';
 	}
+} else {
+	echo '{"success":0,"error_message":"This page was not accessed via posting."}';
 }
 
 // This is the first thing that gets called when this page is loaded

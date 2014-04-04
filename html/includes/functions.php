@@ -217,9 +217,10 @@ class Listings {
     }
 
 	// Main method to list listings
-    function listAllListings() {
+    function listAllListings($userid) {
         // Print all books in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (L.bookid = B.bookid AND L.sellerid = U.uid) ORDER BY listid');
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.uid FROM Listings L INNER JOIN Book B INNER JOIN Users U ON L.sellerid = ? /*ORDER BY L.listid*/');
+        $stmt->bind_param("i", $userid);
         $stmt->execute();
         $stmt->bind_result($listid, $title, $author, $edition, $price, $sellername);
         $stmt->store_result(); // store result set into buffer
@@ -229,6 +230,8 @@ class Listings {
 			echo "No active listings!";
 		else
 		{
+
+            echo $userid;
 			// Print table header
 			echo '<table class="listinglistings"><tr><th>List ID</th><th>Title</th><th>Author</th><th>Edition</th><th>Price</th><th>Seller Name</th><th>Modify?</th></tr>';
 	        
@@ -237,7 +240,7 @@ class Listings {
 		        echo "<tr>";
 				echo "<td>$listid</td>";
 				echo "<td>$title</td>";
-				echo "<td>$author</td>";
+                echo "<td>$author</td>";
 				echo "<td>$edition</td>";
 				echo "<td>$price</td>";
 				echo "<td>$sellername</td>";
