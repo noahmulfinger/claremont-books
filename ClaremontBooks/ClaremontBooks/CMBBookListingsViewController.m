@@ -97,45 +97,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *CellIdentifier = @"BookCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    if (tableView == self.searchDisplayController.searchResultsTableView) {
-//        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
-//        NSDictionary *book = [_filteredBookArray objectAtIndex:indexPath.row];
-//        
-//        NSString* title = [book objectForKey:@"title"];
-//        NSString* author = [book objectForKey:@"author"];
-//        NSNumber* edition = [book objectForKey:@"edition"];
-//        NSNumber* ISBN = [book objectForKey:@"ISBN"];
-//        NSString* binding = [book objectForKey:@"binding"];
-//        
-//        //cell.textLabel.text = bookListing.data.title;
-//        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
-//        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
-//        //cell.imageView.image = bookListing.thumbImage;
-//    
-//    } else {
-//        //CMBBookObj *bookListing = [self.books objectAtIndex:indexPath.row];
-//        NSDictionary *book = [_books objectAtIndex:indexPath.row];
-//        
-//        NSString* title = [book objectForKey:@"title"];
-//        NSString* author = [book objectForKey:@"author"];
-//        NSNumber* edition = [book objectForKey:@"edition"];
-//        NSNumber* ISBN = [book objectForKey:@"ISBN"];
-//        NSString* binding = [book objectForKey:@"binding"];
-//        
-//        //cell.textLabel.text = bookListing.data.title;
-//        cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
-//        cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
-//        //cell.imageView.image = bookListing.thumbImage;
-//    }
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-    
-    
     static NSString *CellIdentifier = @"BookCell";
     CMBBookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                                                         //forIndexPath:indexPath];
@@ -145,13 +106,7 @@
         
     }
     
-//    if (cell == nil) {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:@"Main" owner:self options:nil] objectAtIndex:0];
-//    }
-    
     NSDictionary *dToAccess = (self.tableView==tableView)?[self.books objectAtIndex:indexPath.row] : [self.filteredBookArray objectAtIndex:indexPath.row];
-    //[(UILabel*)[cell viewWithTag:1] setText:[dToAccess valueForKey:@"name"]];
-    //[(UILabel*)[cell viewWithTag:2] setText:[dToAccess valueForKey:@"value"]];
     
     NSString* title = [dToAccess objectForKey:@"title"];
     NSString* author = [dToAccess objectForKey:@"author"];
@@ -225,15 +180,11 @@
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText {
                             //scope:(NSString*)scope {
+    
     // Update the filtered array based on the search text and scope.
-    // Remove all objects from the filtered search array
     
-    //[self.filteredBookArray removeAllObjects];
     
-//    // Filter the array using NSPredicate
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-//    _filteredBookArray = [NSMutableArray arrayWithArray:[_books filteredArrayUsingPredicate:predicate]];
-    
+    // replace special characters
     NSString* fixedFormatting = searchText;
     
     fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -265,27 +216,6 @@
     
     _filteredBookArray = [json objectForKey:@"books"]; //2
     //NSLog([NSString stringWithFormat: @"%@", _filteredBookArray]);
-    
-    
-    
-    
-    
-    
-//    // for inCaseSensitive search
-//    str = [str uppercaseString];
-//    
-//    NSMutableArray *ar=[NSMutableArray array];
-//    for (NSDictionary *d in self.arForTable) {
-//        NSString *strOriginal = [d valueForKey:@"name"];
-//        // for inCaseSensitive search
-//        strOriginal = [strOriginal uppercaseString];
-//        
-//        if([strOriginal hasPrefix:str]) {
-//            [ar addObject:d];
-//        }
-//    }
-//    self.arForSearch=[NSArray arrayWithArray:ar];
-    
     
 }
 

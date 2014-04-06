@@ -10,4 +10,6 @@
 
 @interface CMBMainScreenViewController : UIViewController
 
+@property IBOutlet UISearchBar *bookSearchBar;
+
 @end
