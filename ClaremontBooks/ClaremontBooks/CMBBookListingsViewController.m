@@ -136,20 +136,18 @@
 //    return cell;
     
     
-    
-    
-    
-    
-    NSLog(@"GOT HERE 1");
-    
-    
     static NSString *CellIdentifier = @"BookCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-                                                            //forIndexPath:indexPath];
+    CMBBookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                                                        //forIndexPath:indexPath];
     
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"CCell" owner:self options:nil] objectAtIndex:0];
+    if (cell==nil) {
+        cell = [[CMBBookCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
     }
+    
+//    if (cell == nil) {
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"Main" owner:self options:nil] objectAtIndex:0];
+//    }
     
     NSDictionary *dToAccess = (self.tableView==tableView)?[self.books objectAtIndex:indexPath.row] : [self.filteredBookArray objectAtIndex:indexPath.row];
     //[(UILabel*)[cell viewWithTag:1] setText:[dToAccess valueForKey:@"name"]];
@@ -163,8 +161,6 @@
     
     cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
     cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
-    
-    NSLog(@"GOT HERE 2");
     
     return cell;
 }
@@ -240,9 +236,15 @@
 //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
 //    _filteredBookArray = [NSMutableArray arrayWithArray:[_books filteredArrayUsingPredicate:predicate]];
     
+    NSString* fixedSpaces = searchText;
+    
+    fixedSpaces = [fixedSpaces stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSString* basic = @"ti";
+    
     NSData* data = [NSData dataWithContentsOfURL:
                     [NSURL URLWithString:
-                     [NSString stringWithFormat: @"http://www.claremontbooks.com/search.php?target=%@&show=json", searchText]]];
+                     [NSString stringWithFormat: @"http://www.claremontbooks.com/search.php?target=%@&show=json", basic]]];
                      //@"http://www.claremontbooks.com/books.php?show=json"]];
     
     //parse out the json data
