@@ -18,7 +18,7 @@ if($_POST) {
         //userid posted so show user's books
          $api->listUserListings($_POST['userid'], 1);
 
-    } else {
+    } else if (isset($_POST['all'] {
         //no values posted, so show all listings.
          $api->listAllListings(1);
     }
