@@ -3,6 +3,7 @@
 
 header('Content-type: application/json');
 
+include 'includes/functions.php';
 
 session_start();
 
