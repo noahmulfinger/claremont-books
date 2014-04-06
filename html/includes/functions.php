@@ -217,16 +217,30 @@ class Listings {
     }
 
 	// Main method to list listings
-    function listAllListings($userid) {
+    function listAllListings() {
         // Print all books in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.uid FROM Listings L INNER JOIN Book B INNER JOIN Users U ON L.sellerid = ? /*ORDER BY L.listid*/');
-        $stmt->bind_param("i", $userid);
-        $stmt->execute();
-        $stmt->bind_result($listid, $title, $author, $edition, $price, $sellername);
-        $stmt->store_result(); // store result set into buffer
+        $listings = $this->db->prepare('SELECT listid, price, sellerid, bookid FROM Listings ORDER BY listid');
+        //$stmt1->bind_param("i", $userid);
+        $listings->execute();
+        $listings->bind_result($listid, $price, $sellerid, $bookid);
+        $listings->store_result(); // store result set into buffer
         
+        $books = $this->db->prepare('SELECT title, author, edition FROM Book WHERE bookid = ?');
+        $stmt1->bind_param("i", $bookid);
+        $books->execute();
+        $books->bind_result($title, $author, $edition);
+        $books->store_result(); // store result set into buffer
+        
+        $user = $this->db->prepare('SELECT name, uid FROM Users WHERE uid = ?');
+        $user->bind_param("i", $sellerid);
+        $user->execute();
+        $user->bind_result($sellername, $sellerid);
+        $user->store_result(); // store result set into buffer
+        
+
+
 		// Loop through the associative array and output all results.
-		if ($stmt->num_rows == 0) 
+		if ($listings->num_rows == 0) 
 			echo "No active listings!";
 		else
 		{
@@ -236,7 +250,7 @@ class Listings {
 			echo '<table class="listinglistings"><tr><th>List ID</th><th>Title</th><th>Author</th><th>Edition</th><th>Price</th><th>Seller Name</th><th>Modify?</th></tr>';
 	        
 			// Print table data
-	        while ($stmt->fetch()) {
+	        while ($listings->fetch() && $books->fetch()) {
 		        echo "<tr>";
 				echo "<td>$listid</td>";
 				echo "<td>$title</td>";
@@ -251,7 +265,9 @@ class Listings {
 	        // Close table
         	echo '</table>';
     	}
-        $stmt->close();
+        $listings->close();
+        $books->close();
+        $user->close();
     }
 } // End Listings class
 
