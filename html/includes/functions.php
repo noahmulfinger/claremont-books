@@ -76,6 +76,15 @@ class Books {
                 echo "<form action=\"delete.php\" method=\"post\">
                 <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
                 <input type=\"submit\" name=\"submit\" value=\"Delete!\" />
+                </form>";
+                echo "<form action=\"addListing.php\" method=\"post\">
+                <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
+                <input type=\"hidden\" name=\"title\" value=\"$title\" />
+                <input type=\"hidden\" name=\"author\" value=\"$author\" />
+                <input type=\"hidden\" name=\"isbn\" value=\"$isbn\" />
+                <input type=\"hidden\" name=\"edition\" value=\"$edition\" />
+                <input type=\"hidden\" name=\"binding\" value=\"$binding\" />
+                <input type=\"submit\" name=\"add\" value=\"Add Listing!\" />
                 </form></td>";
 //				echo "<td><a href=\"modify.php?bookid=$bookid\">Edit</a>&nbsp<a href=\"delete.php?bookid=$bookid\">Delete</a></td>";
 				echo "</tr>";
@@ -216,79 +225,112 @@ class Listings {
         $this->db->close();
     }
 
-	// Main method to list listings
-    function listAllListings() {
-        // Print all books in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.uid FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid) ORDER BY L.listid');
-        //$stmt->bind_param("i", $userid);
+    function addListing($bookid, $quantity, $price, $userid) {
+        $stmt = $this->db->prepare('INSERT INTO Listings (bookid, quantity, price, sellerid) VALUES (?, ?, ?, ?)');
+        // Replaces the ? above with the variables passed in, i = integer, s = string
+        $stmt->bind_param("iiii", $bookid, $quantity, $price, $userid);
         $stmt->execute();
-        $stmt->bind_result($listid, $title, $author, $edition, $price, $sellername);
-        $stmt->store_result(); // store result set into buffer
-        
-		// Loop through the associative array and output all results.
-		if ($stmt->num_rows == 0) 
-			echo "No active listings!";
-		else
-		{
 
-            echo $userid;
-			// Print table header
-			echo '<table class="listinglistings"><tr><th>List ID</th><th>Title</th><th>Author</th><th>Edition</th><th>Price</th><th>Seller Name</th><th>Modify?</th></tr>';
-	        
-			// Print table data
-	        while ($stmt->fetch()) {
-		        echo "<tr>";
-				echo "<td>$listid</td>";
-				echo "<td>$title</td>";
-                echo "<td>$author</td>";
-				echo "<td>$edition</td>";
-				echo "<td>$price</td>";
-				echo "<td>$sellername</td>";
-				echo "<td><a href=\"modify.php?bookid=$bookid\"> Edit</a>&nbsp<a href=\"delete.php?bookid=$bookid\">Delete</a></td>";
-				echo "</tr>";
-	        }
-
-	        // Close table
-        	echo '</table>';
-    	}
         $stmt->close();
     }
 
-    function listUsersListings($userid) {
-        // Print all books in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.uid FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND U.uid = ?) ORDER BY L.listid');
-        $stmt->bind_param("i", $userid);
+    // Delete a listing
+    function deleteListing($listid) {
+        // Prepare delete statement
+        $stmt = $this->db->prepare('DELETE FROM Listings WHERE listid = ?');
+        $stmt->bind_param("i", $listid);
         $stmt->execute();
-        $stmt->bind_result($listid, $title, $author, $edition, $price, $sellername);
-        $stmt->store_result(); // store result set into buffer
-        
-        // Loop through the associative array and output all results.
-        if ($stmt->num_rows == 0) 
-            echo "No active listings!";
-        else
-        {
 
-            echo $userid;
-            // Print table header
-            echo '<table class="listinglistings"><tr><th>List ID</th><th>Title</th><th>Author</th><th>Edition</th><th>Price</th><th>Seller Name</th><th>Modify?</th></tr>';
-            
-            // Print table data
-            while ($stmt->fetch()) {
-                echo "<tr>";
-                echo "<td>$listid</td>";
-                echo "<td>$title</td>";
-                echo "<td>$author</td>";
-                echo "<td>$edition</td>";
-                echo "<td>$price</td>";
-                echo "<td>$sellername</td>";
-                echo "<td><a href=\"modify.php?bookid=$bookid\"> Edit</a>&nbsp<a href=\"delete.php?bookid=$bookid\">Delete</a></td>";
-                echo "</tr>";
-            }
-
-            // Close table
-            echo '</table>';
-        }
         $stmt->close();
+    }
+	// Main method to list all listings
+    function listAllListings($json) {
+        // Print all listings in database
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid) ORDER BY L.listid');
+        
+        //send listings to be displayed on web or sent to app
+		$this->outputListings($stmt, $json);
+
+        $stmt->close();
+    }
+
+    //function that lists listings based on current user
+    function listUsersListings($userid, $json) {
+        // Access listing information for current user's listings in database
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND U.uid = ?) ORDER BY L.listid');
+        $stmt->bind_param("i", $userid);
+        
+        //send listings to be displayed on web or sent to app
+        $this->outputListings($stmt, $json);
+
+        $stmt->close();
+    }
+
+     //function that lists listings based on current user
+    function listBookListings($bookid, $json) {
+        // Access listing information for current user's listings in database
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND B.bookid = ?) ORDER BY L.listid');
+        $stmt->bind_param("i", $bookid);
+        
+        //send listings to be displayed on web or sent to app
+        $this->outputListings($stmt, $json);
+
+        $stmt->close();
+    }
+
+    function outputListings($stmt, $json) {
+
+        $stmt->execute();
+        $stmt->bind_result($listid, $title, $author, $edition, $price, $sellerName);
+        $stmt->store_result(); // store result set into buffer
+         //check if accessed by website or app
+        if ($json == 1) {
+
+            $outerArray = array();
+
+            // Loop through each statement to grab columns and data
+                while ($stmt->fetch()) {
+                    $loopArray = array('listid' => $listid, 'title' => $title, 'author' => $author, 'edition' => $edition, 'price' => $price, 'sellername' => $sellerName);
+                    array_push($outerArray, $loopArray);
+                }
+
+                $returnArray = array("listings" => $outerArray);
+
+                echo json_encode($returnArray);
+                exit;
+
+        } else {
+            // Loop through the associative array and output all results.
+            if ($stmt->num_rows == 0) {
+                echo "No active listings!";
+
+            } else {
+                // Print table header
+                echo '<table class="listinglistings"><tr><th>List ID</th><th>Title</th><th>Author</th><th>Edition</th><th>Price</th><th>Seller Name</th><th>Modify?</th></tr>';
+                
+                // Print table data
+                while ($stmt->fetch()) {
+                    echo "<tr>";
+                    echo "<td>$listid</td>";
+                    echo "<td>$title</td>";
+                    echo "<td>$author</td>";
+                    echo "<td>$edition</td>";
+                    echo "<td>$$price</td>"; //Extra $ for price, don't delete
+                    echo "<td>$sellerName</td>";
+                    echo "<td><form action=\"modifyListing.php\">
+                    <input type=\"hidden\" name=\"bookid\" value=\"$listid\" />
+                    <input type=\"submit\" name=\"submit\" value=\"Modify!\" />
+                    </form>";
+                    echo "<form action=\"deleteListing.php\" method=\"post\">
+                    <input type=\"hidden\" name=\"listid\" value=\"$listid\" />
+                    <input type=\"submit\" name=\"submit\" value=\"Delete!\" />
+                    </form></td>";
+                    echo "</tr>";
+                }
+                // Close table
+                echo '</table>';
+            }
+        }
     }
 
 

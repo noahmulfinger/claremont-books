@@ -23,7 +23,7 @@ if($_POST) {
         		//setcookie('uid', $user['uid'], time()+60*5, /, www.claremontbooks.com, true);
         		//setcookie('password', $user['password'], time()+60+5, /, www.claremontbooks.com, true);
 
-        		echo '{"success":1}';
+        		echo '{"success":1, "user_name": "'  . $user['name'] . '", "user_id": ' . $user['uid'] . '}';
                 
 			} else {
         		echo '{"success":0,"error_message":"Username and/or password is invalid."}';
