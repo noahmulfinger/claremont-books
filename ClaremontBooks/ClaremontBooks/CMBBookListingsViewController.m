@@ -228,24 +228,30 @@
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
     
-    NSLog(@"GOT HERE");
-    
     //[self.filteredBookArray removeAllObjects];
     
 //    // Filter the array using NSPredicate
 //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
 //    _filteredBookArray = [NSMutableArray arrayWithArray:[_books filteredArrayUsingPredicate:predicate]];
     
-    NSString* fixedSpaces = searchText;
+    NSString* fixedFormatting = searchText;
     
-    fixedSpaces = [fixedSpaces stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    NSString* basic = @"ti";
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"%" withString:@"%25"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"^" withString:@"%5E"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"{" withString:@"%7B"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"\\" withString:@"%5C"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"|" withString:@"%7C"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@">" withString:@"%7E"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"`" withString:@"%80"];
+    fixedFormatting = [fixedFormatting stringByReplacingOccurrencesOfString:@"$" withString:@"%24"];
     
     NSData* data = [NSData dataWithContentsOfURL:
                     [NSURL URLWithString:
-                     [NSString stringWithFormat: @"http://www.claremontbooks.com/search.php?target=%@&show=json", basic]]];
-                     //@"http://www.claremontbooks.com/books.php?show=json"]];
+                     [NSString stringWithFormat: @"http://www.claremontbooks.com/search.php?target=%@&show=json", fixedFormatting]]];
     
     //parse out the json data
     NSError* error;
