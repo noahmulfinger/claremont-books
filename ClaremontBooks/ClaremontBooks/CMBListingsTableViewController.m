@@ -29,11 +29,28 @@
     self.title = @"Listings";
     
     
-    // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
-    NSString *jsonString = @"{\"listings\":[{\"id\":23,\"price\":30.0,\"condition\":\"Fair\",\"Seller\":\"Mable\",\"email\":\"mable@hmc.edu\"},{\"id\":24,\"price\":35.0,\"condition\":\"Good\",\"Seller\":\"Bessie\",\"email\":\"bessie@hmc.edu\"}]}";
-    //NSLog(@"%@", jsonString);
-    NSError *error =  nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+//    // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
+//    NSString *jsonString = @"{\"listings\":[{\"id\":23,\"price\":30.0,\"condition\":\"Fair\",\"Seller\":\"Mable\",\"email\":\"mable@hmc.edu\"},{\"id\":24,\"price\":35.0,\"condition\":\"Good\",\"Seller\":\"Bessie\",\"email\":\"bessie@hmc.edu\"}]}";
+//    //NSLog(@"%@", jsonString);
+//    NSError *error =  nil;
+//    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    
+    
+    
+    
+    NSData* data = [NSData dataWithContentsOfURL:
+                    [NSURL URLWithString:
+                     @"http://www.claremontbooks.com/books.php?show=json"]];
+    
+    //parse out the json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data //1
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    _listings = [json objectForKey:@"listings"]; //2
     
     
     

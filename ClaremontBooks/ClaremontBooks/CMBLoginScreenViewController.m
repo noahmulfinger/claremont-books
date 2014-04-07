@@ -139,6 +139,8 @@
                 
                 NSLog(@"%@",jsonData);
                 NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
+                NSInteger userID = [(NSNumber *) [jsonData objectForKey:@"user_id"] integerValue];
+                
                 NSLog(@"%d",success);
                 if(success == 1)
                 {
