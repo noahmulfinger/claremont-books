@@ -147,6 +147,9 @@
                     NSLog(@"Login SUCCESS");
                     [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
                     
+                    // It might be a good idea to change how you read in username
+                    self.userName = self.username.text;
+                    self.userID = userID;
                     
                     // Navigate
                     [self performSegueWithIdentifier: @"segueToMain" sender: self];
@@ -166,6 +169,14 @@
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Login Failed." :@"Login Failed!"];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"segureToMain"]){
+        CMBMainScreenViewController *controller = (CMBMainScreenViewController *)segue.destinationViewController;
+        controller.userName = self.userName;
+        controller.userID = self.userID;
     }
 }
 

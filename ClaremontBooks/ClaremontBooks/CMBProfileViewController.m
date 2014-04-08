@@ -1,18 +1,18 @@
 //
-//  CMBMainScreenViewController.m
+//  CMBProfileViewController.m
 //  ClaremontBooks
 //
-//  Created by Chris on 2/22/14.
+//  Created by Chris on 4/8/14.
 //  Copyright (c) 2014 CS121. All rights reserved.
 //
 
-#import "CMBMainScreenViewController.h"
+#import "CMBProfileViewController.h"
 
-@interface CMBMainScreenViewController ()
+@interface CMBProfileViewController ()
 
 @end
 
-@implementation CMBMainScreenViewController
+@implementation CMBProfileViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    self.title = @"Claremont Books";
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,10 +36,12 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"mainToProfile"]){
-        CMBProfileViewController *controller = (CMBProfileViewController *)segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"profileToListings"]){
+        
+        CMBListingsTableViewController *controller = (CMBListingsTableViewController *)segue.destinationViewController;
         controller.userName = self.userName;
         controller.userID = self.userID;
+        controller.searchType = @"userid";
     }
 }
 

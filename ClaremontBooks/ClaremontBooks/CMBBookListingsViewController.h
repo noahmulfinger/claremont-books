@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBBookCell.h"
+#import "CMBBookViewController.h"
 
 @interface CMBBookListingsViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -15,5 +16,13 @@
 
 @property (strong) NSMutableArray *filteredBookArray;
 @property IBOutlet UISearchBar *bookSearchBar;
+
+@property (strong) NSString *bookTitleToSend;
+@property (strong) NSString *bookAuthorToSend;
+@property (strong) NSString *bookEditionToSend;
+@property (strong) NSString *bookISBNToSend;
+@property (strong) NSString *bookBindingToSend;
+@property NSInteger bookIDToSend;
+
 
 @end

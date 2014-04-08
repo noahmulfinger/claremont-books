@@ -35,27 +35,127 @@
 //    NSError *error =  nil;
 //    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
     
+//    NSInteger bookid = 1;
+//    
+//    
+//    NSData* data = [NSData dataWithContentsOfURL:
+//                    [NSURL URLWithString:
+//                     [NSString stringWithFormat: @"http://www.claremontbooks.com/listings.php?target=%ld&show=json", (long)bookid]]];
+//    
+//    //parse out the json data
+//    NSError* error;
+//    NSDictionary* json = [NSJSONSerialization
+//                          JSONObjectWithData:data //1
+//                          
+//                          options:kNilOptions
+//                          error:&error];
+//    
+//    _listings = [json objectForKey:@"listings"]; //2
     
     
     
-    NSData* data = [NSData dataWithContentsOfURL:
-                    [NSURL URLWithString:
-                     @"http://www.claremontbooks.com/books.php?show=json"]];
-    
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:data //1
-                          
-                          options:kNilOptions
-                          error:&error];
-    
-    _listings = [json objectForKey:@"listings"]; //2
     
     
+    @try {
+        NSString *post;
+        
+        if ([self.searchType isEqual:@"bookid"]) {
+            post = [[NSString alloc] initWithFormat:@"bookid=%ld&", (long) self.bookID];
+        } else if ([self.searchType isEqual:@"userid"]){
+            post = [[NSString alloc] initWithFormat:@"userid=%ld&", (long) self.userID];
+        }
+        
+//        NSString *post =[[NSString alloc] initWithFormat:@"bookid=%ld&", (long) self.bookID];
+        
+        NSLog(@"PostData: %@",post);
+        
+        NSURL *url=[NSURL URLWithString:@"http://www.claremontbooks.com/listingsMobile.php"];
+        
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        
+        //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        NSLog(@"Response code: %d", [response statusCode]);
+        if ([response statusCode] >=200 && [response statusCode] <300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            
+            //                NSData* data = [NSData dataWithContentsOfURL:
+            //                                [NSURL URLWithString:
+            //                                 @"http://www.claremontbooks.com/books.php?show=json"]];
+            //
+            
+            NSLog(@"Response ==> %@", responseData);
+            
+            //                SBJsonParser *jsonParser = [SBJsonParser new];
+            //                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
+            //                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
+            
+            NSDictionary* jsonData = [NSJSONSerialization
+                                      JSONObjectWithData:urlData
+                                      
+                                      options:kNilOptions
+                                      error:&error];
+            
+            _listings = [jsonData objectForKey:@"listings"];
+            
+            
+            NSLog(@"%@",jsonData);
+//                NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
+//                NSLog(@"%d",success);
+            
+            
+//                if(success == 1)
+//                {
+//                    NSLog(@"Upload SUCCESS");
+//                    //[self alertStatus:@"Uploaded Successfully." :@"Upload Success!"];
+//                    
+//                    
+//                    // Navigate
+//                    [self.navigationController popViewControllerAnimated:YES];
+//                    
+//                } else {
+//                    
+//                    NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
+//                    NSLog(@"Error: %@", error_msg);
+////                    [self alertStatus:error_msg :@"Book Listing Failed to Upload!"];
+//                }
+            
+            
+            
+        } else {
+            if (error) NSLog(@"Error: %@", error);
+//                [self alertStatus:@"Connection Failed" :@"Upload Failed!"];
+        }
+    }
+    
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+//        [self alertStatus:@"Upload Failed." :@"Upload Failed!"];
+    }
+
     
     
-    _listings = [json objectForKey:@"listings"];
+    
+    
+    
+    
+    
+    //_listings = [json objectForKey:@"listings"];
     
     
     [super viewDidLoad];
@@ -99,7 +199,7 @@
     
     NSNumber* price = [listing objectForKey:@"price"];
     NSString* condition = [listing objectForKey:@"condition"];
-    NSString* seller = [listing objectForKey:@"seller"];
+    NSString* seller = [listing objectForKey:@"sellername"];
     NSString* email = [listing objectForKey:@"email"];
     
     
@@ -111,9 +211,18 @@
     
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    CMBListingCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
+    self.bookTitleToSend = cell.title.text;
+    self.bookIDToSend = cell.bookID;
     
+    [self performSegueWithIdentifier:@"listingsToListing" sender:indexPath];
     
 }
 
@@ -167,5 +276,22 @@
 }
 
  */
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"listingsToListing"]){
+        CMBListingViewController *controller = (CMBListingViewController *)segue.destinationViewController;
+        controller.bookTitle.text = self.bookTitleToSend;
+        controller.author.text = self.authorToSend;
+        controller.edition.text = self.editionToSend;
+        controller.ISBN.text = self.ISBNToSend;
+        controller.binding.text = self.bindingToSend;
+        controller.condition.text = self.conditionToSend;
+        controller.price.text = self.priceToSend;
+        controller.status.text = self.statusToSend;
+        controller.seller.titleLabel.text = self.sellerToSend;
+        
+        controller.bookID = self.bookIDToSend;
+    }
+}
 
 @end

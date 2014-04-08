@@ -15,5 +15,6 @@
 @property (strong) IBOutlet UILabel *edition;
 @property (strong) IBOutlet UILabel *ISBN;
 @property (strong) IBOutlet UILabel *binding;
+@property NSInteger bookID;
 
 @end

@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBMainScreenViewController.h"
 
 @interface CMBLoginScreenViewController : UIViewController
 
 @property (strong) IBOutlet UITextField *username;
 @property (strong) IBOutlet UITextField *password;
+
+@property (strong) NSString *userName;
+@property NSInteger userID;
 
 @property (strong) IBOutlet UIButton *login;
 

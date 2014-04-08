@@ -15,9 +15,11 @@
 @property (strong) IBOutlet UILabel *edition;
 @property (strong) IBOutlet UILabel *ISBN;
 @property (strong) IBOutlet UILabel *binding;
-@property (strong) IBOutlet UILabel *condtion;
+@property (strong) IBOutlet UILabel *condition;
 @property (strong) IBOutlet UILabel *price;
 @property (strong) IBOutlet UILabel *status;
+
+@property NSInteger bookID;
 
 @property (strong) IBOutlet UIButton *seller;
 @property (strong) IBOutlet UIButton *email;

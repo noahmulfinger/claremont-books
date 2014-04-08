@@ -95,7 +95,7 @@
     return (tableView==self.tableView)?self.books.count:self.filteredBookArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CMBBookCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BookCell";
     CMBBookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -113,6 +113,14 @@
     NSNumber* edition = [dToAccess objectForKey:@"edition"];
     NSNumber* ISBN = [dToAccess objectForKey:@"ISBN"];
     NSString* binding = [dToAccess objectForKey:@"binding"];
+    NSNumber* bookID = [dToAccess objectForKey:@"bookid"];
+    
+    cell.title.text = title;
+    cell.author.text = author;
+    cell.edition.text = [NSString stringWithFormat:@"%ld", (long) [edition integerValue]];
+    cell.ISBN.text = [NSString stringWithFormat:@"%ld", (long) [ISBN integerValue]];
+    cell.binding.text = binding;
+    cell.bookID = [bookID integerValue];
     
     cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
     cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
@@ -124,6 +132,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    CMBBookCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    self.bookTitleToSend = cell.title.text;
+    self.bookAuthorToSend = cell.author.text;
+    self.bookEditionToSend = cell.edition.text;
+    self.bookISBNToSend = cell.ISBN.text;
+    self.bookBindingToSend = cell.binding.text;
+    self.bookIDToSend = cell.bookID;
+    
+    [self performSegueWithIdentifier:@"bookListToBookView" sender:indexPath];
 }
 
 /*
@@ -225,6 +244,20 @@
     
     // Return YES to cause the search result table view to be reloaded.
     return YES;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"bookListToBookView"]){
+        CMBBookViewController *controller = (CMBBookViewController *)segue.destinationViewController;
+        controller.bookName = self.bookTitleToSend;
+        controller.bookAuthor = self.bookAuthorToSend;
+        controller.bookEdition = self.bookEditionToSend;
+        controller.bookISBN = self.bookISBNToSend;
+        controller.bookBinding = self.bookBindingToSend;
+        controller.bookID = self.bookIDToSend;
+        
+//        controller.titleLabel.text = [NSString stringWithFormat:@"%@ (Ed. %@)", self.bookTitleToSend, self.bookEditionToSend];
+    }
 }
 
 

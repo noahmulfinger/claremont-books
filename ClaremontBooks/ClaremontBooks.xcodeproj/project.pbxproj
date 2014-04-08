@@ -31,8 +31,10 @@
 		83025B0918BC57C300EB482E /* CMBListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0818BC57C300EB482E /* CMBListingViewController.m */; };
 		83025B0C18C57F8400EB482E /* CMBBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0B18C57F8400EB482E /* CMBBookCell.m */; };
 		83025B1018C58D0F00EB482E /* CMBListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83025B0F18C58D0F00EB482E /* CMBListingCell.m */; };
+		8321252E18F384D30083784B /* CMBBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8321252D18F384D30083784B /* CMBBookViewController.m */; };
 		83721A2B18CEC887002804CD /* CMBLoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */; };
 		83A663DD18EA520500AF3F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A663DC18EA520500AF3F6D /* Main.storyboard */; };
+		83D2015618F3E16D002B0A0F /* CMBProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D2015518F3E16D002B0A0F /* CMBProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,9 +88,13 @@
 		83025B0B18C57F8400EB482E /* CMBBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBBookCell.m; sourceTree = "<group>"; };
 		83025B0E18C58D0F00EB482E /* CMBListingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBListingCell.h; sourceTree = "<group>"; };
 		83025B0F18C58D0F00EB482E /* CMBListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBListingCell.m; sourceTree = "<group>"; };
+		8321252C18F384D30083784B /* CMBBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBBookViewController.h; sourceTree = "<group>"; };
+		8321252D18F384D30083784B /* CMBBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBBookViewController.m; sourceTree = "<group>"; };
 		83721A2918CEC887002804CD /* CMBLoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBLoginScreenViewController.h; sourceTree = "<group>"; };
 		83721A2A18CEC887002804CD /* CMBLoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBLoginScreenViewController.m; sourceTree = "<group>"; };
 		83A663DC18EA520500AF3F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		83D2015418F3E16D002B0A0F /* CMBProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBProfileViewController.h; sourceTree = "<group>"; };
+		83D2015518F3E16D002B0A0F /* CMBProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,8 @@
 				83025B0D18C57F9200EB482E /* Cells */,
 				83025B0418BC53A600EB482E /* CMBBookListingsViewController.h */,
 				83025B0518BC53A600EB482E /* CMBBookListingsViewController.m */,
+				8321252C18F384D30083784B /* CMBBookViewController.h */,
+				8321252D18F384D30083784B /* CMBBookViewController.m */,
 				83025B0118BC505900EB482E /* CMBListingPreviewViewController.h */,
 				83025B0218BC505900EB482E /* CMBListingPreviewViewController.m */,
 				83025AF818BC270A00EB482E /* CMBListingsTableViewController.h */,
@@ -219,6 +227,8 @@
 				83025AE518B9863500EB482E /* CMBNewBookEntryViewController.m */,
 				83025AF518BC1C8900EB482E /* CMBNewListingViewController.h */,
 				83025AF618BC1C8900EB482E /* CMBNewListingViewController.m */,
+				83D2015418F3E16D002B0A0F /* CMBProfileViewController.h */,
+				83D2015518F3E16D002B0A0F /* CMBProfileViewController.m */,
 				83025AFE18BC436400EB482E /* CMBSettingsTableViewController.h */,
 				83025AFF18BC436400EB482E /* CMBSettingsTableViewController.m */,
 			);
@@ -335,6 +345,7 @@
 			files = (
 				83025ABA18B97EE500EB482E /* main.m in Sources */,
 				83025B0018BC436400EB482E /* CMBSettingsTableViewController.m in Sources */,
+				83D2015618F3E16D002B0A0F /* CMBProfileViewController.m in Sources */,
 				83025B0618BC53A600EB482E /* CMBBookListingsViewController.m in Sources */,
 				83025B0C18C57F8400EB482E /* CMBBookCell.m in Sources */,
 				83025ABE18B97EE500EB482E /* CMBAppDelegate.m in Sources */,
@@ -347,6 +358,7 @@
 				83721A2B18CEC887002804CD /* CMBLoginScreenViewController.m in Sources */,
 				83025AF718BC1C8900EB482E /* CMBNewListingViewController.m in Sources */,
 				83025AE618B9863500EB482E /* CMBNewBookEntryViewController.m in Sources */,
+				8321252E18F384D30083784B /* CMBBookViewController.m in Sources */,
 				83025ADE18B9800100EB482E /* CMBMainScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

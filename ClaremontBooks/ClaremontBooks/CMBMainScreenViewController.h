@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBProfileViewController.h"
 
 @interface CMBMainScreenViewController : UIViewController
 
 @property IBOutlet UISearchBar *bookSearchBar;
+
+@property (strong) NSString *userName;
+@property NSInteger userID;
 
 @end
