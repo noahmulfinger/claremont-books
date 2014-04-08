@@ -225,10 +225,10 @@ class Listings {
         $this->db->close();
     }
 
-    function addListing($bookid, $quantity, $price, $userid) {
-        $stmt = $this->db->prepare('INSERT INTO Listings (bookid, quantity, price, sellerid) VALUES (?, ?, ?, ?)');
+    function addListing($bookid, $price, $userid) {
+        $stmt = $this->db->prepare('INSERT INTO Listings (bookid, price, sellerid) VALUES (?, ?, ?)');
         // Replaces the ? above with the variables passed in, i = integer, s = string
-        $stmt->bind_param("iiii", $bookid, $quantity, $price, $userid);
+        $stmt->bind_param("iii", $bookid, $price, $userid);
         $stmt->execute();
 
         $stmt->close();
@@ -269,7 +269,7 @@ class Listings {
      //function that lists listings based on current user
     function listBookListings($bookid, $json) {
         // Access listing information for current user's listings in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND B.bookid = ?) ORDER BY L.listid');
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name  FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND B.bookid = ?) ORDER BY L.listid');
         $stmt->bind_param("i", $bookid);
         
         //send listings to be displayed on web or sent to app
@@ -318,7 +318,7 @@ class Listings {
                     echo "<td>$$price</td>"; //Extra $ for price, don't delete
                     echo "<td>$sellerName</td>";
                     echo "<td><form action=\"modifyListing.php\">
-                    <input type=\"hidden\" name=\"bookid\" value=\"$listid\" />
+                    <input type=\"hidden\" name=\"listid\" value=\"$listid\" />
                     <input type=\"submit\" name=\"submit\" value=\"Modify!\" />
                     </form>";
                     echo "<form action=\"deleteListing.php\" method=\"post\">

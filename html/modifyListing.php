@@ -23,6 +23,7 @@ $author = $_POST['author'];
 $isbn = $_POST['isbn'];
 $edition = $_POST['edition'];
 $binding = $_POST['binding'];
+$price = $_POST['price'];
 
 ?>
 
@@ -33,7 +34,7 @@ $binding = $_POST['binding'];
 	<p>Edition: <?php echo $edition; ?> </p>
 	<p>Binding: <?php echo $binding; ?> </p>
 	<form action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
-		Price: <input type="text" name="price" /><br />
+		Price: <input type="text" name="price" value="<?php echo $price ?>"/><br />
 		<input type="hidden" name="bookid" value="<?php echo $bookid; ?>" />
 		<input type="submit" name="submit" value="Add Listing!" />
 	</form>

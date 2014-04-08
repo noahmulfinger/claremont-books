@@ -17,13 +17,12 @@ session_start();
 $api = new Listings;
 
 if($_POST) {
-	if(isset($_POST['bookid']) && isset($_POST['quantity']) && isset($_POST['price']) && isset($_POST['userid'])) {
+	if(isset($_POST['bookid']) && isset($_POST['price']) && isset($_POST['userid'])) {
 		$bookid = $_POST['bookid'];
-		$quantity = $_POST['quanity'];
 		$price = $_POST['price'];
 		$userid = $_POST['userid']
 
-		$api->addListing($bookid, $quantity, $price, $userid);
+		$api->addListing($bookid, $price, $userid);
 
 		echo '{"success":1}';
 
