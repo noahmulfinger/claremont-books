@@ -25,14 +25,9 @@ $bookid = $_POST['bookid'];
 	//echo "goes here";
 //} else {
 
+$api = new Books;
 
-
-
-echo "something";
-
-	$api = new Books;
-
-	$api->getBookByID($bookid, $title, $author, $isbn, $edition, $binding);
+$api->getBookByID($bookid, $title, $author, $isbn, $edition, $binding);
 
 ?>
 
