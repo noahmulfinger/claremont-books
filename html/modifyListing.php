@@ -16,40 +16,38 @@ session_start();
 // Creates a new instance of the Listings class
 $api = new Listings;
 
-// Grab bookid variable from URL
-$bookid = $_POST['bookid'];
-$title = $_POST['title'];
-$author = $_POST['author'];
-$isbn = $_POST['isbn'];
-$edition = $_POST['edition'];
-$binding = $_POST['binding'];
-$price = $_POST['price'];
+//get listid variable
+$listid = $_POST['listid'];
+
+$api->getBookByListID($listid, $price, $bookid, $title, $author, $isbn, $edition, $binding);
 
 ?>
 
-<h3> Adding Listing </h3>
-	<p>Title: <?php echo $title; ?> </p>
-	<p>Author: <?php echo $author; ?> </p>
-	<p>ISBN: <?php echo $isbn; ?> </p>
-	<p>Edition: <?php echo $edition; ?> </p>
-	<p>Binding: <?php echo $binding; ?> </p>
-	<form action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
-		Price: <input type="text" name="price" value="<?php echo $price ?>"/><br />
-		<input type="hidden" name="bookid" value="<?php echo $bookid; ?>" />
-		<input type="submit" name="submit" value="Add Listing!" />
-	</form>
+	<h3>Modifying Listing Data</h3>
+		<p>Title: <?php echo $title; ?> </p>
+		<p>Author: <?php echo $author; ?> </p>
+		<p>ISBN: <?php echo $isbn; ?> </p>
+		<p>Edition: <?php echo $edition; ?> </p>
+		<p>Binding: <?php echo $binding; ?> </p>
+		<form action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
+			Price: <input type="text" name="listPrice" value="<?php echo $price ?>"/><br />
+			<input type="hidden" name="listid" value="<?php echo $listid; ?>" />
+			<input type="submit" name="modify" value="Modify Listing!" />
+		</form>
 
 <?php
-//check if submit was pressed
-if(isset($_POST['submit'])) {
-	//make sure fields are not empty
-	if (isset($_POST['price'])) {
-		//add the listing, the current user will be set as the seller
-		$api->addListing($bookid, $_POST['price'], $_SESSION['user']);
-		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/listings.php".'">';
+
+	//check if submit was pressed
+	if(isset($_POST['modify'])) {
+		//make sure fields are not empty
+		if (isset($_POST['listPrice'])) {
+			//add the listing, the current user will be set as the seller
+			$api->modifyListing($_POST['listid'], $_POST['listPrice']);
+			echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/listings.php".'">';
+		}
+
+		exit;
 	}
 
-	exit;
-}
 
 ?>

@@ -15,14 +15,17 @@ session_start();
 // This is the first thing that gets called when this page is loaded
 // Creates a new instance of the Listings class
 $api = new Listings;
+$book = new Books;
 
 // Grab bookid variable from URL
 $bookid = $_POST['bookid'];
-$title = $_POST['title'];
-$author = $_POST['author'];
-$isbn = $_POST['isbn'];
-$edition = $_POST['edition'];
-$binding = $_POST['binding'];
+// $title = $_POST['title'];
+// $author = $_POST['author'];
+// $isbn = $_POST['isbn'];
+// $edition = $_POST['edition'];
+// $binding = $_POST['binding'];
+
+$book->getBookbyID($bookid, $title, $author, $isbn, $edition, $binding)
 
 ?>
 

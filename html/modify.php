@@ -15,10 +15,10 @@ include 'includes/functions.php';
 
 // This is the first thing that gets called when this page is loaded
 // Creates a new instance of the Books class
-	$api = new Books;
 
-// Grab bookid variable from URL
-	$bookid = $_GET['bookid'];
+
+// get bookid variable
+$bookid = $_POST['bookid'];
 
 //if($bookid == NULL) {
 //	header("Location: books.php");
@@ -26,9 +26,15 @@ include 'includes/functions.php';
 //} else {
 
 
-	$api->grabCurrentBook($bookid, $title, $author, $isbn, $edition, $binding);
 
-	?>
+
+echo "something";
+
+	$api = new Books;
+
+	$api->getBookByID($bookid, $title, $author, $isbn, $edition, $binding);
+
+?>
 
 	<h3> Modifying Book Data </h3>
 	<form action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
@@ -40,20 +46,18 @@ include 'includes/functions.php';
 		<br />
 
 		<input type="hidden" name="bookid" value="<?php echo $bookid; ?>" />
-		<input type="submit" name="submit" value="Modify!" />
+		<input type="submit" name="modify" value="Modify!" />
 	</form>
 
 <?php
 
 
-	if(isset($_POST['submit'])) {
-		$api->modifyBook($_POST[bookid], $_POST[bookTitle], $_POST[bookAuthor], $_POST[bookISBN], $_POST[bookEdition], $_POST[bookBinding]);
+	if(isset($_POST['modify'])) {
+		$api->modifyBook($_POST['bookid'], $_POST['bookTitle'], $_POST['bookAuthor'], $_POST['bookISBN'], $_POST['bookEdition'], $_POST['bookBinding']);
 		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '."URL=http://www.claremontbooks.com/books.php".'">';
 
 		exit;
 	}
-//}
-
 
 ?>
 

@@ -69,8 +69,9 @@ class Books {
 				echo "<td>$isbn</td>";
 				echo "<td>$edition</td>";
 				echo "<td>$binding</td>";
-                echo "<td><form action=\"modify.php?bookid=$bookid\">
+                echo "<td><form action=\"modify.php\" method=\"post\">
                 <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
+                <input type=\"hidden\" name=\"listing\" value=\"0\" />
                 <input type=\"submit\" name=\"submit\" value=\"Modify!\" />
                 </form>";
                 echo "<form action=\"delete.php\" method=\"post\">
@@ -79,11 +80,6 @@ class Books {
                 </form>";
                 echo "<form action=\"addListing.php\" method=\"post\">
                 <input type=\"hidden\" name=\"bookid\" value=\"$bookid\" />
-                <input type=\"hidden\" name=\"title\" value=\"$title\" />
-                <input type=\"hidden\" name=\"author\" value=\"$author\" />
-                <input type=\"hidden\" name=\"isbn\" value=\"$isbn\" />
-                <input type=\"hidden\" name=\"edition\" value=\"$edition\" />
-                <input type=\"hidden\" name=\"binding\" value=\"$binding\" />
                 <input type=\"submit\" name=\"add\" value=\"Add Listing!\" />
                 </form></td>";
 //				echo "<td><a href=\"modify.php?bookid=$bookid\">Edit</a>&nbsp<a href=\"delete.php?bookid=$bookid\">Delete</a></td>";
@@ -108,7 +104,7 @@ class Books {
 
     // Helper function to Grab book data first based on bookid attribute
     // (all attributes except bookid is passed in by reference)
-    function grabCurrentBook($bookid, &$title, &$author, &$isbn, &$edition, &$binding) {
+    function getBookByID($bookid, &$title, &$author, &$isbn, &$edition, &$binding) {
     	$stmt = $this->db->prepare('SELECT bookid, title, author, isbn, edition, binding FROM Book WHERE bookid = ?');
         $stmt->bind_param("i", $bookid);
     	$stmt->execute();
@@ -225,10 +221,35 @@ class Listings {
         $this->db->close();
     }
 
+    function getBookByListID($listid, &$price, &$bookid, &$title, &$author, &$isbn, &$edition, &$binding) {
+        $stmt = $this->db->prepare('SELECT listid, bookid, price FROM Listings WHERE listid = ?');
+        $stmt->bind_param("i", $listid);
+        $stmt->execute();
+        $stmt->bind_result($listid, $bookid, $price);
+        $stmt->store_result(); // store result set into buffer
+        $stmt->fetch(); //fetch the result into variables
+        
+        $stmt->close();
+
+        $api = new Books;
+
+        $api->getBookByID($bookid, $title, $author, $isbn, $edition, $binding);
+    }
+    
+
     function addListing($bookid, $price, $userid) {
         $stmt = $this->db->prepare('INSERT INTO Listings (bookid, price, sellerid) VALUES (?, ?, ?)');
         // Replaces the ? above with the variables passed in, i = integer, s = string
         $stmt->bind_param("iii", $bookid, $price, $userid);
+        $stmt->execute();
+
+        $stmt->close();
+    }
+
+    function modifyListing($listid, $price) {
+        $stmt = $this->db->prepare('UPDATE Listings SET price=? WHERE listid=?');
+        // Replaces the ? above with the variables passed in, i = integer, s = string
+        $stmt->bind_param("ii", $price, $listid);
         $stmt->execute();
 
         $stmt->close();
@@ -317,7 +338,7 @@ class Listings {
                     echo "<td>$edition</td>";
                     echo "<td>$$price</td>"; //Extra $ for price, don't delete
                     echo "<td>$sellerName</td>";
-                    echo "<td><form action=\"modifyListing.php\">
+                    echo "<td><form action=\"modifyListing.php\" method=\"post\">
                     <input type=\"hidden\" name=\"listid\" value=\"$listid\" />
                     <input type=\"submit\" name=\"submit\" value=\"Modify!\" />
                     </form>";
