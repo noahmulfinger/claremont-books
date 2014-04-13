@@ -30,6 +30,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.username.text = @"byan@hmc.edu";
+    self.password.text = @"claremont";
+    
+    
+    
     self.title = @"Claremont Books";
 }
 

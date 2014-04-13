@@ -96,6 +96,7 @@
 }
 
 - (CMBBookCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
     static NSString *CellIdentifier = @"BookCell";
     CMBBookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -125,6 +126,9 @@
     cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
     cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
     
+    NSLog(@"STUFF");
+    NSLog([NSString stringWithFormat:@"%@", cell.author.text]);
+    
     return cell;
 }
     
@@ -135,7 +139,8 @@
     
     CMBBookCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    self.bookTitleToSend = cell.title.text;
+//    self.bookTitleToSend = cell.title.text;
+    self.bookTitleToSend = @"HELP ME";
     self.bookAuthorToSend = cell.author.text;
     self.bookEditionToSend = cell.edition.text;
     self.bookISBNToSend = cell.ISBN.text;
