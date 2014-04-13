@@ -37,9 +37,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"profileToListings"]){
-        
         CMBListingsTableViewController *controller = (CMBListingsTableViewController *)segue.destinationViewController;
-        controller.userName = self.userName;
         controller.userID = self.userID;
         controller.searchType = @"userid";
     }

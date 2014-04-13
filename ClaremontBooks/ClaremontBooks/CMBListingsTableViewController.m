@@ -66,14 +66,13 @@
         }
         
 //        NSString *post =[[NSString alloc] initWithFormat:@"bookid=%ld&", (long) self.bookID];
-        
         NSLog(@"PostData: %@",post);
         
         NSURL *url=[NSURL URLWithString:@"http://www.claremontbooks.com/listingsMobile.php"];
         
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
-        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:url];

@@ -40,8 +40,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"mainToProfile"]){
         CMBProfileViewController *controller = (CMBProfileViewController *)segue.destinationViewController;
-        controller.userName = self.userName;
         controller.userID = self.userID;
+        
     }
 }
 

@@ -141,14 +141,15 @@
                 NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
                 NSInteger userID = [(NSNumber *) [jsonData objectForKey:@"user_id"] integerValue];
                 
-                NSLog(@"%d",success);
+                //NSLog(@"%ld",(long)success);
+               // NSLog(@"%@",@"Hello");
                 if(success == 1)
                 {
                     NSLog(@"Login SUCCESS");
                     [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
                     
                     // It might be a good idea to change how you read in username
-                    self.userName = self.username.text;
+        
                     self.userID = userID;
                     
                     // Navigate
@@ -173,10 +174,16 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"segureToMain"]){
-        CMBMainScreenViewController *controller = (CMBMainScreenViewController *)segue.destinationViewController;
-        controller.userName = self.userName;
+    if([segue.identifier isEqualToString:@"segueToMain"]){
+        UINavigationController *navController = (UINavigationController*)segue.destinationViewController;
+        CMBMainScreenViewController *controller = (CMBMainScreenViewController*)[navController topViewController];
+        NSLog(@"%ld", self.userID);
         controller.userID = self.userID;
+        NSLog(@"%ld", self.userID);
+        
+        
+        
+        
     }
 }
 

@@ -16,11 +16,13 @@ if($_POST) {
 
     } else if (isset($_POST['userid'])) {
         //userid posted so show user's books
-         $api->listUserListings($_POST['userid'], 1);
+         $api->listUsersListings($_POST['userid'], 1);
 
     } else if (isset($_POST['all'])) {
         //no values posted, so show all listings.
          $api->listAllListings(1);
+    } else {
+
     }
 } else {
     echo "Not accessed using posting.";
