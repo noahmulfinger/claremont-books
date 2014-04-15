@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _bookTitle = self.bookTitle;
     
 	// Do any additional setup after loading the view.
 }
