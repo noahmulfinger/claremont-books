@@ -32,4 +32,6 @@
 
 @property NSInteger bookIDToSend;
 
+-(void)deleteListing:(id)sender;
+
 @end

@@ -24,6 +24,4 @@
 @property (strong) IBOutlet UIButton *seller;
 @property (strong) IBOutlet UIButton *email;
 
-- (IBAction)deleteListing:(id)sender;
-
 @end
