@@ -17,4 +17,5 @@
 @property (strong) IBOutlet UILabel *binding;
 @property NSInteger bookID;
 
+
 @end

@@ -30,8 +30,8 @@
 @property (strong) NSString *statusToSend;
 @property (strong) NSString *sellerToSend;
 
+
 @property NSInteger bookIDToSend;
 
--(void)deleteListing:(id)sender;
 
 @end
