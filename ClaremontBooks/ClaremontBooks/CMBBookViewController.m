@@ -19,9 +19,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"Does it init with nib? Nope.");
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -31,6 +34,8 @@
     self.authorLabel.text = [NSString stringWithFormat:@"by %@",self.bookAuthor];
     self.ISBNLabel.text = [NSString stringWithFormat:@"ISBN: %@", self.bookISBN];
     self.bindingLabel.text = [NSString stringWithFormat:@"Binding: %@", self.bookBinding];
+    //NSLog(@"%d", *self.bookID);
+    NSLog(@"bookid = %li", self.bookID);
     
     
 }

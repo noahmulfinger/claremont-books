@@ -112,15 +112,15 @@
     NSString* title = [dToAccess objectForKey:@"title"];
     NSString* author = [dToAccess objectForKey:@"author"];
     NSNumber* edition = [dToAccess objectForKey:@"edition"];
-    NSNumber* ISBN = [dToAccess objectForKey:@"ISBN"];
+    NSNumber* ISBN = [dToAccess objectForKey:@"isbn"];
     NSString* binding = [dToAccess objectForKey:@"binding"];
     NSNumber* bookID = [dToAccess objectForKey:@"bookid"];
     
-    cell.title.text = title;
-    cell.author.text = author;
-    cell.edition.text = [NSString stringWithFormat:@"%ld", (long) [edition integerValue]];
-    cell.ISBN.text = [NSString stringWithFormat:@"%ld", (long) [ISBN integerValue]];
-    cell.binding.text = binding;
+    cell.title = title;
+    cell.author = author;
+    cell.edition = [NSString stringWithFormat:@"%ld", (long) [edition integerValue]];
+    cell.ISBN = [NSString stringWithFormat:@"%ld", (long) [ISBN integerValue]];
+    cell.binding = binding;
     cell.bookID = [bookID integerValue];
     
     cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
@@ -139,13 +139,12 @@
     
     CMBBookCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-//    self.bookTitleToSend = cell.title.text;
+   self.bookTitleToSend = cell.title;
  //   self.bookTitleToSend = @"HELP ME";
-    
-    self.bookAuthorToSend = cell.author.text;
-    self.bookEditionToSend = cell.edition.text;
-    self.bookISBNToSend = cell.ISBN.text;
-    self.bookBindingToSend = cell.binding.text;
+    self.bookAuthorToSend = cell.author;
+    self.bookEditionToSend = cell.edition;
+    self.bookISBNToSend = cell.ISBN;
+    self.bookBindingToSend = cell.binding;
     self.bookIDToSend = cell.bookID;
     
     [self performSegueWithIdentifier:@"bookListToBookView" sender:indexPath];
