@@ -35,6 +35,7 @@
     
     self.title = @"Listings";
     
+    self.displayingUserListings = false;
     
     //    // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
     //    NSString *jsonString = @"{\"listings\":[{\"id\":23,\"price\":30.0,\"condition\":\"Fair\",\"Seller\":\"Mable\",\"email\":\"mable@hmc.edu\"},{\"id\":24,\"price\":35.0,\"condition\":\"Good\",\"Seller\":\"Bessie\",\"email\":\"bessie@hmc.edu\"}]}";
@@ -70,6 +71,7 @@
             post = [[NSString alloc] initWithFormat:@"bookid=%ld&", (long) self.bookID];
         } else if ([self.searchType isEqual:@"userid"]){
             post = [[NSString alloc] initWithFormat:@"userid=%ld&", (long) self.userID];
+            self.displayingUserListings = true;
         }
         
         //        NSString *post =[[NSString alloc] initWithFormat:@"bookid=%ld&", (long) self.bookID];
@@ -330,26 +332,28 @@
     NSString* condition = [listing objectForKey:@"condition"];
     NSString* seller = [listing objectForKey:@"sellername"];
     NSString* email = [listing objectForKey:@"email"];
-    cell.listID = [[listing objectForKey:@"listid" ] integerValue];
-    NSLog(@"ListID: %ld", (long)cell.listID);
-    cell.tag = cell.listID;
-    NSLog(@"Tag1: %ld", (long)cell.tag);
-    
+    NSInteger listID = [[listing objectForKey:@"listid" ] integerValue];
+   
+    cell.tag = listID;
+
     cell.price.text = [NSString stringWithFormat:@"$%@", price];
     cell.condition.text = condition;
     [cell.seller setTitle:seller forState:UIControlStateNormal];
     [cell.seller setTitle:seller forState:UIControlStateSelected];
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(225, 11, 50, 25);
-    [button setTitle:@"Delete" forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor clearColor];
-    button.adjustsImageWhenHighlighted = YES;
+    if(self.displayingUserListings) {
     
-    button.tag = cell.listID; //this is my current hack to add the id but no dice :(
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(225, 11, 50, 25);
+        [button setTitle:@"Delete" forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor clearColor];
+        button.adjustsImageWhenHighlighted = YES;
     
-    [button addTarget:self action:@selector(deleteListing:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.contentView addSubview:button];
+        button.tag = listID; //this is my current hack to add the id but no dice :(
+    
+        [button addTarget:self action:@selector(deleteListing:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:button];
+    }
     
     return cell;
     

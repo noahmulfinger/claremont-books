@@ -22,6 +22,5 @@
 @property (strong) IBOutlet UIButton *email;
 
 @property NSInteger bookID;
-@property NSInteger listID;
 
 @end

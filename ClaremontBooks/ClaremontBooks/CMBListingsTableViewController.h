@@ -33,5 +33,7 @@
 
 @property NSInteger bookIDToSend;
 
+@property BOOL displayingUserListings;
+
 
 @end
