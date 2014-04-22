@@ -3,10 +3,10 @@
  * Claremont Books: Main page
  * Class: CS121
  * Project: Claremont Books App
- * 
+ *
  * Authors: Bruce Yan
  * E-mail: byan@hmc.edu
- * 
+ *
  */
 
 class Books {
@@ -29,7 +29,7 @@ class Books {
 
     // Main method to list books
     function listAllBooks($json) {
-        // Print all books in database 
+        // Print all books in database
         $stmt = $this->db->prepare('SELECT bookid, title, author, isbn, edition, binding FROM Book ORDER BY bookid');
         $stmt->execute();
         $stmt->bind_result($bookid, $title, $author, $isbn, $edition, $binding);
@@ -53,13 +53,13 @@ class Books {
         }
 
 		// Loop through the associative array and output all results.
-		if ($stmt->num_rows == 0) 
+		if ($stmt->num_rows == 0)
 			echo "No books currently in database!";
 		else
 		{
 			// Print table header
 			echo '<table class="booklistings"><tr><th>Book ID</th><th>Title</th><th>Author</th><th>ISBN</th><th>Edition</th><th>Binding</th><th>Modify</th></tr>';
-	        
+
 			// Print table data
 	        while ($stmt->fetch()) {
 		        echo "<tr>";
@@ -111,11 +111,11 @@ class Books {
         $stmt->bind_result($bookid, $title, $author, $isbn, $edition, $binding);
         $stmt->store_result(); // store result set into buffer
         $stmt->fetch(); //fetch the result into variables
-        
+
         $stmt->close();
     }
 
-    // Modify a Book 
+    // Modify a Book
     function modifyBook($bookid, $title, $author, $isbn, $edition, $binding) {
         // Prepare update modified book variables
         $stmt = $this->db->prepare('UPDATE Book SET title=?, author=?, isbn=?, edition=?, binding=? WHERE bookid=?');
@@ -148,7 +148,7 @@ class Books {
             $stmt->execute();
             $stmt->bind_result($bookid, $title, $author, $isbn, $edition, $binding);
             $stmt->store_result(); // Store result set into buffer
-            
+
             // JSON variables - prepare array to encode JSON with
             $outerArray = array();
 
@@ -167,13 +167,13 @@ class Books {
             }
 
             // Loop through the associative array and output all results.
-            if ($stmt->num_rows == 0) 
+            if ($stmt->num_rows == 0)
                 echo "No books currently match your search query!";
             else
             {
                 // Print table header
                 echo '<table class="booklistings"><tr><th>Book ID</th><th>Title</th><th>Author</th><th>ISBN</th><th>Edition</th><th>Binding</th><th>Modify</th></tr>';
-                
+
                 // Print table data
                 while ($stmt->fetch()) {
                     echo "<tr>";
@@ -228,14 +228,14 @@ class Listings {
         $stmt->bind_result($listid, $bookid, $price);
         $stmt->store_result(); // store result set into buffer
         $stmt->fetch(); //fetch the result into variables
-        
+
         $stmt->close();
 
         $api = new Books;
 
         $api->getBookByID($bookid, $title, $author, $isbn, $edition, $binding);
     }
-    
+
 
     function addListing($bookid, $price, $userid) {
         $stmt = $this->db->prepare('INSERT INTO Listings (bookid, price, sellerid) VALUES (?, ?, ?)');
@@ -268,7 +268,7 @@ class Listings {
     function listAllListings($json) {
         // Print all listings in database
         $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid) ORDER BY L.listid');
-        
+
         //send listings to be displayed on web or sent to app
 		$this->outputListings($stmt, $json);
 
@@ -280,7 +280,7 @@ class Listings {
         // Access listing information for current user's listings in database
         $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND U.uid = ?) ORDER BY L.listid');
         $stmt->bind_param("i", $userid);
-        
+
         //send listings to be displayed on web or sent to app
         $this->outputListings($stmt, $json);
 
@@ -292,7 +292,7 @@ class Listings {
         // Access listing information for current user's listings in database
         $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name  FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND B.bookid = ?) ORDER BY L.listid');
         $stmt->bind_param("i", $bookid);
-        
+
         //send listings to be displayed on web or sent to app
         $this->outputListings($stmt, $json);
 
@@ -328,7 +328,7 @@ class Listings {
             } else {
                 // Print table header
                 echo '<table class="listinglistings"><tr><th>List ID</th><th>Title</th><th>Author</th><th>Edition</th><th>Price</th><th>Seller Name</th><th>Modify?</th></tr>';
-                
+
                 // Print table data
                 while ($stmt->fetch()) {
                     echo "<tr>";
@@ -381,7 +381,7 @@ class Users {
         // Prepare to access
         $inputEmail = $this->db->escape_string($inputEmail);
         $inputPassword = hash('sha256', ($this->db->escape_string($inputPassword)));
-       
+
         // Search for matching email and password in database
         $stmt = $this->db->prepare('SELECT uid, name, uemail, password FROM Users WHERE uemail = ? AND password = ?');
         $stmt->bind_param("ss", $inputEmail, $inputPassword);
