@@ -16,6 +16,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"%@", @"goes to init in listing view controller");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -31,7 +32,7 @@
 }
 
 
-- (IBAction)deleteListing:(id)sender {
+//- (IBAction)deleteListing:(id)sender {
 //    @try{
 //        NSString *post =[[NSString alloc] initWithFormat:@"listid=%ld",_];
 //        NSLog(@"PostData: %@",post);
@@ -111,7 +112,7 @@
 //        NSLog(@"Exception: %@", e);
 //    }
 
-}
+//}
 
 
 

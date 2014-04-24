@@ -35,5 +35,7 @@
 
 @property BOOL displayingUserListings;
 
+-(void)updateListings;
+-(void)deleteListing:(id)sender;
 
 @end

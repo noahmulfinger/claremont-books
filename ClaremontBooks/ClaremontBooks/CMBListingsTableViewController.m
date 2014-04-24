@@ -19,6 +19,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -162,74 +163,9 @@
 
 
 
-//- (IBAction)delete:(id)sender {
-//    @try {
-//        
-//        CGPoint location = [sender locationInView:self.tableView];
-//        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
-//        
-//        
-//        //UIButton *button = (UIButton *)sender;
-//        CMBListingCell *cell = (CMBListingCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-//        NSLog(@"Tag: %ld", cell.tag);
-//        NSString *post =[[NSString alloc] initWithFormat:@"listid=%ld", cell.tag];
-//        NSLog(@"PostData: %@",post);
-//        
-//        NSURL *url=[NSURL URLWithString:@"http://www.claremontbooks.com/deleteListingMobile.php"];
-//        
-//        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//        
-//        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-//        
-//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//        [request setURL:url];
-//        [request setHTTPMethod:@"POST"];
-//        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//        [request setHTTPBody:postData];
-//        
-//        //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-//        
-//        NSError *error = [[NSError alloc] init];
-//        NSHTTPURLResponse *response = nil;
-//        NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//        
-//        NSLog(@"Response code: %ld", (long)[response statusCode]);
-//        if ([response statusCode] >=200 && [response statusCode] <300)
-//        {
-//            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-//            
-//            //                NSData* data = [NSData dataWithContentsOfURL:
-//            //                                [NSURL URLWithString:
-//            //                                 @"http://www.claremontbooks.com/books.php?show=json"]];
-//            //
-//            
-//            NSLog(@"Response ==> %@", responseData);
-//            
-//            //                SBJsonParser *jsonParser = [SBJsonParser new];
-//            //                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-//            //                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-//            
-//            NSDictionary* jsonData = [NSJSONSerialization
-//                                      JSONObjectWithData:urlData
-//                                      
-//                                      options:kNilOptions
-//                                      error:&error];
-//            
-//            
-//            NSLog(@"%@",jsonData);
-//            NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
-//            
-//        } else {
-//            if (error) NSLog(@"Error: %@", error);
-//        }
-//    }
-//    @catch (NSException * e) {
-//        NSLog(@"Exception: %@", e);
-//    }
-//
-//}
+- (IBAction)delete:(id)sender {
+
+}
 
 - (void)deleteListing:(id)sender {
     @try {
@@ -437,6 +373,8 @@
         controller.seller.titleLabel.text = self.sellerToSend;
         
         controller.bookID = self.bookIDToSend;
+        
+        NSLog(@"%s", "Gets past prepare for segue");
     }
 }
 

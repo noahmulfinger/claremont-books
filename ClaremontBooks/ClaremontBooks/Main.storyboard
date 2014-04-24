@@ -278,7 +278,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1r-4U-Y7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="1215"/>
+            <point key="canvasLocation" x="601" y="1217"/>
         </scene>
         <!--Listing View Controller-->
         <scene sceneID="UCs-q3-9qj">
@@ -638,6 +638,7 @@
         <!--Listings Table View Controller-->
         <scene sceneID="3uf-Ee-Bvc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iju-LM-NFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="sJH-we-c4v" customClass="CMBListingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="viI-Nk-DhG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -690,7 +691,6 @@
                         <segue destination="mft-vw-Pf6" kind="push" identifier="listingsToListing" id="VrY-cD-Q8A"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iju-LM-NFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="-635"/>
         </scene>
@@ -789,7 +789,6 @@
                         <outlet property="bookTitle" destination="bVK-l1-rev" id="KF5-Zr-7eb"/>
                         <outlet property="condtion" destination="HAg-hs-Woc" id="zHn-dC-hFB"/>
                         <outlet property="edition" destination="ZEW-AB-3VD" id="Bfm-a3-oAi"/>
-                        <outlet property="email" destination="Oxm-Qa-cdt" id="OCE-rM-cTS"/>
                         <outlet property="price" destination="Z8A-a7-34C" id="R9d-Fg-BOD"/>
                         <outlet property="seller" destination="kKD-FL-u0e" id="Csu-uT-KFx"/>
                         <outlet property="status" destination="64H-CG-aW7" id="47L-L1-ka2"/>
