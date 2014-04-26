@@ -681,8 +681,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="sJH-we-c4v" id="k3W-wf-cFH"/>
-                            <outlet property="delegate" destination="sJH-we-c4v" id="u3O-we-06b"/>
+                            <outlet property="dataSource" destination="sJH-we-c4v" id="ZMj-z6-T1W"/>
+                            <outlet property="delegate" destination="sJH-we-c4v" id="WNv-Em-evh"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="eGZ-ec-Lsl"/>
@@ -787,7 +787,6 @@
                         <outlet property="author" destination="1am-1O-0Wr" id="hbG-qh-C6O"/>
                         <outlet property="binding" destination="Gbd-xG-fE0" id="IrV-cK-hda"/>
                         <outlet property="bookTitle" destination="bVK-l1-rev" id="KF5-Zr-7eb"/>
-                        <outlet property="condtion" destination="HAg-hs-Woc" id="zHn-dC-hFB"/>
                         <outlet property="edition" destination="ZEW-AB-3VD" id="Bfm-a3-oAi"/>
                         <outlet property="price" destination="Z8A-a7-34C" id="R9d-Fg-BOD"/>
                         <outlet property="seller" destination="kKD-FL-u0e" id="Csu-uT-KFx"/>
