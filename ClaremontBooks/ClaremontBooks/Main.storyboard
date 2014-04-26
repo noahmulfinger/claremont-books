@@ -87,9 +87,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iC9-Td-yu8">
-                                <rect key="frame" x="115" y="301" width="90" height="30"/>
+                                <rect key="frame" x="115" y="301" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload Book">
+                                <state key="normal" title="Add a Listing">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -638,7 +638,6 @@
         <!--Listings Table View Controller-->
         <scene sceneID="3uf-Ee-Bvc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iju-LM-NFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="sJH-we-c4v" customClass="CMBListingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="viI-Nk-DhG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -691,6 +690,7 @@
                         <segue destination="mft-vw-Pf6" kind="push" identifier="listingsToListing" id="VrY-cD-Q8A"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iju-LM-NFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="-635"/>
         </scene>
