@@ -96,7 +96,6 @@
 }
 
 - (CMBBookCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-
 {
     static NSString *CellIdentifier = @"BookCell";
     CMBBookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];

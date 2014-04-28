@@ -122,6 +122,8 @@
             
             _listings = [jsonData objectForKey:@"listings"];
             
+            self.filteredListingArray = [NSMutableArray arrayWithCapacity:[_listings count]];
+            
             
             NSLog(@"%@",jsonData);
             //                NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
@@ -252,25 +254,50 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return _listings.count;
+//    return _listings.count;
+    return (tableView==self.tableView)?self.listings.count:self.filteredListingArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CMBListingCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListingCell";
-    CMBListingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CMBListingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]; //forIndexPath:indexPath];
     
     // Configure the cell...
     
-    NSDictionary *listing = [_listings objectAtIndex:indexPath.row];
+    if (cell == nil) {
+        cell = [[CMBListingCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+                            
+//    NSDictionary *listing = [_listings objectAtIndex:indexPath.row];
     
-    NSNumber* price = [listing objectForKey:@"price"];
-    NSString* condition = [listing objectForKey:@"condition"];
-    NSString* seller = [listing objectForKey:@"sellername"];
-    NSString* email = [listing objectForKey:@"email"];
-    NSInteger listID = [[listing objectForKey:@"listid" ] integerValue];
+    NSDictionary *dToAccess = (self.tableView==tableView)?[self.listings objectAtIndex:indexPath.row] : [self.filteredListingArray objectAtIndex:indexPath.row];
+    
+    NSString* title = [dToAccess objectForKey:@"title"];//
+    NSString* author = [dToAccess objectForKey:@"author"];//
+    NSNumber* edition = [dToAccess objectForKey:@"edition"];//
+    NSNumber* ISBN = [dToAccess objectForKey:@"isbn"];
+    NSString* binding = [dToAccess objectForKey:@"binding"];
+    //NSNumber* bookID = [dToAccess objectForKey:@"bookid"];
+    NSNumber* price = [dToAccess objectForKey:@"price"];//
+    NSString* condition = [dToAccess objectForKey:@"condition"];
+    NSString* seller = [dToAccess objectForKey:@"sellername"];//
+    NSString* email = [dToAccess objectForKey:@"selleremail"];
+    NSInteger listID = [[dToAccess objectForKey:@"listid" ] integerValue];//
    
     cell.tag = listID;
+    
+    cell.title = title;
+    cell.author = [NSString stringWithFormat:@"Author: %@", author];
+    cell.edition = [NSString stringWithFormat:@"Edition: %ld", (long) [edition integerValue]];
+    cell.ISBN = [NSString stringWithFormat:@"%ld", (long) [ISBN integerValue]];
+    cell.sname = seller;
+    cell.semail = email;
+    
+    
+//    NSLog(@"#######cell ISBN is: %@", ISBN);
+    cell.binding = binding;
+    //cell.bookID = [bookID integerValue];
 
     cell.price.text = [NSString stringWithFormat:@"$%@", price];
     cell.condition.text = condition;
@@ -278,10 +305,11 @@
     [cell.seller setTitle:seller forState:UIControlStateSelected];
     
     if(self.displayingUserListings) {
-    
+        // If you're viewing your own listings, no need to display your name
+        [cell.seller setTitle:@"" forState:UIControlStateNormal];
         UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(225, 11, 50, 25);
-        [button setTitle:@"Delete" forState:UIControlStateNormal];
+        button.frame = CGRectMake(150, 11,150, 21);
+        [button setTitle:@"Remove Listing!" forState:UIControlStateNormal];
         button.backgroundColor = [UIColor clearColor];
         button.adjustsImageWhenHighlighted = YES;
     
@@ -301,8 +329,19 @@
     
     CMBListingCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    self.bookTitleToSend = cell.title.text;
-    self.bookIDToSend = cell.bookID;
+    self.bookTitleToSend = cell.title;
+    //   self.bookTitleToSend = @"HELP ME";
+    self.bookAuthorToSend = cell.author;
+    self.bookEditionToSend = cell.edition;
+    self.bookISBNToSend = cell.ISBN;
+    self.bookBindingToSend = cell.binding;
+  //  self.bookIDToSend = cell.bookID;
+    self.bookPriceToSend = cell.price.text;
+   // self.bookConditionToSend = cell.condition.text;
+    self.sellerNameToSend = cell.sname;
+    self.sellerEmailToSend = cell.semail;
+    NSLog(@"*****Seller Name is: %@", self.sellerNameToSend);
+    NSLog(@"*****Seller Email is: %@", self.sellerEmailToSend);
     
     [self performSegueWithIdentifier:@"listingsToListing" sender:indexPath];
     
@@ -360,21 +399,36 @@
  */
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"listingsToListing"]){
+    if([segue.identifier isEqualToString:@"listingsToListing"]) {
         CMBListingViewController *controller = (CMBListingViewController *)segue.destinationViewController;
-        controller.bookTitle.text = self.bookTitleToSend;
-        controller.author.text = self.authorToSend;
-        controller.edition.text = self.editionToSend;
-        controller.ISBN.text = self.ISBNToSend;
-        controller.binding.text = self.bindingToSend;
-        controller.condition.text = self.conditionToSend;
-        controller.price.text = self.priceToSend;
-        controller.status.text = self.statusToSend;
-        controller.seller.titleLabel.text = self.sellerToSend;
         
-        controller.bookID = self.bookIDToSend;
+        controller.bookName = self.bookTitleToSend;
+        controller.bookAuthor = self.bookAuthorToSend;
+        controller.bookEdition = self.bookEditionToSend;
+        controller.bookISBN = self.bookISBNToSend;
+ //       NSLog(@"#######Book ISBN is: %@", self.bookISBNToSend);
+        controller.bookBinding = self.bookBindingToSend;
+        controller.bookPrice = self.bookPriceToSend;
+     //   controller.condition = self.bookConditionToSend;
+        controller.bookStatus = self.bookStatusToSend;
+ //       NSLog(@"!!!!!!!!Book title is: %@", self.bookTitleToSend);
+        controller.sellerName = self.sellerNameToSend;
+        controller.sellerEmail = self.sellerEmailToSend;
         
-        NSLog(@"%s", "Gets past prepare for segue");
+        
+//        controller.bookTitle.text = self.bookTitleToSend;
+//        controller.author.text = self.authorToSend;
+//        controller.edition.text = self.editionToSend;
+//        controller.ISBN.text = self.ISBNToSend;
+//        controller.binding.text = self.bindingToSend;
+//        controller.condition.text = self.conditionToSend;
+//        controller.price.text = self.priceToSend;
+//        controller.status.text = self.statusToSend;
+//        controller.seller.titleLabel.text = self.sellerToSend;
+//        
+   //     controller.bookID = self.bookIDToSend;
+        
+        NSLog(@"%s", "Gets past prepare for segue in CMBListingsTableViewController");
     }
 }
 

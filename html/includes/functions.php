@@ -267,7 +267,7 @@ class Listings {
 	// Main method to list all listings
     function listAllListings($json) {
         // Print all listings in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid) ORDER BY L.listid');
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.isbn, B.binding, B.author, B.edition, L.price, U.name, U.uemail FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid) ORDER BY L.listid');
 
         //send listings to be displayed on web or sent to app
 		$this->outputListings($stmt, $json);
@@ -278,7 +278,7 @@ class Listings {
     //function that lists listings based on current user
     function listUsersListings($userid, $json) {
         // Access listing information for current user's listings in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND U.uid = ?) ORDER BY L.listid');
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.isbn, B.binding, B.author, B.edition, L.price, U.name, U.uemail FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND U.uid = ?) ORDER BY L.listid');
         $stmt->bind_param("i", $userid);
 
         //send listings to be displayed on web or sent to app
@@ -290,7 +290,7 @@ class Listings {
      //function that lists listings based on current user
     function listBookListings($bookid, $json) {
         // Access listing information for current user's listings in database
-        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.author, B.edition, L.price, U.name  FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND B.bookid = ?) ORDER BY L.listid');
+        $stmt = $this->db->prepare('SELECT L.listid, B.title, B.isbn, B.binding, B.author, B.edition, L.price, U.name, U.uemail FROM Listings L, Book B, Users U WHERE (B.bookid = L.bookid AND U.uid = L.sellerid AND B.bookid = ?) ORDER BY L.listid');
         $stmt->bind_param("i", $bookid);
 
         //send listings to be displayed on web or sent to app
@@ -302,7 +302,7 @@ class Listings {
     function outputListings($stmt, $json) {
 
         $stmt->execute();
-        $stmt->bind_result($listid, $title, $author, $edition, $price, $sellerName);
+        $stmt->bind_result($listid, $title, $isbn, $binding, $author, $edition, $price, $sellerName, $sellerEmail);
         $stmt->store_result(); // store result set into buffer
          //check if accessed by website or app
         if ($json == 1) {
@@ -311,7 +311,7 @@ class Listings {
 
             // Loop through each statement to grab columns and data
                 while ($stmt->fetch()) {
-                    $loopArray = array('listid' => $listid, 'title' => $title, 'author' => $author, 'edition' => $edition, 'price' => $price, 'sellername' => $sellerName);
+                    $loopArray = array('listid' => $listid, 'title' => $title, 'isbn' => $isbn, 'binding' => $binding, 'author' => $author, 'edition' => $edition, 'price' => $price, 'sellername' => $sellerName, 'selleremail' => $sellerEmail);
                     array_push($outerArray, $loopArray);
                 }
 

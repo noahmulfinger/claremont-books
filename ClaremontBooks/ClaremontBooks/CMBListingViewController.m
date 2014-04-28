@@ -8,9 +8,14 @@
 
 #import "CMBListingViewController.h"
 
-@interface CMBListingViewController ()
+@interface CMBListingViewController () {
+    IBOutlet UIButton *sellerNameButton;
+    IBOutlet UIButton *selllerEmailButton;
+}
 
 @end
+
+
 
 @implementation CMBListingViewController
 
@@ -29,6 +34,26 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
+    self.titleLabel.text = [NSString stringWithFormat:@"%@", self.bookName];
+    self.editionLabel.text = [NSString stringWithFormat:@"%@", self.bookEdition];
+    self.ISBNLabel.text = [NSString stringWithFormat:@"%@",self.bookISBN];
+    self.authorLabel.text = [NSString stringWithFormat:@"%@",self.bookAuthor];
+    self.bindingLabel.text = [NSString stringWithFormat:@"%@",self.bookBinding];
+    self.conditionLabel.text = [NSString stringWithFormat:@"%@",@"Normal wear and tear."];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@", self.bookPrice];
+    //self.statusLabel.text = [NSString stringWithFormat:@"%@", self.bookStatus];
+    self.statusLabel.text = [NSString stringWithFormat:@"%@",@"Available."];
+    
+    // change the seller name and email button text below (doesn't work)
+    //self.sellerNameLabel.text = [NSString stringWithFormat:@"%@", self.sellerName];
+    //self.selllerEmailLabel.text = [NSString stringWithFormat:@"%@", self.sellerEmail];
+    
+    // change the seller name and email button text below (does work)
+    [self.sellerNameButton setTitle:self.sellerName forState:UIControlStateNormal];
+//    [self.sellerNameButton setTitle:@"PRINT NAME" forState:UIControlStateNormal];
+    [self.selllerEmailButton setTitle:self.sellerEmail forState:UIControlStateNormal];
+    //    [self.selllerEmailButton setTitle:@"PRINT EMAIL" forState:UIControlStateNormal];
+    
 }
 
 

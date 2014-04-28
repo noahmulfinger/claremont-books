@@ -14,6 +14,8 @@
 
 @property (strong) NSMutableArray *listings;
 
+@property (strong) NSMutableArray *filteredListingArray;
+
 @property (strong) NSString *searchType;
 @property (strong) NSString *userName;
 @property NSInteger userID;
@@ -21,15 +23,15 @@
 @property NSInteger bookID;
 
 @property (strong) NSString *bookTitleToSend;
-@property (strong) NSString *authorToSend;
-@property (strong) NSString *editionToSend;
-@property (strong) NSString *ISBNToSend;
-@property (strong) NSString *bindingToSend;
-@property (strong) NSString *conditionToSend;
-@property (strong) NSString *priceToSend;
-@property (strong) NSString *statusToSend;
-@property (strong) NSString *sellerToSend;
-
+@property (strong) NSString *bookAuthorToSend;
+@property (strong) NSString *bookEditionToSend;
+@property (strong) NSString *bookISBNToSend;
+@property (strong) NSString *bookBindingToSend;
+@property (strong) NSString *bookConditionToSend;
+@property (strong) NSString *bookPriceToSend;
+@property (strong) NSString *bookStatusToSend;
+@property (strong) NSString *sellerNameToSend;
+@property (strong) NSString *sellerEmailToSend;
 
 @property NSInteger bookIDToSend;
 
