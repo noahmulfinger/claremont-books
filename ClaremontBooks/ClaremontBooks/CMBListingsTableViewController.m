@@ -38,33 +38,6 @@
     
     self.displayingUserListings = false;
     
-    //    // For now we hard code JSON info. Eventually, we will read it from web (once formatted correctly)
-    //    NSString *jsonString = @"{\"listings\":[{\"id\":23,\"price\":30.0,\"condition\":\"Fair\",\"Seller\":\"Mable\",\"email\":\"mable@hmc.edu\"},{\"id\":24,\"price\":35.0,\"condition\":\"Good\",\"Seller\":\"Bessie\",\"email\":\"bessie@hmc.edu\"}]}";
-    //    //NSLog(@"%@", jsonString);
-    //    NSError *error =  nil;
-    //    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-    
-    //    NSInteger bookid = 1;
-    //
-    //
-    //    NSData* data = [NSData dataWithContentsOfURL:
-    //                    [NSURL URLWithString:
-    //                     [NSString stringWithFormat: @"http://www.claremontbooks.com/listings.php?target=%ld&show=json", (long)bookid]]];
-    //
-    //    //parse out the json data
-    //    NSError* error;
-    //    NSDictionary* json = [NSJSONSerialization
-    //                          JSONObjectWithData:data //1
-    //
-    //                          options:kNilOptions
-    //                          error:&error];
-    //
-    //    _listings = [json objectForKey:@"listings"]; //2
-    
-    
-    
-    
-    
     @try {
         NSString *post;
         
@@ -125,27 +98,7 @@
             self.filteredListingArray = [NSMutableArray arrayWithCapacity:[_listings count]];
             
             
-            NSLog(@"%@",jsonData);
-            //                NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
-            //                NSLog(@"%d",success);
-            
-            
-            //                if(success == 1)
-            //                {
-            //                    NSLog(@"Upload SUCCESS");
-            //                    //[self alertStatus:@"Uploaded Successfully." :@"Upload Success!"];
-            //
-            //
-            //                    // Navigate
-            //                    [self.navigationController popViewControllerAnimated:YES];
-            //
-            //                } else {
-            //
-            //                    NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
-            //                    NSLog(@"Error: %@", error_msg);
-            ////                    [self alertStatus:error_msg :@"Book Listing Failed to Upload!"];
-            //                }
-            
+            NSLog(@"%@",jsonData);           
             
             
         } else {
@@ -347,57 +300,6 @@
     
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"listingsToListing"]) {
         CMBListingViewController *controller = (CMBListingViewController *)segue.destinationViewController;
@@ -414,19 +316,6 @@
  //       NSLog(@"!!!!!!!!Book title is: %@", self.bookTitleToSend);
         controller.sellerName = self.sellerNameToSend;
         controller.sellerEmail = self.sellerEmailToSend;
-        
-        
-//        controller.bookTitle.text = self.bookTitleToSend;
-//        controller.author.text = self.authorToSend;
-//        controller.edition.text = self.editionToSend;
-//        controller.ISBN.text = self.ISBNToSend;
-//        controller.binding.text = self.bindingToSend;
-//        controller.condition.text = self.conditionToSend;
-//        controller.price.text = self.priceToSend;
-//        controller.status.text = self.statusToSend;
-//        controller.seller.titleLabel.text = self.sellerToSend;
-//        
-   //     controller.bookID = self.bookIDToSend;
         
         NSLog(@"%s", "Gets past prepare for segue in CMBListingsTableViewController");
     }

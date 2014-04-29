@@ -15,8 +15,6 @@
 
 @end
 
-
-
 @implementation CMBListingViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,7 +54,7 @@
     
 }
 
-
+// Deleting listings will be implemented in a later version
 //- (IBAction)deleteListing:(id)sender {
 //    @try{
 //        NSString *post =[[NSString alloc] initWithFormat:@"listid=%ld",_];
@@ -138,8 +136,6 @@
 //    }
 
 //}
-
-
 
 
 - (void)didReceiveMemoryWarning

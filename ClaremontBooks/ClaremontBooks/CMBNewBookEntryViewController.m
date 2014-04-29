@@ -138,24 +138,6 @@
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Upload Failed." :@"Upload Failed!"];
     }
-
- 
-
-
-//    // create string contains url address for php file, the file name is phpFile.php, it reveives parameter :name
-//    //NSString *strURL = [NSString stringWithFormat:@"http://localhost/MAMP/phpFile.php?name=%@", _bookTitle.text];
-//    NSString *strURL = [NSString stringWithFormat:@"http://claremontbooks.com/insertBookMobile.php?bookTitle=%@&bookAuthor=%@&bookEdition=%@&bookISBN=%@&bookBinding=%@&password=secret", _bookTitle.text, _author.text, _edition.text, _ISBN.text, _binding.text];
-//    
-//    // to execute php code
-//    NSData *dataURL = [NSData dataWithContentsOfURL:[NSURL URLWithString:strURL]];
-//    
-//    // to reveive the returned value
-//    NSString *strResult = [[NSString alloc] initWithData:dataURL encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"%@", strResult);
-    
- 
-    
     
 }
 
