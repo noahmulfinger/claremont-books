@@ -28,15 +28,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-<<<<<<< HEAD
     // Set the following for testing (so we don't need to continually type in the login, etc)
     //self.username.text = @"byan@hmc.edu";
     //self.password.text = @"claremont";
-    
-    
-=======
->>>>>>> FETCH_HEAD
-    
+
     self.title = @"Claremont Books";
 }
 
