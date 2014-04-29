@@ -327,7 +327,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    CMBListingCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    CMBListingCell *cell = (CMBListingCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     self.bookTitleToSend = cell.title;
     //   self.bookTitleToSend = @"HELP ME";

@@ -139,7 +139,7 @@
     cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
     
     NSLog(@"STUFF");
-    NSLog([NSString stringWithFormat:@"%@", author]);
+    NSLog(@"%@", author);
     
     return cell;
 }
@@ -149,7 +149,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    CMBBookCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    CMBBookCell *cell = (CMBBookCell *)[tableView cellForRowAtIndexPath:indexPath];
     
    self.bookTitleToSend = cell.title;
  //   self.bookTitleToSend = @"HELP ME";
