@@ -43,10 +43,10 @@
         CMBProfileViewController *controller = (CMBProfileViewController *)segue.destinationViewController;
         controller.userID = self.userID;
         
-    } else if ([segue.identifier isEqualToString:@"AddListingToBookList"]) {
+    } else if ([segue.identifier isEqualToString:@"AddListingToBookList"] || [segue.identifier isEqualToString:@"ListBooksToBookList"]) {
         CMBBookListingsViewController *controller = (CMBBookListingsViewController *)segue.destinationViewController;
         controller.userID = self.userID;
-        NSLog(@"%ld", self.userID);
+
     }
 }
 
