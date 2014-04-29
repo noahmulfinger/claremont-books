@@ -30,10 +30,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.username.text = @"byan@hmc.edu";
-    self.password.text = @"claremont";
-    
-    
     
     self.title = @"Claremont Books";
 }
@@ -145,6 +141,8 @@
                 NSLog(@"%@",jsonData);
                 NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
                 NSInteger userID = [(NSNumber *) [jsonData objectForKey:@"user_id"] integerValue];
+                NSString *userName = [jsonData objectForKey:@"user_name"];
+
                 
                 //NSLog(@"%ld",(long)success);
                // NSLog(@"%@",@"Hello");
@@ -156,6 +154,7 @@
                     // It might be a good idea to change how you read in username
         
                     self.userID = userID;
+                    self.userName = userName;
                     
                     // Navigate
                     [self performSegueWithIdentifier: @"segueToMain" sender: self];
@@ -184,6 +183,7 @@
         CMBMainScreenViewController *controller = (CMBMainScreenViewController*)[navController topViewController];
         NSLog(@"%ld", self.userID);
         controller.userID = self.userID;
+        controller.userName = self.userName;
         NSLog(@"%ld", self.userID);
         
         

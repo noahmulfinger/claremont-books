@@ -101,8 +101,8 @@
             NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
             
             if (success == 1) {
-                // [self updateListings];
-                // [self.tableView reloadData];
+                 //Return to home screen 
+                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
             }
             
