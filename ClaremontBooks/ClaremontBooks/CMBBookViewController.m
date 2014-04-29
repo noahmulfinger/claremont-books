@@ -52,12 +52,7 @@
         controller.bookName = self.bookName;
         controller.bookID = self.bookID;
         controller.searchType = @"bookid";
-//        controller.authorToSend = self.bookAuthor;
-//        controller.editionToSend = self.bookEdition;
-//        controller.ISBNToSend = self.bookISBN;
-//        controller.bindingToSend = self.bookBinding;
-//        //        controller.conditionToSend = self.bookCondition;
-//        //        controller.priceToSend =
+
     } else if ([segue.identifier isEqualToString:@"bookViewToNewListing"]){
         CMBNewListingViewController *controller = (CMBNewListingViewController *)segue.destinationViewController;
         controller.bookName = self.bookName;
@@ -68,25 +63,7 @@
         controller.bookEdition = self.bookEdition;
         controller.userID = self.userID;
         NSLog(@"%s", "Gets past prepare for segue");
-
     }
-
-//    if([segue.identifier isEqualToString:@"listingsToListing"]){
-//        CMBListingViewController *controller = (CMBListingViewController *)segue.destinationViewController;
-//        controller.bookTitle.text = self.bookTitleToSend;
-//        controller.author.text = self.authorToSend;
-//        controller.edition.text = self.editionToSend;
-//        controller.ISBN.text = self.ISBNToSend;
-//        controller.binding.text = self.bindingToSend;
-//        controller.condition.text = self.conditionToSend;
-//        controller.price.text = self.priceToSend;
-//        controller.status.text = self.statusToSend;
-//        controller.seller.titleLabel.text = self.sellerToSend;
-//        
-//        controller.bookID = self.bookIDToSend;
-//        
-//        NSLog(@"%s", "Gets past prepare for segue");
-//    }
 
 }
 
