@@ -16,5 +16,6 @@
 
 @property (strong) NSString *userName;
 @property NSInteger userID;
+@property (strong) IBOutlet UILabel *welcomeLabel;
 
 @end

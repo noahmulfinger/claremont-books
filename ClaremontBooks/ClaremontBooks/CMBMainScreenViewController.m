@@ -29,6 +29,7 @@
 	// Do any additional setup after loading the view.
     
     self.title = @"Claremont Books";
+    self.welcomeLabel.text = [NSString stringWithFormat:@"%@%@", @"Welcome, ", self.userName];
 }
 
 - (void)didReceiveMemoryWarning

@@ -28,11 +28,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+<<<<<<< HEAD
     // Set the following for testing (so we don't need to continually type in the login, etc)
     //self.username.text = @"byan@hmc.edu";
     //self.password.text = @"claremont";
     
     
+=======
+>>>>>>> FETCH_HEAD
     
     self.title = @"Claremont Books";
 }
@@ -108,6 +111,8 @@
                 NSLog(@"%@",jsonData);
                 NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
                 NSInteger userID = [(NSNumber *) [jsonData objectForKey:@"user_id"] integerValue];
+                NSString *userName = [jsonData objectForKey:@"user_name"];
+
                 
                 if(success == 1)
                 {
@@ -116,6 +121,7 @@
                     
                     // Read in username here (may need to be revised for future revisions)
                     self.userID = userID;
+                    self.userName = userName;
                     
                     // Navigate to main
                     [self performSegueWithIdentifier: @"segueToMain" sender: self];
@@ -144,6 +150,7 @@
         CMBMainScreenViewController *controller = (CMBMainScreenViewController*)[navController topViewController];
         NSLog(@"%ld", self.userID);
         controller.userID = self.userID;
+        controller.userName = self.userName;
         NSLog(@"%ld", self.userID);
     }
 }
