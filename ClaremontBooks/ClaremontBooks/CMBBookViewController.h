@@ -18,6 +18,7 @@
 @property (strong) NSString *bookISBN;
 @property (strong) NSString *bookBinding;
 @property NSInteger bookID;
+@property NSInteger userID;
 
 @property (strong) IBOutlet UILabel *titleLabel;
 @property (strong) IBOutlet UILabel *authorLabel;

@@ -23,6 +23,7 @@
 @property (strong) NSString *bookISBNToSend;
 @property (strong) NSString *bookBindingToSend;
 @property NSInteger bookIDToSend;
+@property NSInteger userID;
 
 -(void)reloadView;
 

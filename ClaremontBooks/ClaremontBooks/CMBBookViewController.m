@@ -66,6 +66,9 @@
         controller.bookISBN = self.bookISBN;
         controller.bookBinding = self.bookBinding;
         controller.bookEdition = self.bookEdition;
+        controller.userID = self.userID;
+        NSLog(@"%s", "Gets past prepare for segue");
+
     }
 
 //    if([segue.identifier isEqualToString:@"listingsToListing"]){

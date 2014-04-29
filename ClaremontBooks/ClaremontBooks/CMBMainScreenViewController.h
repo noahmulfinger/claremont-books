@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBProfileViewController.h"
+#import "CMBBookListingsViewController.h"
 
 @interface CMBMainScreenViewController : UIViewController
 

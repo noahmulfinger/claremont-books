@@ -272,6 +272,7 @@
         controller.bookISBN = self.bookISBNToSend;
         controller.bookBinding = self.bookBindingToSend;
         controller.bookID = self.bookIDToSend;
+        controller.userID = self.userID;
         
 //        controller.titleLabel.text = [NSString stringWithFormat:@"%@ (Ed. %@)", self.bookTitleToSend, self.bookEditionToSend];
     }

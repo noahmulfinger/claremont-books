@@ -15,14 +15,9 @@
 @property (strong) IBOutlet UILabel *editionLabel;
 @property (strong) IBOutlet UILabel *ISBNLabel;
 @property (strong) IBOutlet UILabel *bindingLabel;
-@property (strong) IBOutlet UILabel *conditionLabel; // Currently no condition
-@property (strong) IBOutlet UILabel *priceLabel;
-@property (strong) IBOutlet UILabel *statusLabel;
 
-@property (nonatomic, retain) IBOutlet UIButton *sellerNameButton;
-@property (nonatomic, retain) IBOutlet UIButton *selllerEmailButton;
-
-
+@property (strong) IBOutlet UITextField *condition;
+@property (strong) IBOutlet UITextField *price;
 
 @property (strong) NSString *bookName;
 @property (strong) NSString *bookAuthor;
@@ -35,6 +30,9 @@
 @property (strong) NSString *sellerEmail;
 
 @property NSInteger bookID;
+@property NSInteger userID;
+
+- (void)addListing:(id)sender;
 
 
 @end

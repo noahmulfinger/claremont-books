@@ -18,9 +18,10 @@ $api = new Listings;
 
 if($_POST) {
 	if(isset($_POST['bookid']) && isset($_POST['price']) && isset($_POST['userid'])) {
+		
 		$bookid = $_POST['bookid'];
 		$price = $_POST['price'];
-		$userid = $_POST['userid']
+		$userid = $_POST['userid'];
 
 		$api->addListing($bookid, $price, $userid);
 
