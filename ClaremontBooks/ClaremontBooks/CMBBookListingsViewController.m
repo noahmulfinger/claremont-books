@@ -125,11 +125,7 @@
     cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
     cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
     
-<<<<<<< HEAD
-    NSLog(@"STUFF");
-=======
-    NSLog(@"Book Author:");
->>>>>>> FETCH_HEAD
+
     NSLog(@"%@", author);
     
     return cell;
@@ -139,11 +135,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-<<<<<<< HEAD
-    CMBBookCell *cell = (CMBBookCell *)[tableView cellForRowAtIndexPath:indexPath];
-=======
->>>>>>> FETCH_HEAD
     
     CMBBookCell *cell = (CMBBookCell*)[tableView cellForRowAtIndexPath:indexPath];
     
