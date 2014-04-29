@@ -14,8 +14,6 @@
 
 @implementation CMBLoginScreenViewController
 
-//@synthesize response;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,6 +28,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+<<<<<<< HEAD
+    // Set the following for testing (so we don't need to continually type in the login, etc)
+    //self.username.text = @"byan@hmc.edu";
+    //self.password.text = @"claremont";
+    
+    
+=======
+>>>>>>> FETCH_HEAD
     
     self.title = @"Claremont Books";
 }
@@ -40,52 +46,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+// Login prompt
 - (void) alertStatus:(NSString *)msg :(NSString *)title
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:msg
                                                        delegate:self
-                                              cancelButtonTitle:@"Ok"
+                                              cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
     
     [alertView show];
 }
 
-//-(IBAction)ButtonClicked:(id)sender
-//{
-////    NSString *content = @"username=blabla&password=123456";
-////    NSData *data=[content dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-////    NSString *postlenght=[NSString stringWithFormat:@"%d",[data length]];
-////    
-////    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://roadster.co.il/forums/ucp.php?mode=login"]];
-////    [request setHTTPMethod:@"POST"];
-////    [request setValue:postlenght forHTTPHeaderField:@"Content-Length"];
-////    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Length"];
-////    [request setHTTPBody:data];
-////    NSError *error=nil;
-////    NSURLResponse *response=nil;
-////    NSData *result=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-////    
-////    [webview loadRequest:request];
-//    
-//    NSURL *url = [NSURL URLWithString: @"http://www.claremontbooks.com/connection.php"];
-//    
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15.0];
-//    
-//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-//    
-//    if (connection) {
-//        // Connect
-//    } else {
-//        // Error
-//    }
-//}
-
-
-
-
-
-
+// Process the button click for login (data sent via HTTP POST
 - (IBAction)loginClicked:(id)sender {
     @try {
         
@@ -127,10 +101,6 @@
                 
                 NSLog(@"Response ==> %@", responseData);
                 
-//                SBJsonParser *jsonParser = [SBJsonParser new];
-//                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-//                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-                
                 NSDictionary* jsonData = [NSJSONSerialization
                                       JSONObjectWithData:urlData
                                       
@@ -144,19 +114,16 @@
                 NSString *userName = [jsonData objectForKey:@"user_name"];
 
                 
-                //NSLog(@"%ld",(long)success);
-               // NSLog(@"%@",@"Hello");
                 if(success == 1)
                 {
                     NSLog(@"Login SUCCESS");
                     [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
                     
-                    // It might be a good idea to change how you read in username
-        
+                    // Read in username here (may need to be revised for future revisions)
                     self.userID = userID;
                     self.userName = userName;
                     
-                    // Navigate
+                    // Navigate to main
                     [self performSegueWithIdentifier: @"segueToMain" sender: self];
                     
                 } else {
@@ -185,37 +152,7 @@
         controller.userID = self.userID;
         controller.userName = self.userName;
         NSLog(@"%ld", self.userID);
-        
-        
-        
-        
     }
 }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-//- (void) connection:(NSURLConnection *) connection didReceiveData:(NSData *)data {
-//    response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//}
-
-//- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-//    
-//    // Will replace with desired behavior
-//    if ([response isEqualToString:@"1"]) {
-//        NSLog(@"Success");
-//    } else {
-//        NSLog(@"Failue");
-//    }
-//    
-//    connection = nil;
-//}
 
 @end

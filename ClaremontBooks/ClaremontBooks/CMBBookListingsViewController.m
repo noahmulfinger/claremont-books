@@ -36,13 +36,6 @@
 -(void)reloadView {
     self.title = @"Choose Book";
     
-    
-    // Commented code is for creating a new thread to get info from web (getting info could take awhile).
-    // Commented code doesn't work right now.
-    //    dispatch_async(dispatch_get_global_queue(
-    //                                             DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    
-    
     NSData* data = [NSData dataWithContentsOfURL:
                     [NSURL URLWithString:
                      @"http://www.claremontbooks.com/books.php?show=json"]];
@@ -62,11 +55,6 @@
     
     // Initialize the filteredBookArray with a capacity equal to the  book array's capacity
     self.filteredBookArray = [NSMutableArray arrayWithCapacity:[_books count]];
-    //self.filteredBookArray = nil;
-    
-    
-    
-    //    });
     
     [super viewDidLoad];
     
@@ -112,7 +100,6 @@
 {
     static NSString *CellIdentifier = @"BookCell";
     CMBBookCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-                                                        //forIndexPath:indexPath];
     
     if (cell==nil) {
         cell = [[CMBBookCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -138,7 +125,11 @@
     cell.textLabel.text = [NSString stringWithFormat: @"%@ (Ed. %@)", title, edition];
     cell.detailTextLabel.text = [NSString stringWithFormat: @"by %@", author];
     
+<<<<<<< HEAD
     NSLog(@"STUFF");
+=======
+    NSLog(@"Book Author:");
+>>>>>>> FETCH_HEAD
     NSLog(@"%@", author);
     
     return cell;
@@ -149,10 +140,14 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+<<<<<<< HEAD
     CMBBookCell *cell = (CMBBookCell *)[tableView cellForRowAtIndexPath:indexPath];
+=======
+>>>>>>> FETCH_HEAD
     
-   self.bookTitleToSend = cell.title;
- //   self.bookTitleToSend = @"HELP ME";
+    CMBBookCell *cell = (CMBBookCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
+    self.bookTitleToSend = cell.title;
     self.bookAuthorToSend = cell.author;
     self.bookEditionToSend = cell.edition;
     self.bookISBNToSend = cell.ISBN;
@@ -162,64 +157,10 @@
     [self performSegueWithIdentifier:@"bookListToBookView" sender:indexPath];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
-
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText {
-                            //scope:(NSString*)scope {
     
     // Update the filtered array based on the search text and scope.
-    
-    
     // replace special characters
     NSString* fixedFormatting = searchText;
     
@@ -273,8 +214,6 @@
         controller.bookBinding = self.bookBindingToSend;
         controller.bookID = self.bookIDToSend;
         controller.userID = self.userID;
-        
-//        controller.titleLabel.text = [NSString stringWithFormat:@"%@ (Ed. %@)", self.bookTitleToSend, self.bookEditionToSend];
     }
 }
 
