@@ -237,7 +237,7 @@
     NSString* seller = [dToAccess objectForKey:@"sellername"];//
     NSString* email = [dToAccess objectForKey:@"selleremail"];
     NSInteger listID = [[dToAccess objectForKey:@"listid" ] integerValue];//
-   
+    
     cell.tag = listID;
     
     cell.title = title;
@@ -252,8 +252,9 @@
     cell.binding = binding;
     //cell.bookID = [bookID integerValue];
 
-    cell.price.text = [NSString stringWithFormat:@"$%@", price];
+    cell.price.text = [NSString stringWithFormat:@"Price: $%@", price];
     cell.condition.text = condition;
+    seller = [NSString stringWithFormat:@"Sold by: %@", seller];
     [cell.seller setTitle:seller forState:UIControlStateNormal];
     [cell.seller setTitle:seller forState:UIControlStateSelected];
     
