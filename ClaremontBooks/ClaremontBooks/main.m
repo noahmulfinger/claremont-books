@@ -13,12 +13,8 @@
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        @try {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CMBAppDelegate class]));
-        }
-        @catch (NSException * e) {
-            NSLog(@"Exception in main: %@", e);
-        }
-
+  
+    return UIApplicationMain(argc, argv, nil, NSStringFromClass([CMBAppDelegate class]));
+        
     }
 }

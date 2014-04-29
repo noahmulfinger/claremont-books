@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBListingsTableViewController.h"
+#import "CMBNewListingViewController.h"
 
 @interface CMBBookViewController : UIViewController
 

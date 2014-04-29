@@ -24,5 +24,6 @@
 @property (strong) NSString *bookBindingToSend;
 @property NSInteger bookIDToSend;
 
+-(void)reloadView;
 
 @end

@@ -8,10 +8,12 @@
 
 #import "CMBNewBookEntryViewController.h"
 #import "CMBNewBookEntryView.h"
+#import "CMBBookListingsViewController.h"
 
 @interface CMBNewBookEntryViewController ()
 
 @end
+
 
 @implementation CMBNewBookEntryViewController
 
@@ -23,6 +25,8 @@
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad
 {
@@ -114,7 +118,6 @@
                 {
                     NSLog(@"Upload SUCCESS");
                     //[self alertStatus:@"Uploaded Successfully." :@"Upload Success!"];
-                    
                     
                     // Navigate
                     [self.navigationController popViewControllerAnimated:YES];

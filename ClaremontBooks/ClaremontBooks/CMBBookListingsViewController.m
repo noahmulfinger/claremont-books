@@ -23,17 +23,26 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData]; // to reload selected cell
+}
+
 - (void)viewDidLoad
 {
-    self.title = @"Books";
-    
+    [self reloadView];
+}
 
+-(void)reloadView {
+    self.title = @"Choose Book";
+    
+    
     // Commented code is for creating a new thread to get info from web (getting info could take awhile).
     // Commented code doesn't work right now.
-//    dispatch_async(dispatch_get_global_queue(
-//                                             DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //    dispatch_async(dispatch_get_global_queue(
+    //                                             DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
-        
+    
     NSData* data = [NSData dataWithContentsOfURL:
                     [NSURL URLWithString:
                      @"http://www.claremontbooks.com/books.php?show=json"]];
@@ -48,24 +57,28 @@
     
     _books = [json objectForKey:@"books"]; //2
     
+    
+    NSLog(@"%@", [_books objectAtIndex:_books.count-1 ]);
+    
     // Initialize the filteredBookArray with a capacity equal to the  book array's capacity
     self.filteredBookArray = [NSMutableArray arrayWithCapacity:[_books count]];
     //self.filteredBookArray = nil;
-        
-        
-        
-//    });
+    
+    
+    
+    //    });
     
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
     
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -145,7 +158,7 @@
     self.bookISBNToSend = cell.ISBN;
     self.bookBindingToSend = cell.binding;
     self.bookIDToSend = cell.bookID;
-    
+    NSLog(@"%@", @"gets here");
     [self performSegueWithIdentifier:@"bookListToBookView" sender:indexPath];
 }
 

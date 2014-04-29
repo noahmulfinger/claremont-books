@@ -58,8 +58,16 @@
 //        controller.bindingToSend = self.bookBinding;
 //        //        controller.conditionToSend = self.bookCondition;
 //        //        controller.priceToSend =
+    } else if ([segue.identifier isEqualToString:@"bookViewToNewListing"]){
+        CMBNewListingViewController *controller = (CMBNewListingViewController *)segue.destinationViewController;
+        controller.bookName = self.bookName;
+        controller.bookID = self.bookID;
+        controller.bookAuthor = self.bookAuthor;
+        controller.bookISBN = self.bookISBN;
+        controller.bookBinding = self.bookBinding;
+        controller.bookEdition = self.bookEdition;
     }
-    
+
 //    if([segue.identifier isEqualToString:@"listingsToListing"]){
 //        CMBListingViewController *controller = (CMBListingViewController *)segue.destinationViewController;
 //        controller.bookTitle.text = self.bookTitleToSend;
